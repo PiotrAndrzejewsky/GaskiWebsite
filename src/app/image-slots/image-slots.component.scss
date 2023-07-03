@@ -1,0 +1,46 @@
+.image-wrapper {
+
+}
+
+.img-box {
+    background-size: cover;
+    background-position: center;
+    border-radius: 50px;
+    height: 500px;
+    position: relative;
+    transition: width ease 0.5s;
+}
+.img-box i {
+    position: absolute;
+    left:50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+}
+.img-box:nth-child(1) {
+    background: url(https://picsum.photos/500);
+}
+.img-box:nth-child(2) {
+    background: url(https://picsum.photos/500);
+}
+.img-box:nth-child(3) {
+    background: url(https://picsum.photos/500);
+}
+.img-box:nth-child(4) {
+    background: url(https://picsum.photos/500);
+}
+.img-box:nth-child(5) {
+    background: url(https://picsum.photos/500);
+}
+.img-box:nth-child(6) {
+    background: url(https://picsum.photos/500);
+}
+
+.img-box:hover {
+
+}
