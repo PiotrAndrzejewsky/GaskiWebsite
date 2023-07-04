@@ -1,4 +1,14 @@
 <section class="row">
-    <app-image-slots></app-image-slots>
+    <div [ngSwitch]="descriptionToDisplay" class="col-4 h-16">
+        <div *ngSwitchCase="'first'">Lorem Ipsum first</div>
+        <div *ngSwitchCase="'second'">Lorem Ipsum second</div>
+        <div *ngSwitchCase="'third'">Lorem Ipsum third</div>
+        <div *ngSwitchCase="'fourth'">Lorem Ipsum four</div>
+        <div *ngSwitchCase="'fifth'">Lorem Ipsum five</div>
+    </div>
+    <app-image-slots (mouseEnter)="setDescriptionToDisplay($event)"></app-image-slots>
+
+
+<!--     i tutaj usatwia zmienna i switchace robimy-->
 </section>
 <div>faviliteiswork</div>
