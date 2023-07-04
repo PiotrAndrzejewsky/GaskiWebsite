@@ -18,15 +18,21 @@ export class ImageSlotsComponent implements OnInit {
         if(elementReference === this.previouslySelected)
             return;
 
-        this.mouseEnter.emit(elementName);
-        elementReference.classList.add('col-2');
-        elementReference.classList.remove('col-1');
+        setTimeout(() => {
+            if(!elementReference.matches(":hover"))
+            {
+                return;
+            }
+            this.mouseEnter.emit(elementName);
+            elementReference.classList.add('col-2');
+            elementReference.classList.remove('col-1');
 
-        if(this.previouslySelected) {
-            this.previouslySelected.classList.remove('col-2');
-            this.previouslySelected.classList.add('col-1');
-        }
-        this.previouslySelected = elementReference;
+            if(this.previouslySelected) {
+                this.previouslySelected.classList.remove('col-2');
+                this.previouslySelected.classList.add('col-1');
+            }
+            this.previouslySelected = elementReference;
+        }, 80);
     }
 
 }
