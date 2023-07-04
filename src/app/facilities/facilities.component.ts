@@ -11,7 +11,5 @@ export class FacilitiesComponent {
     setDescriptionToDisplay(descriptionName: string){
         this.descriptionToDisplay = descriptionName;
     }
-    ngAfterViewInit() {
-        this.setDescriptionToDisplay('first');
-    }
+
 }
