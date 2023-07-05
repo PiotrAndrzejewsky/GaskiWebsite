@@ -6,9 +6,16 @@
     background-size: cover;
     background-position: center;
     border-radius: 50px;
-    height: 500px;
     position: relative;
+    height: 17rem;
     transition: width ease 0.5s;
+    width: 15%;
+    padding: 0;
+
+    //dobra skoro nie osiagne tego columnami to znaczy ze robie to po width i tyle ;P
+}
+.img-box-selected {
+    width: 28%;
 }
 .img-box i {
     position: absolute;
@@ -16,11 +23,11 @@
     bottom: 10px;
     transform: translateX(-50%);
     background-color: white;
-    padding: 8px;
+    padding: 6%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 25px;
+    border-radius: 100%;
 }
 .img-box:nth-child(1) {
     background: url(https://picsum.photos/500);

@@ -24,12 +24,12 @@ export class ImageSlotsComponent implements OnInit {
                 return;
             }
             this.mouseEnter.emit(elementName);
-            elementReference.classList.add('col-2');
-            elementReference.classList.remove('col-1');
+            elementReference.classList.add('img-box-selected');
+            //elementReference.classList.remove('col-1');
 
             if(this.previouslySelected) {
-                this.previouslySelected.classList.remove('col-2');
-                this.previouslySelected.classList.add('col-1');
+                this.previouslySelected.classList.remove('img-box-selected');
+                //this.previouslySelected.classList.add('col-1');
             }
             this.previouslySelected = elementReference;
         }, 80);

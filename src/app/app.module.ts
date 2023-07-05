@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { ImageSlotsComponent } from './image-slots/image-slots.component';
+import { FacilityDescriptionComponent } from './facility-description/facility-description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FacilitiesComponent,
-    ImageSlotsComponent
+    ImageSlotsComponent,
+    FacilityDescriptionComponent
   ],
   imports: [
     BrowserModule,

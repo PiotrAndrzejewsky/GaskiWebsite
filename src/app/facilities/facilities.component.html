@@ -1,14 +1,15 @@
-<section class="row">
-    <div [ngSwitch]="descriptionToDisplay" class="col-4 h-16">
-        <div *ngSwitchCase="'first'">Lorem Ipsum first</div>
-        <div *ngSwitchCase="'second'">Lorem Ipsum second</div>
-        <div *ngSwitchCase="'third'">Lorem Ipsum third</div>
-        <div *ngSwitchCase="'fourth'">Lorem Ipsum four</div>
-        <div *ngSwitchCase="'fifth'">Lorem Ipsum five</div>
+<section class="d-none d-md-flex row h-50 justify-content-center py-5">
+<!--    TODO make additional big image for xxxl devices-->
+    <div class="col-4 d-none "></div>
+    <div [ngSwitch]="descriptionToDisplay" class="col-4 mx-5 mx-xl-2 col-xxl-3 description-area">
+        <div *ngSwitchCase="'first'"><app-facility-description [title]="'Plaża'" [description]="FacilitiesDescriptions.first" ></app-facility-description></div>
+        <div *ngSwitchCase="'second'"><app-facility-description [title]="'Baseny'" [description]="FacilitiesDescriptions.second"></app-facility-description></div>
+        <div *ngSwitchCase="'third'"><app-facility-description  [title]="'Hulajnogi'" [description]="FacilitiesDescriptions.third"></app-facility-description></div>
+        <div *ngSwitchCase="'fourth'"><app-facility-description  [title]="'aquapark'" [description]="FacilitiesDescriptions.fourth"></app-facility-description></div>
+        <div *ngSwitchCase="'fifth'"><app-facility-description  [title]="'Ładne Rośliny'" [description]="FacilitiesDescriptions.fifth"></app-facility-description></div>
     </div>
-    <app-image-slots (mouseEnter)="setDescriptionToDisplay($event)"></app-image-slots>
-
-
-<!--     i tutaj usatwia zmienna i switchace robimy-->
+    <app-image-slots class="col-4  mx-xxl-3 image-wrapper" (mouseEnter)="setDescriptionToDisplay($event)"></app-image-slots>
 </section>
-<div>faviliteiswork</div>
+
+<!-- teoretycznie moge wszytskie atrybty tutaj od md ustawic.
+moge dopiero albo dopierdo od md moge ustawic wyswietlanie-->
