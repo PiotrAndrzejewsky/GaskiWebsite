@@ -8,12 +8,10 @@
     border-radius: 50px;
     position: relative;
     height: 17rem;
-    transition: width ease 0.5s;
     width: 15%;
     padding: 0;
-
-    //dobra skoro nie osiagne tego columnami to znaczy ze robie to po width i tyle ;P
 }
+
 .img-box-selected {
     width: 28%;
 }

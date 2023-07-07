@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FacilitiesComponent } from './facilities/facilities.component';
 import { ImageSlotsComponent } from './image-slots/image-slots.component';
 import { FacilityDescriptionComponent } from './facility-description/facility-description.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FacilityDescriptionComponent } from './facility-description/facility-de
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [

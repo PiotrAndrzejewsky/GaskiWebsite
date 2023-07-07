@@ -1,37 +1,25 @@
 import {Component, OnInit} from '@angular/core';
 import { Output, EventEmitter } from '@angular/core';
+import {selectAnimation} from "../shared/animations";
 
 @Component({
     selector: 'app-image-slots',
     templateUrl: './image-slots.component.html',
-    styleUrls: ['./image-slots.component.scss']
+    styleUrls: ['./image-slots.component.scss'],
+    animations: [selectAnimation]
 })
-export class ImageSlotsComponent implements OnInit {
-    private previouslySelected?: HTMLDivElement | null;
+export class ImageSlotsComponent {
+    public elementNameToSelect: string = 'first';
     @Output() mouseEnter: EventEmitter<string> = new EventEmitter<string>();
-    ngOnInit(): void {
-        this.previouslySelected = document.querySelector('#first');
-    }
 
     selectClass(elementReference: HTMLDivElement, elementName: string): void {
 
-        if(elementReference === this.previouslySelected)
-            return;
-
         setTimeout(() => {
             if(!elementReference.matches(":hover"))
-            {
                 return;
-            }
-            this.mouseEnter.emit(elementName);
-            elementReference.classList.add('img-box-selected');
-            //elementReference.classList.remove('col-1');
 
-            if(this.previouslySelected) {
-                this.previouslySelected.classList.remove('img-box-selected');
-                //this.previouslySelected.classList.add('col-1');
-            }
-            this.previouslySelected = elementReference;
+            this.mouseEnter.emit(elementName);
+            this.elementNameToSelect = elementName;
         }, 80);
     }
 

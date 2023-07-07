@@ -1,8 +1,8 @@
 <section class="row justify-content-between image-wrapper">
-    <div class="img-box img-box-selected"  id="first" (mouseenter)="selectClass(a,'first')" #a><i class="bi bi-star" ></i></div>
-    <div class="img-box" (mouseenter)="selectClass(b,'second')" #b><i class="bi bi-star"></i></div>
-    <div class="img-box " (mouseenter)="selectClass(c,'third')" #c><i class="bi bi-star"></i></div>
-    <div class="img-box " (mouseenter)="selectClass(d,'fourth')" #d><i class="bi bi-star"></i></div>
-    <div class="img-box " (mouseenter)="selectClass(e, 'fifth')" #e><i class="bi bi-star"></i></div>
+    <div class="img-box img-box-selected" [@select]="'first' === elementNameToSelect ? 'selected' : 'default'" id="first" (mouseenter)="selectClass(a,'first')" #a><i class="bi bi-star" ></i></div>
+    <div class="img-box" [@select]="'second' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(b,'second')" #b><i class="bi bi-star"></i></div>
+    <div class="img-box " [@select]="'third' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(c,'third')" #c><i class="bi bi-star"></i></div>
+    <div class="img-box " [@select]="'fourth' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(d,'fourth')" #d><i class="bi bi-star"></i></div>
+    <div class="img-box " [@select]="'fifth' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(e, 'fifth')" #e><i class="bi bi-star"></i></div>
 </section>
 <!-- kolejne pdoejscie do problemu teraz bedziemy robic remove i add class na hover i click. mozna rto zrobic na (click) i (hover) albo evenlistenerami. no i przy okazji zmieny klasy emisja eventu -->
