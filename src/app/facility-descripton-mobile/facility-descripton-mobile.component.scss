@@ -1,8 +1,10 @@
-span  {
-    overflow: scroll;
+@media (max-width: 375px) {
+    span {
+        overflow: scroll;
+    }
 }
 .image-wrapper
 {
-    width: 350px;
+    width: 420px;
     padding: 0;
 }
