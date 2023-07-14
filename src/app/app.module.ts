@@ -9,6 +9,7 @@ import { FacilityDescriptionComponent } from './facility-description/facility-de
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptonMobileComponent } from './facility-descripton-mobile/facility-descripton-mobile.component';
 import {NgOptimizedImage} from "@angular/common";
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {NgOptimizedImage} from "@angular/common";
     FacilitiesComponent,
     ImageSlotsComponent,
     FacilityDescriptionComponent,
-    FacilityDescriptonMobileComponent
+    FacilityDescriptonMobileComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
