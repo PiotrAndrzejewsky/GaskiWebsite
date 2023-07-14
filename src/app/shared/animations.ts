@@ -11,7 +11,5 @@ export const selectAnimation =
     trigger('select', [
         state('default', style({ width: '15%' })),
         state('selected', style({ width: '28%' })),
-        transition('default <=> selected', animate('500ms ease')),
-
-        //TODO try ease-in and ease-out
+        transition('default <=> selected', animate('500ms ease'))
     ])

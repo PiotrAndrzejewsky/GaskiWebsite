@@ -1,6 +1,4 @@
 <section class="d-none d-md-flex row h-50 justify-content-center py-5">
-<!--    TODO make additional big image for xxxl devices-->
-    <div class="col-4 d-none "></div>
     <div [ngSwitch]="descriptionToDisplay" class="col-4 mx-5 mx-xl-2 col-xxl-3 description-area">
         <div *ngSwitchCase="'first'" @fadeSlideInOut ><app-facility-description [title]="'Plaża'" [description]="FacilitiesDescriptions.first" ></app-facility-description></div>
         <div *ngSwitchCase="'second'" @fadeSlideInOut><app-facility-description [title]="'Baseny'" [description]="FacilitiesDescriptions.second"></app-facility-description></div>
@@ -9,5 +7,13 @@
         <div *ngSwitchCase="'fifth'" @fadeSlideInOut><app-facility-description  [title]="'Ładne Rośliny'" [description]="FacilitiesDescriptions.fifth"></app-facility-description></div>
     </div>
     <app-image-slots class="col-4  mx-xxl-3 image-wrapper" (mouseEnter)="setDescriptionToDisplay($event)"></app-image-slots>
+</section>
+
+<section class="d-md-none row justify-content-center" >
+    <app-facility-descripton-mobile class="col-10 my-4" [title]="'Plaża'" [description]="FacilitiesDescriptions.first"></app-facility-descripton-mobile>
+    <app-facility-descripton-mobile class="col-10 my-4" [title]="'Baseny'" [description]="FacilitiesDescriptions.second"></app-facility-descripton-mobile>
+    <app-facility-descripton-mobile class="col-10 my-4" [title]="'Hulajnogi'" [description]="FacilitiesDescriptions.third"></app-facility-descripton-mobile>
+    <app-facility-descripton-mobile class="col-10 my-4" [title]="'aquapark'" [description]="FacilitiesDescriptions.fourth"></app-facility-descripton-mobile>
+    <app-facility-descripton-mobile class="col-10 my-4" [title]="'Ładne Rośliny'" [description]="FacilitiesDescriptions.fifth"></app-facility-descripton-mobile>
 </section>
 
