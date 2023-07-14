@@ -1,3 +1,8 @@
-<h3 class="text-center">{{title}}</h3><br>
-<p>{{description}}</p>
-<img ngSrc="https://picsum.photos/500" height="500" width="500" alt="{{title}}">
+<span class="row justify-content-center">
+    <h3 class="col-10 text-center">{{title}}</h3>
+    <p class="col-7 text-center">{{description}}</p>
+    <span class="image-wrapper"><img  ngSrc="https://picsum.photos/350" width="350" height="350"  alt="{{title}}"></span>
+</span>
+<!-- nie no to powiniem byc jeden row i dajemy colsy na 12 i w srodku robimy inline style i zoaczymy czy o zadziala -->
+<!-- no i jest to przewidzialem. wenwetrzne style flexboxa nie dzialaja w kolumnie teraz. weiec jest druga opcja zeby sprobowac w sccs a pozniej zroibe metode ze col na 12 i pozniej robie margin-->
+<!--dajesz width na px -->
