@@ -3,9 +3,10 @@
 }
 
 .img-box {
-    background-size: cover;
-    background-position: center;
-    border-radius: 50px;
+
+    //border-radius: 50px;
+    border-radius: 10%;
+    overflow: hidden;
     position: relative;
     height: 17rem;
     width: 15%;
