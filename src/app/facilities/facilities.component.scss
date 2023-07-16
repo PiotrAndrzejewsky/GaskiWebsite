@@ -14,3 +14,14 @@ app-image-slots {
 section {
     background-color: aliceblue;
 }
+.hidden {
+    visibility: hidden;
+    filter: blur(5px);
+    transform: translateY(5%);
+    transition: all 400ms ease-out;
+}
+.visible {
+    visibility: visible;
+    transform: translateY(0);
+    filter: blur(0);
+}
