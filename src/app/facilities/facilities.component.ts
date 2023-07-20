@@ -1,13 +1,13 @@
 import {AfterViewInit, Component} from '@angular/core';
 import {FacilitiesContents} from "./utilities/faciilities-descriptions";
-import {fadeInOut} from "../shared/animations";
+import {fadeInOut, fadeInStill} from "../shared/animations";
 import {FacilityType} from "./utilities/FacilityContent.model";
 
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
   styleUrls: ['./facilities.component.scss'],
-  animations: [fadeInOut]
+  animations: [fadeInOut, fadeInStill]
 })
 export class FacilitiesComponent implements AfterViewInit {
     protected readonly FacilitiesContents = FacilitiesContents;

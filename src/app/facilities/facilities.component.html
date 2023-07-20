@@ -1,6 +1,8 @@
 <section class="d-none d-md-flex row h-50 justify-content-center py-5">
-    <app-facility-description class="col-4 mx-5 mx-xl-2 col-xxl-3" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
-    <app-image-slots class="col-4 mx-xxl-3" (mouseEnterEvent)="setDescriptionToDisplay($event)"></app-image-slots>
+    <app-image-slots class="col-8 mx-xxl-8" (mouseEnterEvent)="setDescriptionToDisplay($event)"></app-image-slots>
+    <app-facility-description class="col-8 col-xxl-8 mt-5" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
+    <app-big-image class="col-10 mt-2" [@fadeInStill]="contentToDisplay"></app-big-image>
+
 </section>
 
 <section class="d-md-none row justify-content-center" >
