@@ -3,8 +3,6 @@ import {FacilitiesContents} from "./utilities/faciilities-descriptions";
 import {fadeInOut} from "../shared/animations";
 import {FacilityType} from "./utilities/FacilityContent.model";
 
-
-
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
