@@ -1,12 +1,12 @@
-<section class="d-none d-md-flex row h-50 justify-content-center py-5">
-    <app-image-slots class="col-8 mx-xxl-8" (mouseEnterEvent)="setDescriptionToDisplay($event)"></app-image-slots>
-    <app-facility-description class="col-8 col-xxl-8 mt-5" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
-    <app-big-image class="col-10 mt-2" [@fadeInStill]="contentToDisplay"></app-big-image>
+<section id="facilitiesSection" class="d-none d-md-flex flex-column align-items-center h-50  py-5">
+    <app-image-slots class="" (mouseEnterEvent)="setSelection($event)"></app-image-slots>
+    <app-facility-description class="my-4" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
+    <app-big-image class="" [@fadeInStill]="contentToDisplay"></app-big-image>
 
 </section>
 
 <section class="d-md-none row justify-content-center" >
     <ng-container *ngFor="let content of FacilitiesContents | keyvalue">
-        <app-facility-descripton-mobile class="col-12 my-4 hidden" [content]="content.value"></app-facility-descripton-mobile>
+        <app-facility-descripton-mobile class="" [content]="content.value"></app-facility-descripton-mobile>
     </ng-container>
 </section>

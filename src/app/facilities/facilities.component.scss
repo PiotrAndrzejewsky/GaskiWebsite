@@ -1,11 +1,22 @@
-app-facility-description {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 section {
-    background-color: aliceblue;
+    background-color: mediumaquamarine;
+
+    app-image-slots{
+        width: 60%;
+    }
+    app-facility-description {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:25%;
+        height: 10em;
+    }
+    app-big-image{
+        width:70%;
+    }
 }
+
+
 .hidden {
     visibility: hidden;
     filter: blur(5px);

@@ -1,4 +1,10 @@
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 img {
     object-fit: cover;
     object-position: center;
+    width: 100%
 }
