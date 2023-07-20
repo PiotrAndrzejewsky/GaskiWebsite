@@ -1,19 +1,10 @@
 <section class="d-none d-md-flex row h-50 justify-content-center py-5">
-    <div [ngSwitch]="descriptionToDisplay" class="col-4 mx-5 mx-xl-2 col-xxl-3 description-area">
-        <div *ngSwitchCase="'first'" @fadeSlideInOut ><app-facility-description [title]="'Plaża'" [description]="FacilitiesDescriptions.first" ></app-facility-description></div>
-        <div *ngSwitchCase="'second'" @fadeSlideInOut><app-facility-description [title]="'Baseny'" [description]="FacilitiesDescriptions.second"></app-facility-description></div>
-        <div *ngSwitchCase="'third'" @fadeSlideInOut><app-facility-description  [title]="'Hulajnogi'" [description]="FacilitiesDescriptions.third"></app-facility-description></div>
-        <div *ngSwitchCase="'fourth'" @fadeSlideInOut><app-facility-description  [title]="'aquapark'" [description]="FacilitiesDescriptions.fourth"></app-facility-description></div>
-        <div *ngSwitchCase="'fifth'" @fadeSlideInOut><app-facility-description  [title]="'Ładne Rośliny'" [description]="FacilitiesDescriptions.fifth"></app-facility-description></div>
-    </div>
-    <app-image-slots class="col-4  mx-xxl-3 image-wrapper" (mouseEnter)="setDescriptionToDisplay($event)"></app-image-slots>
+    <app-facility-description class="col-4 mx-5 mx-xl-2 col-xxl-3" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
+    <app-image-slots class="col-4 mx-xxl-3" (mouseEnterEvent)="setDescriptionToDisplay($event)"></app-image-slots>
 </section>
 
 <section class="d-md-none row justify-content-center" >
-    <app-facility-descripton-mobile class="col-12 my-4 hidden" [title]="'Plaża'" [description]="FacilitiesDescriptions.first"></app-facility-descripton-mobile>
-    <app-facility-descripton-mobile class="col-12 my-4 hidden" [title]="'Baseny'" [description]="FacilitiesDescriptions.second"></app-facility-descripton-mobile>
-    <app-facility-descripton-mobile class="col-12 my-4 hidden" [title]="'Hulajnogi'" [description]="FacilitiesDescriptions.third"></app-facility-descripton-mobile>
-    <app-facility-descripton-mobile class="col-12 my-4 hidden" [title]="'aquapark'" [description]="FacilitiesDescriptions.fourth"></app-facility-descripton-mobile>
-    <app-facility-descripton-mobile class="col-12 my-4 hidden" [title]="'Ładne Rośliny'" [description]="FacilitiesDescriptions.fifth"></app-facility-descripton-mobile>
+    <ng-container *ngFor="let content of FacilitiesContents | keyvalue">
+        <app-facility-descripton-mobile class="col-12 my-4 hidden" [content]="content.value"></app-facility-descripton-mobile>
+    </ng-container>
 </section>
-

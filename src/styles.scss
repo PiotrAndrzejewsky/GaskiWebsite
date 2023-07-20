@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@keyframes appear-from-bottom {
+    from {
+        visibility: hidden;
+        filter: blur(5px);
+        transform: translateY(5%);
+    }
+    to {
+        visibility: visible;
+        filter: blur(0px);
+        transform: translateY(0px);
+    }
+
+}

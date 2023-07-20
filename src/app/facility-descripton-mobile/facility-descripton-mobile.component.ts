@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {facilityContent} from "../facilities/utilities/FacilityContent.model";
 
 @Component({
   selector: 'app-facility-descripton-mobile',
@@ -6,6 +7,6 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./facility-descripton-mobile.component.scss']
 })
 export class FacilityDescriptonMobileComponent {
-    @Input() title?: string;
-    @Input() description?: string;
+    @Input() content?: facilityContent;
+
 }

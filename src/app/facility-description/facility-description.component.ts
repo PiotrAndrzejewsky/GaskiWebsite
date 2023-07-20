@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import {facilityContent} from "../facilities/utilities/FacilityContent.model";
 
 @Component({
   selector: 'app-facility-description',
@@ -6,8 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./facility-description.component.scss']
 })
 export class FacilityDescriptionComponent {
-    @Input() title?: string;
-    @Input() description?: string;
-
-
+    @Input() content?: facilityContent;
 }

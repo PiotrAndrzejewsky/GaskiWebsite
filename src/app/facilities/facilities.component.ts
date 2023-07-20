@@ -1,17 +1,20 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {FacilitiesDescriptions} from "./utilities/faciilities-descriptions";
-import {animate, animation, style, transition, trigger} from "@angular/animations";
-import {fadeSlideInOutAnimation} from "../shared/animations";
+import {AfterViewInit, Component} from '@angular/core';
+import {FacilitiesContents} from "./utilities/faciilities-descriptions";
+import {fadeInOut} from "../shared/animations";
+import {FacilityType} from "./utilities/FacilityContent.model";
+
+
 
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
   styleUrls: ['./facilities.component.scss'],
-  animations: [fadeSlideInOutAnimation]
+  animations: [fadeInOut]
 })
-export class FacilitiesComponent implements OnInit{
-    public descriptionToDisplay?: string;
-
+export class FacilitiesComponent implements AfterViewInit {
+    protected readonly FacilitiesContents = FacilitiesContents;
+    //TODO make proper type here
+    protected contentToDisplay: FacilityType = 'beach';
     private observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -20,17 +23,19 @@ export class FacilitiesComponent implements OnInit{
         });
     }, { threshold: 0.2 });
 
-    ngOnInit(){
-        this.descriptionToDisplay = 'first';
-
+    ngAfterViewInit() {
         document.querySelectorAll('app-facility-descripton-mobile').forEach((element) => {
             this.observer.observe(element);
         });
     }
 
-    setDescriptionToDisplay(descriptionName: string){
-        this.descriptionToDisplay = descriptionName;
-    }
+    setDescriptionToDisplay(idName: string){
+        if(this.contentToDisplay === idName as FacilityType)
+            return;
 
-    protected readonly FacilitiesDescriptions = FacilitiesDescriptions;
+        document.querySelector(".selected")?.classList.remove('selected');
+        document.querySelector("#"+idName)?.classList.add('selected');
+
+        this.contentToDisplay = idName as FacilityType;
+    }
 }

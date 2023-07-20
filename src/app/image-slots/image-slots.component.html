@@ -1,8 +1,7 @@
 <section class="row justify-content-between image-wrapper">
-    <div class="img-box img-box-selected" [@select]="'first' === elementNameToSelect ? 'selected' : 'default'" id="first" (mouseenter)="selectClass(a,'first')" #a><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star" ></i></div>
-    <div class="img-box" [@select]="'second' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(b,'second')" #b><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
-    <div class="img-box " [@select]="'third' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(c,'third')" #c><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
-    <div class="img-box " [@select]="'fourth' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(d,'fourth')" #d><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
-    <div class="img-box " [@select]="'fifth' === elementNameToSelect ? 'selected' : 'default'" (mouseenter)="selectClass(e, 'fifth')" #e><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
+    <div class="img-box selected" id="beach"(mouseenter)="selectClass('beach')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star" ></i></div>
+    <div class="img-box" id="pools" (mouseenter)="selectClass('pools')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
+    <div class="img-box" id="transport" (mouseenter)="selectClass('transport')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
+    <div class="img-box" id="aquapark" (mouseenter)="selectClass('aquapark')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
+    <div class="img-box" id="gardens" (mouseenter)="selectClass('gardens')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
 </section>
-<!-- kolejne pdoejscie do problemu teraz bedziemy robic remove i add class na hover i click. mozna rto zrobic na (click) i (hover) albo evenlistenerami. no i przy okazji zmieny klasy emisja eventu -->

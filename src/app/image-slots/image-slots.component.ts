@@ -1,26 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import { Output, EventEmitter } from '@angular/core';
-import {selectAnimation} from "../shared/animations";
+import {Component} from '@angular/core';
+import { Output, EventEmitter} from '@angular/core';
 
 @Component({
     selector: 'app-image-slots',
     templateUrl: './image-slots.component.html',
-    styleUrls: ['./image-slots.component.scss'],
-    animations: [selectAnimation]
+    styleUrls: ['./image-slots.component.scss']
 })
 export class ImageSlotsComponent {
-    public elementNameToSelect: string = 'first';
-    @Output() mouseEnter: EventEmitter<string> = new EventEmitter<string>();
+    @Output() mouseEnterEvent: EventEmitter<string> = new EventEmitter<string>();
 
-    selectClass(elementReference: HTMLDivElement, elementName: string): void {
+    selectClass(elementIdName: string): void {
 
         setTimeout(() => {
-            if(!elementReference.matches(":hover"))
+            if(!document.querySelector('#'+elementIdName)?.matches(":hover"))
                 return;
-
-            this.mouseEnter.emit(elementName);
-            this.elementNameToSelect = elementName;
+            else
+                this.mouseEnterEvent.emit(elementIdName);
         }, 80);
     }
-
 }

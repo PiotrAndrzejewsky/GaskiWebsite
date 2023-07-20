@@ -1,15 +1,9 @@
-import {animation, style, animate, trigger, transition, useAnimation, state} from '@angular/animations';
+import {style, animate, trigger, transition} from '@angular/animations';
 
-export const fadeSlideInOutAnimation =
-    trigger('fadeSlideInOut', [
-        transition(':enter', [
-            style({ opacity: 0, transform: 'translateY(10px)' }),
-            animate('500ms', style({ opacity: 1, transform: 'translateY(0)' })),
-        ]),
+export const fadeInOut =
+    trigger('fadeInOut', [
+        transition('* => *', [
+            style({ opacity: 0, transform: 'translateY(50px)', filter: 'blur(5px)' }),
+            animate('0.5s ease', style({ opacity: 1, transform: 'translateY(0px)', filter: 'blur(0px)' }))
+        ])
     ]);
-export const selectAnimation =
-    trigger('select', [
-        state('default', style({ width: '15%' })),
-        state('selected', style({ width: '28%' })),
-        transition('default <=> selected', animate('500ms ease'))
-    ])
