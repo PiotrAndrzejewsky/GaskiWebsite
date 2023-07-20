@@ -30,6 +30,7 @@ export class FacilitiesComponent implements AfterViewInit {
     }
 
     setSelection(idName: string){
+        document.querySelector("#hint-arrow")?.classList.add("hide");
         if(this.contentToDisplay === idName as FacilityType)
             return;
 
