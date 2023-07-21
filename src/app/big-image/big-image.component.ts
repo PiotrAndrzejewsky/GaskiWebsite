@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {facilityContent} from "../facilities/utilities/FacilityContent.model";
+import {Component, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-big-image',
@@ -7,5 +6,11 @@ import {facilityContent} from "../facilities/utilities/FacilityContent.model";
   styleUrls: ['./big-image.component.scss']
 })
 export class BigImageComponent {
-
+    @Output() changeContentEvent = new EventEmitter<string>();
+    previous() {
+        this.changeContentEvent.emit('previous');
+    }
+    next() {
+        this.changeContentEvent.emit('next');
+    }
 }

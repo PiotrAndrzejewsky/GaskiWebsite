@@ -27,6 +27,8 @@ export class FacilitiesComponent implements AfterViewInit {
         document.querySelectorAll('app-facility-descripton-mobile').forEach((element) => {
             this.observer.observe(element);
         });
+
+
     }
 
     setSelection(idName: string){
@@ -40,11 +42,37 @@ export class FacilitiesComponent implements AfterViewInit {
         this.scrollToSection('facilitiesSection');
 
         this.contentToDisplay = idName as FacilityType;
+
     }
     scrollToSection(sectionId: string) {
         const targetElement = this.elementRef.nativeElement.querySelector('#'+ sectionId);
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' });
         }
+    }
+    getAnotherContent(contentCurrentlyDisplayed: FacilityType = this.contentToDisplay, action: string): string {
+        //Wydaje mi się, że ten child component nie powinienm tez bidnowac tej zmiennej. wystarczy ze mam w smart component this.contentToDispaly
+
+        let array: string[] = Object.keys(this.FacilitiesContents);
+        let index: number = array.indexOf(contentCurrentlyDisplayed as string);
+        if(index === -1) console.error('somethnik went wrong');
+        if(action === 'previous') {
+            if(index === 0) {
+                return array[array.length-1] as FacilityType;
+            }
+            else
+                return array[index - 1] as FacilityType;
+        }
+        else {
+            if(index === array.length - 1) {
+                return array[0];
+            }
+            else
+                return array[index + 1];
+        }
+
+    }
+    getPreviousContent() {
+        console.log(Object.keys(this.FacilitiesContents));
     }
 }
