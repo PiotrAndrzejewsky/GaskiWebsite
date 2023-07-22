@@ -2,6 +2,8 @@ import {AfterViewInit, Component, ElementRef} from '@angular/core';
 import {FacilitiesContents} from "./utilities/faciilities-descriptions";
 import {fadeInOut, fadeInStill} from "../shared/animations";
 import {FacilityType} from "./utilities/FacilityContent.model";
+import {GestureCordinates} from "../shared/gestures.model";
+import {GesturesCalcService} from "../shared/gestures-calc.service";
 
 @Component({
   selector: 'app-facilities',
@@ -13,6 +15,7 @@ export class FacilitiesComponent implements AfterViewInit {
     protected readonly FacilitiesContents = FacilitiesContents;
     //TODO make proper type here
     protected contentToDisplay: FacilityType = 'beach';
+    public bigImageGesture: GestureCordinates = {initialX: 0, diffX: 0};
     //TODO put this property in another variable
     private observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -21,7 +24,7 @@ export class FacilitiesComponent implements AfterViewInit {
             }
         });
     }, { threshold: 0.2 });
-    constructor(private elementRef: ElementRef) {}
+    constructor(private elementRef: ElementRef, public gestures: GesturesCalcService) {}
 
     ngAfterViewInit() {
         document.querySelectorAll('app-facility-descripton-mobile').forEach((element) => {
@@ -42,19 +45,19 @@ export class FacilitiesComponent implements AfterViewInit {
         this.scrollToSection('facilitiesSection');
 
         this.contentToDisplay = idName as FacilityType;
-
     }
+
     scrollToSection(sectionId: string) {
         const targetElement = this.elementRef.nativeElement.querySelector('#'+ sectionId);
         if (targetElement) {
             targetElement.scrollIntoView({ behavior: 'smooth' });
         }
     }
-    getAnotherContent(contentCurrentlyDisplayed: FacilityType = this.contentToDisplay, action: string): string {
+    getAnotherContent(action: string): string {
         //Wydaje mi się, że ten child component nie powinienm tez bidnowac tej zmiennej. wystarczy ze mam w smart component this.contentToDispaly
 
         let array: string[] = Object.keys(this.FacilitiesContents);
-        let index: number = array.indexOf(contentCurrentlyDisplayed as string);
+        let index: number = array.indexOf(this.contentToDisplay as string);
         if(index === -1) console.error('somethnik went wrong');
         if(action === 'previous') {
             if(index === 0) {
@@ -72,7 +75,6 @@ export class FacilitiesComponent implements AfterViewInit {
         }
 
     }
-    getPreviousContent() {
-        console.log(Object.keys(this.FacilitiesContents));
-    }
+
+    protected readonly console = console;
 }

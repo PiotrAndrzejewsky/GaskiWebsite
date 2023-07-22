@@ -5,7 +5,8 @@
     </div>
     <app-image-slots class="" (mouseEnterEvent)="setSelection($event)"></app-image-slots>
     <app-facility-description class="my-4" [content]="FacilitiesContents[this.contentToDisplay]" [@fadeInOut]="contentToDisplay" ></app-facility-description>
-    <app-big-image class="" (changeContentEvent)="setSelection(getAnotherContent(undefined, $event))" [@fadeInStill]="contentToDisplay"></app-big-image>
+    <app-big-image class="" (changeContentEvent)="setSelection(getAnotherContent($event))" [@fadeInStill]="contentToDisplay" [style.transform]="'translateX(' + bigImageGesture?.diffX + 'px)'"
+                   (touchstart)="gestures.onTouchStart($event, bigImageGesture); console.log('it_workds')" (touchmove)="gestures.onTouchMove($event, bigImageGesture)" (touchend)="gestures.onTouchEnd(bigImageGesture, this.getAnotherContent.bind(this), this.setSelection.bind(this))"></app-big-image>
 
 </section>
 
