@@ -31,12 +31,15 @@ export class GesturesCalcService {
         }
 
         else {
-            if(gestureCordinates.diffX > 0)
-                setSelection(getAnotherContent( 'next')); //as Fac
-            else {
-                setSelection(getAnotherContent( 'previous'));
+            if(gestureCordinates.diffX > 0) {
+                //document.querySelector('app-big-image')?.classList.add('fade-out-rigth');
+                setTimeout( () => {setSelection(getAnotherContent( 'next')); gestureCordinates.diffX = 0;}, 0);
             }
-            gestureCordinates.diffX = 0;
+            else {
+               // document.querySelector('app-big-image')?.classList.add('fade-out-left');
+                setTimeout( () => {setSelection(getAnotherContent( 'previous')); gestureCordinates.diffX = 0;}, 0);
+            }
+
         }
 
     }
