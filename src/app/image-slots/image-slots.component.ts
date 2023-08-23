@@ -1,13 +1,15 @@
-import {Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Output, EventEmitter} from '@angular/core';
+import {ModifiedContent} from "../contents/pl/facilities-content";
 
 @Component({
     selector: 'app-image-slots',
     templateUrl: './image-slots.component.html',
     styleUrls: ['./image-slots.component.scss']
 })
-export class ImageSlotsComponent {
+export class ImageSlotsComponent implements OnInit{
     @Output() mouseEnterEvent: EventEmitter<string> = new EventEmitter<string>();
+    @Input() images?: any; //TODO make type here
 
     selectClass(elementIdName: string): void {
 
@@ -17,5 +19,8 @@ export class ImageSlotsComponent {
             else
                 this.mouseEnterEvent.emit(elementIdName);
         }, 80);
+    }
+    ngOnInit() {
+        console.log(this.images)
     }
 }

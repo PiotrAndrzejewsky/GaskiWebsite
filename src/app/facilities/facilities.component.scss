@@ -41,4 +41,19 @@ section {
     font-size: 1.5em;
     transition: 1s ease;
 }
+.fade-out-left {
+    animation-name: fadeOutLeft;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
 
+@keyframes fadeOutLeft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}

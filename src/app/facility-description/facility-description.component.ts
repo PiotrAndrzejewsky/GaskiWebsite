@@ -7,5 +7,6 @@ import {facilityContent} from "../facilities/utilities/FacilityContent.model";
   styleUrls: ['./facility-description.component.scss']
 })
 export class FacilityDescriptionComponent {
-    @Input() content?: facilityContent;
+    // @Input() content?: facilityContent;
+    @Input() description?: any; //TODO make this propeero type key: title: string, desc: string
 }
