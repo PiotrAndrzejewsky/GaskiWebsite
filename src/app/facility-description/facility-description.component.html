@@ -1,5 +1,8 @@
-<span id="desc">
-    <h3>{{description.title}}</h3><br>
-    <p> {{description.description}}</p>
-</span>
+<div class="flex h-100 justify-content-center align-items-center">
+    <span class="w-75" [@slideFromLeft]="description">
+        <h3>{{description.title}}</h3><br>
+        <p> {{description.description}}</p>
+    </span>
+</div>
+
 

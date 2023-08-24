@@ -8,10 +8,6 @@
     transition: 500ms ease;
 }
 
-.selected {
-    width: 28%;
-    transition: 500ms ease;
-}
 .img-box i {
     position: absolute;
     left:50%;
@@ -24,7 +20,14 @@
     align-items: center;
     border-radius: 100%;
 }
-
-.img-wrapper {
-
+.image-wrapper {
+    flex: 1;
+    aspect-ratio: 1 / 1 ;
+    border-radius: 1000%;
+    overflow: hidden;
+}
+section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }

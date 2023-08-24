@@ -1,9 +1,15 @@
-<section class="row justify-content-between image-wrapper">
-    <div *ngFor="let image of images">zdj<img ngSrc="{{image.link}}" fill class="object-fit-cover"><i class="bi bi-star"></i></div>
+<section class="flex flex-row">
+    <div *ngFor="let image of images | keyvalue" class="image-wrapper position-relative ">
+        <img ngSrc="{{image | getImageLink}}" fill class="" alt="{{image | getTitle}}">
+    </div>
+</section>
+
+<!--tutaj zuplnie inaczej trzeba, tutaj trzeba to zrobic ngifem -->
 <!--    <div class="img-box selected" id="beach"(mouseenter)="selectClass('beach')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star" ></i></div>-->
 <!--    <div class="img-box" id="pools" (mouseenter)="selectClass('pools')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>-->
 <!--    <div class="img-box" id="transport" (mouseenter)="selectClass('transport')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>-->
 <!--    <div class="img-box" id="aquapark" (mouseenter)="selectClass('aquapark')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>-->
 <!--    <div class="img-box" id="gardens" (mouseenter)="selectClass('gardens')"><img ngSrc="https://picsum.photos/500" fill class="object-fit-cover"><i class="bi bi-star"></i></div>-->
-</section>
-<!--tutaj zuplnie inaczej trzeba, tutaj trzeba to zrobic ngifem -->
+
+
+<!--<i class="bi bi-star"></i>-->

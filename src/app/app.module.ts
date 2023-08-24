@@ -11,6 +11,7 @@ import { FacilityDescriptonMobileComponent } from './facility-descripton-mobile/
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './big-image/big-image.component';
+import {GetImageLink, GetIsSelectedValue, GetTitlePipe} from "./image-slots/pipes";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { BigImageComponent } from './big-image/big-image.component';
     FacilityDescriptionComponent,
     FacilityDescriptonMobileComponent,
     FooterComponent,
-    BigImageComponent
+    BigImageComponent,
+      GetTitlePipe,
+      GetImageLink,
+      GetIsSelectedValue
   ],
     imports: [
         BrowserModule,

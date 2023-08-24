@@ -1,17 +1,26 @@
-<section id="facilitiesSection" class="d-none d-md-flex flex-column align-items-center h-50 py-5">
-    <div id="hint-arrow">
-        <svg fill="#000000" height="203px" width="203px" viewBox="-78.73 -78.73 460.28 460.28"  transform="matrix(-1, 0, 0, 1, 0, 0) rotate(0)" stroke="#000000" stroke-width="0.00302816"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.605632"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_6_" d="M298.423,152.996c-5.857-5.858-15.354-5.858-21.213,0l-35.137,35.136 c-5.871-59.78-50.15-111.403-112.001-123.706c-45.526-9.055-92.479,5.005-125.596,37.612c-5.903,5.813-5.977,15.31-0.165,21.213 c5.813,5.903,15.31,5.977,21.212,0.164c26.029-25.628,62.923-36.679,98.695-29.565c48.865,9.72,83.772,50.677,88.07,97.978 l-38.835-38.835c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l62.485,62.485 c2.929,2.929,6.768,4.393,10.606,4.393s7.678-1.464,10.607-4.393l62.483-62.482C304.281,168.352,304.281,158.854,298.423,152.996z"></path> </g></svg>
-        <span>zmień mnie!</span>
-    </div>
-    <app-image-slots class="" (mouseEnterEvent)="setSelection($event)" *ngIf="images$ | async as images" [images]="images"></app-image-slots>
-    <app-facility-description class="my-4" *ngIf="description$ | async as description" [description]="description"></app-facility-description>
-    <app-big-image class="" (changeContentEvent)="setSelection(getAnotherContent($event))" [@fadeInStill]="contentToDisplay" [style.transform]="'translateX(' + bigImageGesture?.diffX + 'px)'"
-                   (touchstart)="gestures.onTouchStart($event, bigImageGesture); console.log('it_workds')" (touchmove)="gestures.onTouchMove($event, bigImageGesture)" (touchend)="gestures.onTouchEnd(bigImageGesture, this.getAnotherContent.bind(this), this.setSelection.bind(this))"></app-big-image>
-<!-- dobra i tutaj teraz che robiv async-->
+<section class="vh-100">
+    <h2 class="row justify-content-center text-center">Co ciekawego u nas ?</h2>
+    <span class="position-relative row justify-content-center">
+        <app-facility-description class="col-4" *ngIf="description$ | async as description" [description]="description"></app-facility-description>
+        <app-big-image class="col-4 flex"
+                   (changeContentEvent)="setSelection(getAnotherContent($event))"
+                   [@fadeInStill]="contentToDisplay" [style.transform]="'translateX(' + bigImageGesture?.diffX + 'px)'"
+                   (touchstart)="gestures.onTouchStart($event, bigImageGesture)"
+                   (touchmove)="gestures.onTouchMove($event, bigImageGesture)"
+                   (touchend)="gestures.onTouchEnd(bigImageGesture, this.getAnotherContent.bind(this), this.setSelection.bind(this))">
+        </app-big-image>
+        <app-image-slots class="position-absolute" (mouseEnterEvent)="setSelection($event)" *ngIf="images$ | async  as images" [images]="images"></app-image-slots>
+    </span>
 </section>
 
-<section class="d-md-none row justify-content-center" >
-    <ng-container *ngFor="let content of FacilitiesContents | keyvalue">
-        <app-facility-descripton-mobile class="" [content]="content.value"></app-facility-descripton-mobile>
-    </ng-container>
-</section>
+<!--<section class="d-md-none row justify-content-center" >-->
+<!--    <ng-container *ngFor="let content of FacilitiesContents | keyvalue">-->
+<!--        <app-facility-descripton-mobile class="" [content]="content.value"></app-facility-descripton-mobile>-->
+<!--    </ng-container>-->
+<!--</section>-->
+
+
+<!--    <div id="hint-arrow">-->
+<!--        <svg fill="#000000" height="203px" width="203px" viewBox="-78.73 -78.73 460.28 460.28"  transform="matrix(-1, 0, 0, 1, 0, 0) rotate(0)" stroke="#000000" stroke-width="0.00302816"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.605632"></g><g id="SVGRepo_iconCarrier"> <path id="XMLID_6_" d="M298.423,152.996c-5.857-5.858-15.354-5.858-21.213,0l-35.137,35.136 c-5.871-59.78-50.15-111.403-112.001-123.706c-45.526-9.055-92.479,5.005-125.596,37.612c-5.903,5.813-5.977,15.31-0.165,21.213 c5.813,5.903,15.31,5.977,21.212,0.164c26.029-25.628,62.923-36.679,98.695-29.565c48.865,9.72,83.772,50.677,88.07,97.978 l-38.835-38.835c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l62.485,62.485 c2.929,2.929,6.768,4.393,10.606,4.393s7.678-1.464,10.607-4.393l62.483-62.482C304.281,168.352,304.281,158.854,298.423,152.996z"></path> </g></svg>-->
+<!--        <span>zmień mnie!</span>-->
+<!--    </div>-->

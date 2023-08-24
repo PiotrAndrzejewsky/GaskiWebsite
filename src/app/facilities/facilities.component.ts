@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ElementRef} from '@angular/core';
 import {FacilitiesContents} from "./utilities/faciilities-descriptions";
-import {fadeInOut, fadeInStill} from "../shared/animations";
+import {fadeInStill} from "../shared/animations";
 import {FacilityType} from "./utilities/FacilityContent.model";
 import {GestureCordinates} from "../shared/gestures.model";
 import {GesturesCalcService} from "../shared/gestures-calc.service";
@@ -12,7 +12,7 @@ import {filter, map, tap} from "rxjs";
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
   styleUrls: ['./facilities.component.scss'],
-  animations: [fadeInOut, fadeInStill]
+  animations: [fadeInStill]
 })
 
 export class FacilitiesComponent implements AfterViewInit {

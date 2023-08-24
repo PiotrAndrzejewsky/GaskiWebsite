@@ -1,32 +1,3 @@
-.image-wrapper {
+span {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    position: relative;
 }
-
-img {
-    object-fit: cover;
-    object-position: center;
-    width: 100%;
-
-}
-.action-button {
-    position: absolute;
-    top: 50%;
-    fill: #f9f9f9;
-    pointer-events: all;
-    cursor: pointer;
-
-}
-#previous {
-    transform: rotate(180deg);
-    left: 5%;
-}
-#next {
-    right:5%;
-}
-svg {
-
-}
-

@@ -7,7 +7,7 @@ import {ModifiedContent} from "../contents/pl/facilities-content";
     templateUrl: './image-slots.component.html',
     styleUrls: ['./image-slots.component.scss']
 })
-export class ImageSlotsComponent implements OnInit{
+export class ImageSlotsComponent{
     @Output() mouseEnterEvent: EventEmitter<string> = new EventEmitter<string>();
     @Input() images?: any; //TODO make type here
 
@@ -20,7 +20,5 @@ export class ImageSlotsComponent implements OnInit{
                 this.mouseEnterEvent.emit(elementIdName);
         }, 80);
     }
-    ngOnInit() {
-        console.log(this.images)
-    }
+
 }

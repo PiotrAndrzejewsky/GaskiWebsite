@@ -1,59 +1,9 @@
-section {
-    background-color: mediumaquamarine;
-    position: relative;
-
-    app-image-slots{
-        width: 60%;
-    }
-    app-facility-description {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width:25%;
-        height: 10em;
-    }
-    app-big-image{
-        width:70%;
-    }
+h2 {
+    margin-bottom: 10vh;
 }
-
-
-.hidden {
-    visibility: hidden;
-    filter: blur(5px);
-    transform: translateY(5%);
-    transition: all 400ms ease-out;
-}
-.hide {
-    opacity: 0;
-    transition: 1s ease;
-}
-.visible {
-    visibility: visible;
-    transform: translateY(0);
-    filter: blur(0);
-}
-#hint-arrow {
-    position: absolute;
-    top:0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5em;
-    transition: 1s ease;
-}
-.fade-out-left {
-    animation-name: fadeOutLeft;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeOutLeft {
-    0% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
+app-image-slots {
+    right: 20.5%;
+    bottom: 0;
+    width: 400px;
+    padding: 0;
 }
