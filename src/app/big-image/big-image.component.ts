@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, Input} from '@angular/core';
 
 @Component({
   selector: 'app-big-image',
@@ -7,6 +7,7 @@ import {Component, Output, EventEmitter} from '@angular/core';
 })
 export class BigImageComponent {
     @Output() changeContentEvent = new EventEmitter<string>();
+    @Input() images$: any; //TODO make type here
     previous() {
         this.changeContentEvent.emit('previous');
     }

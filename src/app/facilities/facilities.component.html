@@ -2,14 +2,14 @@
     <h2 class="row justify-content-center text-center">Co ciekawego u nas ?</h2>
     <span class="position-relative row justify-content-center">
         <app-facility-description class="col-4" *ngIf="description$ | async as description" [description]="description"></app-facility-description>
-        <app-big-image class="col-4 flex"
+        <app-big-image class="col-4 flex" [images$]="images$"
                    (changeContentEvent)="setSelection(getAnotherContent($event))"
                    [@fadeInStill]="contentToDisplay" [style.transform]="'translateX(' + bigImageGesture?.diffX + 'px)'"
                    (touchstart)="gestures.onTouchStart($event, bigImageGesture)"
                    (touchmove)="gestures.onTouchMove($event, bigImageGesture)"
                    (touchend)="gestures.onTouchEnd(bigImageGesture, this.getAnotherContent.bind(this), this.setSelection.bind(this))">
         </app-big-image>
-        <app-image-slots class="position-absolute" (mouseEnterEvent)="setSelection($event)" *ngIf="images$ | async  as images" [images]="images"></app-image-slots>
+
     </span>
 </section>
 

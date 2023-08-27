@@ -1,4 +1,4 @@
-import {style, animate, trigger, transition} from '@angular/animations';
+import {style, animate, trigger, transition, state} from '@angular/animations';
 
 export const slideFromLeft =
     trigger('slideFromLeft', [
@@ -12,5 +12,13 @@ export const fadeInStill =
         transition('* => *', [
             style({ opacity: 0.9, filter: 'blur(3px)' }),
             animate('0.25s ease', style({ opacity: 1, filter: 'blur(0px)' }))
+        ])
+    ]);
+export const isSelected =
+    trigger('isSelected', [
+        state('false', style({filter: 'brightness(100%)'})),
+        state('true', style({filter: 'brightness(130%)'})),
+        transition('false <=> true', [
+            animate('500ms ease')
         ])
     ]);
