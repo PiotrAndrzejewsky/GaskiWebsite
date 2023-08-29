@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {Content, contents, VisitedElements} from "../../contents/pl/facilities-content";
+import {ContentKey, contents, VisitedElements} from "../../contents/pl/facilities-content";
 
 @Injectable({
   providedIn: 'root'
@@ -23,11 +23,11 @@ export class VisitedService {
         let value = this.subject.value;
         let key = element.target.id;
 
-        value[key as Content].isVisible = true;
+        value[key as ContentKey].isVisible = true;
         //console.log(value[key as Content].isVisible)
         //console.log(`element: ${element} typ: ${typeof(element)} keysy: ${Object.keys(element)} jakies random typu: ${element.target}`)
         this.subject.next(value);
-        console.log(key + ' jest ' + value[key as Content].isVisible)
+        console.log(key + ' jest ' + value[key as ContentKey].isVisible)
     }
     bum(element: any) {
         console.log('bum!!!')

@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {facilityContent} from "../facilities/utilities/FacilityContent.model";
 import {slideFromLeft} from "../shared/animations";
 
 @Component({
@@ -11,5 +10,6 @@ import {slideFromLeft} from "../shared/animations";
 })
 export class FacilityDescriptionComponent {
 
-    @Input() description?: any; //TODO make this propeero type key: title: string, desc: string
+    @Input() description?: {title: string, description: string};
+
 }

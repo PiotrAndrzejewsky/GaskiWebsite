@@ -1,4 +1,6 @@
 import {Component, Output, EventEmitter, Input} from '@angular/core';
+import {Observable} from "rxjs";
+import {ImagesContent} from "../contents/pl/facilities-content";
 
 @Component({
   selector: 'app-big-image',

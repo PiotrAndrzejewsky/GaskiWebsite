@@ -1,8 +1,6 @@
-
 <ng-container *ngIf="images$ | async  as images">
     <span class="w-100 position-relative  justify-content-center">
         <img ngSrc="{{images | getSelectedImageLink}}" width="400" height="400" class="rounded">
         <app-image-slots class="position-absolute" (mouseEnterEvent)="null"  [images]="images"></app-image-slots>
-        link:
     </span>
 </ng-container>

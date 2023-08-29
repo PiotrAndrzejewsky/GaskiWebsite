@@ -5,15 +5,23 @@ export const contents  = {
     aquapark: {title: 'Kompleks basenowy', description: 'Do basenów gąskowych przyjeżdzał Marek Aureliusz. Poczuj się jak to jest kąpać się tam gdzie imperator', src: "https://picsum.photos/500"},
     gardens: {title: 'Ogrody', description: 'Widziałeś 1000 gatunków roślin ? nie ? to zobacz gąskowe ogrody!', src: "https://picsum.photos/500"}
 }
-export type Content = keyof typeof contents;
-export interface ModifiedContent {
+
+export type ContentKey = keyof typeof contents;
+
+export interface ImagesContent {
     title: string;
     link: string;
     isSelected: boolean;
 }
-// export  interface isVisited {
-//     isVisited: boolean
-// }
+
 export interface VisitedElements {
     [key: string]: [isVisited: boolean]
+}
+
+export interface ContentValues {
+[key: string] : {title:string, description: string, src: string}
+}
+
+export interface ContentValuesObject {
+    //TODO make this type. idk how
 }

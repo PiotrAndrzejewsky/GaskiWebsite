@@ -1,49 +1,43 @@
-import {AfterViewInit, ChangeDetectionStrategy, Component, ElementRef} from '@angular/core';
-import {FacilitiesContents} from "./utilities/faciilities-descriptions";
+import {ChangeDetectionStrategy, Component, ElementRef} from '@angular/core';
 import {fadeInStill} from "../shared/animations";
-import {FacilityType} from "./utilities/FacilityContent.model";
-import {GestureCordinates} from "../shared/gestures.model";
-import {GesturesCalcService} from "../shared/gestures-calc.service";
-import {Content, contents, ModifiedContent} from "../contents/pl/facilities-content";
+import {ContentKey, contents, ImagesContent} from "../contents/pl/facilities-content";
 import {ContentSelectedService} from "../core/services/content-selected.service";
-import {filter, map, Observable, tap} from "rxjs";
-import {VisitedService} from "../core/services/visited.service";
+import { map, Observable} from "rxjs";
 
 @Component({
   selector: 'app-facilities',
   templateUrl: './facilities.component.html',
   styleUrls: ['./facilities.component.scss'],
   animations: [fadeInStill],
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class FacilitiesComponent {
 
-    protected readonly FacilitiesContents = FacilitiesContents;
-    //TODO make proper type here
-
     readonly contents = contents;
 
-    public description$ = this.state.getState().pipe(
+
+    public description$: Observable<{title: string, description: string}> = this.state.getState().pipe(
         map((state) => {
             return {title: contents[state].title, description: contents[state].description}
         }),
     );
 
-    public images$ = this.state.getState().pipe(
+
+    public images$: Observable<Record<string, ImagesContent>> = this.state.getState().pipe(
         map((state) => {
-            return Object.keys(contents).reduce<Record<string, ModifiedContent>>((modifiedContents, key) => { // pojebane ale działa
-                modifiedContents[key] = {
+            return Object.keys(contents).reduce<Record<string, ImagesContent>>((newContent, key) => { // pojebane ale działa
+                newContent[key] = {
                     title: key,
-                    link: contents[key as Content].src,
+                    link: contents[key as ContentKey].src,
                     isSelected: state == key
                 };
-                return modifiedContents;
+                return newContent;
             }, {});
         }),
     );
 
-    // to zrobic w swoim komponencie
+    //TODO try this code in every single ngFor rendered mobile component, with ngOnDestroy hook.
 
     // private facilitiesMobileObserver = new IntersectionObserver((entrie) => {
     //    entrie.forEach((entry) => {

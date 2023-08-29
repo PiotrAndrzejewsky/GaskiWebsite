@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
 import { Output, EventEmitter} from '@angular/core';
-import {Content, ModifiedContent} from "../contents/pl/facilities-content";
+import {ContentKey, ImagesContent} from "../contents/pl/facilities-content";
 import {ContentSelectedService} from "../core/services/content-selected.service";
 import {isSelected} from "../shared/animations";
 
@@ -14,15 +14,15 @@ import {isSelected} from "../shared/animations";
 })
 export class ImageSlotsComponent{
     @Output() mouseEnterEvent: EventEmitter<string> = new EventEmitter<string>();
-    @Input() images?: any; //TODO make type here
+    @Input() images?: any; //TODO make proper type here
     private stateService = inject(ContentSelectedService);
 
-    emitNewSelection(newSelection: any, elementReference: any): void {
+    emitNewSelection(newSelection: any, elementReference: HTMLImageElement): void {
 
         setTimeout(() => {
             if(!elementReference?.matches(":hover"))
                 return;
-            this.stateService.setState(newSelection as Content);
+            this.stateService.setState(newSelection as ContentKey);
         }, 80);
     }
 
