@@ -1,4 +1,4 @@
-import {Component, inject, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
 import { Output, EventEmitter} from '@angular/core';
 import {Content, ModifiedContent} from "../contents/pl/facilities-content";
 import {ContentSelectedService} from "../core/services/content-selected.service";
@@ -8,7 +8,8 @@ import {isSelected} from "../shared/animations";
     selector: 'app-image-slots',
     templateUrl: './image-slots.component.html',
     styleUrls: ['./image-slots.component.scss'],
-    animations: [isSelected]
+    animations: [isSelected],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 export class ImageSlotsComponent{
@@ -21,7 +22,6 @@ export class ImageSlotsComponent{
         setTimeout(() => {
             if(!elementReference?.matches(":hover"))
                 return;
-            // tutaj emit juz w serwisie
             this.stateService.setState(newSelection as Content);
         }, 80);
     }

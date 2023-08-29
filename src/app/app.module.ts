@@ -11,7 +11,15 @@ import { FacilityDescriptonMobileComponent } from './facility-descripton-mobile/
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './big-image/big-image.component';
-import {GetImageLink, GetIsSelectedValue, GetTitlePipe} from "./image-slots/pipes";
+import {
+    getDescription,
+    GetImageLink, GetImageSrc,
+    GetIsSelectedValue,
+    GetIsVisibleValue,
+    GetKeyValue,
+    GetTitlePipe
+} from "./image-slots/pipes";
+import { GetSelectedImageLinkPipe } from './big-image/utilities/get-selected-image-link.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +32,12 @@ import {GetImageLink, GetIsSelectedValue, GetTitlePipe} from "./image-slots/pipe
     BigImageComponent,
       GetTitlePipe,
       GetImageLink,
-      GetIsSelectedValue
+      GetIsSelectedValue,
+      GetIsVisibleValue,
+      GetKeyValue,
+      getDescription,
+      GetImageSrc,
+      GetSelectedImageLinkPipe
   ],
     imports: [
         BrowserModule,

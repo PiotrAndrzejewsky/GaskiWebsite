@@ -11,3 +11,9 @@ export interface ModifiedContent {
     link: string;
     isSelected: boolean;
 }
+// export  interface isVisited {
+//     isVisited: boolean
+// }
+export interface VisitedElements {
+    [key: string]: [isVisited: boolean]
+}

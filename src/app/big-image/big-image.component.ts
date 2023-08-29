@@ -8,10 +8,6 @@ import {Component, Output, EventEmitter, Input} from '@angular/core';
 export class BigImageComponent {
     @Output() changeContentEvent = new EventEmitter<string>();
     @Input() images$: any; //TODO make type here
-    previous() {
-        this.changeContentEvent.emit('previous');
-    }
-    next() {
-        this.changeContentEvent.emit('next');
-    }
+
+
 }
