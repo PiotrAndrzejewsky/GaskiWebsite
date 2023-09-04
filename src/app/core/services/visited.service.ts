@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
-import {ContentKey, contents, VisitedElements} from "../../contents/pl/facilities-content";
+import {ContentKey, contents} from "../../contents/pl/facilities-content";
 
 @Injectable({
   providedIn: 'root'

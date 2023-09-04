@@ -1,4 +1,4 @@
-export const contents  = {
+export const contents: Record<ContentKey, FacilitieContent>  = {
     beach: {title: 'Plaża', description: 'Plaża w Gąskach to najelpsza plaża pod słońcem, mamy niedzeje że przypadnie Państwu do gustu', src: "https://picsum.photos/500"},
     pools: {title: 'Baseny', description: 'Wierzymy, że gąskowe baseny będą dla Państwa odetchnieniem od wszelkich obowiązków. Życzymy miłego pluskania', src: "https://picsum.photos/500"},
     transport: {title: 'Hulajnogi', description: 'We wszystkie miejsca dojedzecie Państwo hulajnogami, udostępnionymi za darmo w naszej bazie', src: "https://picsum.photos/500"},
@@ -6,22 +6,30 @@ export const contents  = {
     gardens: {title: 'Ogrody', description: 'Widziałeś 1000 gatunków roślin ? nie ? to zobacz gąskowe ogrody!', src: "https://picsum.photos/500"}
 }
 
-export type ContentKey = keyof typeof contents;
-
-export interface ImagesContent {
-    title: string;
-    link: string;
-    isSelected: boolean;
+export interface Contents {
+    beach: FacilitieContent,
+    pools: FacilitieContent,
+    transport: FacilitieContent,
+    aquapark: FacilitieContent,
+    gardens: FacilitieContent
+}
+export interface EnhancedContents {
+    beach: FacilitieContentEnhanced,
+    pools: FacilitieContentEnhanced,
+    transport: FacilitieContentEnhanced,
+    aquapark: FacilitieContentEnhanced,
+    gardens: FacilitieContentEnhanced
 }
 
-export interface VisitedElements {
-    [key: string]: [isVisited: boolean]
+export type ContentKey = 'beach' | 'pools' | 'transport' | 'aquapark' | 'gardens';
+
+export interface FacilitieContent {
+    title: string,
+    description: string,
+    src: string,
 }
 
-export interface ContentValues {
-[key: string] : {title:string, description: string, src: string}
-}
-
-export interface ContentValuesObject {
-    //TODO make this type. idk how
+export interface FacilitieContentEnhanced extends FacilitieContent {
+    isVisible: boolean,
+    isSelected: boolean
 }

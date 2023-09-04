@@ -1,6 +1,6 @@
-import {ChangeDetectionStrategy, Component, ElementRef} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
 import {fadeInStill} from "../shared/animations";
-import {ContentKey, contents, ImagesContent} from "../contents/pl/facilities-content";
+import {ContentKey, Contents, contents, EnhancedContents, FacilitieContent} from "../contents/pl/facilities-content";
 import {ContentSelectedService} from "../core/services/content-selected.service";
 import { map, Observable} from "rxjs";
 
@@ -12,30 +12,37 @@ import { map, Observable} from "rxjs";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class FacilitiesComponent {
+export class FacilitiesComponent implements OnInit {
 
-    readonly contents = contents;
-
-
-    public description$: Observable<{title: string, description: string}> = this.state.getState().pipe(
-        map((state) => {
-            return {title: contents[state].title, description: contents[state].description}
-        }),
-    );
+    readonly contents: Contents = contents;
 
 
-    public images$: Observable<Record<string, ImagesContent>> = this.state.getState().pipe(
-        map((state) => {
-            return Object.keys(contents).reduce<Record<string, ImagesContent>>((newContent, key) => { // pojebane ale działa
-                newContent[key] = {
-                    title: key,
-                    link: contents[key as ContentKey].src,
-                    isSelected: state == key
-                };
-                return newContent;
-            }, {});
-        }),
-    );
+    public contentsEnhanced: EnhancedContents = Object.keys(contents).reduce((acc, cur) => {
+        return {
+            ...acc,
+            [cur]: {
+                src: contents[cur as ContentKey].src,
+                title: contents[cur as ContentKey].title,
+                description: contents[cur as ContentKey].description,
+                isVisible: false,
+                isSelected: false
+            }}
+    }, {} as EnhancedContents)
+
+    ngOnInit() {
+        this.setIsSelected(Object.keys(this.contentsEnhanced)[0]);
+    }
+
+    setIsSelected(key: string) {
+        Object.keys(this.contentsEnhanced).forEach((keyInstance) => {
+            this.contentsEnhanced[keyInstance as ContentKey].isSelected = keyInstance === key;
+        })
+        console.log('w  funkcji setujacaej:' + this.contentsEnhanced)
+    }
+    setIsVisible(key: ContentKey) {
+        this.contentsEnhanced[key].isVisible = true;
+    }
+
 
     //TODO try this code in every single ngFor rendered mobile component, with ngOnDestroy hook.
 

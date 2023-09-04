@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {ContentValues} from "../contents/pl/facilities-content";
-import {KeyValue} from "@angular/common";
+import {ContentKey, FacilitieContent} from "../contents/pl/facilities-content";
 
 @Component({
   selector: 'app-facility-descripton-mobile',
@@ -9,7 +8,8 @@ import {KeyValue} from "@angular/common";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FacilityDescriptionMobileComponent {
-
-    @Input() content?: any; //TODO think how to make this type?
-
+    @Input() isVisible?: boolean;
+    @Input() title?: string;
+    @Input() description?: string;
+    @Input() link?: string;
 }

@@ -20,6 +20,13 @@ import {
     GetTitlePipe
 } from "./image-slots/pipes";
 import { GetSelectedImageLinkPipe } from './big-image/utilities/get-selected-image-link.pipe';
+import { GetLinkForSelectedImagePipe } from './facilities/utilities/get-link-for-selected-image.pipe';
+import { GetSelectedContentPipe } from './facilities/utilities/get-selected-content.pipe';
+import { GetKeysPipe } from './facilities/utilities/get-keys.pipe';
+import { TransformToContentKeyPipe } from './facilities/utilities/transform-to-content-key.pipe';
+import { GetImageLinkPipe } from './get-image-link.pipe';
+import { GetSelectedImageTitlePipe } from './get-selected-image-title.pipe';
+import { GetVisibleContentPipe } from './get-visible-content.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +44,14 @@ import { GetSelectedImageLinkPipe } from './big-image/utilities/get-selected-ima
       GetKeyValue,
       getDescription,
       GetImageSrc,
-      GetSelectedImageLinkPipe
+      GetSelectedImageLinkPipe,
+      GetLinkForSelectedImagePipe,
+      GetSelectedContentPipe,
+      GetKeysPipe,
+      TransformToContentKeyPipe,
+      GetImageLinkPipe,
+      GetSelectedImageTitlePipe,
+      GetVisibleContentPipe
   ],
     imports: [
         BrowserModule,
