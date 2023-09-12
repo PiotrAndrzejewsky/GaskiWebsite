@@ -1,0 +1,39 @@
+article {
+    margin-bottom: 6%;
+}
+.room-wrapper {
+display: flex;
+}
+
+.image-wrapper {
+    width: 60%;
+    height: 50rem;
+}
+
+.info {
+    background-color: white;
+    width: 500px;
+    height: 230px;
+    bottom: 0;
+    left: 0;
+}
+
+.title {
+    left: 30px;
+    bottom: 140px;
+    font-size: 32px;
+    font-family: "Malgun Gothic";
+}
+
+.description {
+    left: 30px;
+    bottom: 120px;
+    color: grey;
+}
+
+.price {
+    left: 50px;
+    bottom: 40px;
+    font-size: 26px;
+    font-family: "Malgun Gothic";
+}

@@ -1,0 +1,16 @@
+<article class="flex flex-column justify-content-center align-items-center ">
+
+
+    <div class="position-relative flex justify-content-center align-items-center room-wrapper" >
+        <div style="height: 500px" class="image-wrapper position-relative">
+            <img ngSrc="{{content?.imageLink}}" fill class="object-fit-cover">
+            <div class="position-absolute info">
+                <p class="position-absolute title">Pokój {{title}}</p>
+                <p class="position-absolute description">{{content?.description}}</p>
+                <p class="position-absolute price">już od: {{content?.basePricePerNight}}</p>
+            </div>
+        </div>
+    </div>
+
+
+</article>

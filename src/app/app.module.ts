@@ -27,6 +27,8 @@ import { TransformToContentKeyPipe } from './facilities/utilities/transform-to-c
 import { GetImageLinkPipe } from './get-image-link.pipe';
 import { GetSelectedImageTitlePipe } from './get-selected-image-title.pipe';
 import { GetVisibleContentPipe } from './get-visible-content.pipe';
+import { RoomsComponent } from './rooms/rooms.component';
+import { RoomComponent } from './room/room.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { GetVisibleContentPipe } from './get-visible-content.pipe';
       TransformToContentKeyPipe,
       GetImageLinkPipe,
       GetSelectedImageTitlePipe,
-      GetVisibleContentPipe
+      GetVisibleContentPipe,
+      RoomsComponent,
+      RoomComponent
   ],
     imports: [
         BrowserModule,
