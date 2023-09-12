@@ -1,0 +1,11 @@
+span {
+    display: flex;
+}
+
+app-image-slots {
+    right: 50%;
+    bottom: -13%;
+    width: 450px;
+    padding: 0;
+    transform: translateX(50%);
+}

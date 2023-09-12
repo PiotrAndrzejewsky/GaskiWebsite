@@ -1,0 +1,18 @@
+<section class="vh-100 d-none d-md-block">
+    <h2 class="row justify-content-center text-center">Co ciekawego u nas ?</h2>
+    <span class="position-relative row justify-content-center">
+        <app-facility-description class="col-4" [content]="contentsEnhanced | getSelectedContent" ></app-facility-description>
+        <app-big-image class="col-4 flex" (changeContentEvent)="setIsSelected($event)" [images]="contentsEnhanced"></app-big-image>
+    </span>
+</section>
+
+<section class="d-md-none row justify-content-center">
+    <ng-container *ngIf="contentsEnhanced as contents">
+        <app-facility-descripton-mobile *ngFor="let key of contents | getKeys"
+                                        [isVisible]="contents[key | transformToContentKey].isVisible"
+                                        [link]="contents[key | transformToContentKey].src"
+                                        [title]="contents[key | transformToContentKey].title"
+                                        [description]="contents[key | transformToContentKey].description">
+        </app-facility-descripton-mobile>
+    </ng-container>
+</section>

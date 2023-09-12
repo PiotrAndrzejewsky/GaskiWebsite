@@ -1,0 +1,12 @@
+.image-wrapper {
+    flex: 1;
+    aspect-ratio: 1 / 1 ;
+    border-radius: 1000%;
+    overflow: hidden;
+    border: 1px solid black;
+}
+section {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
