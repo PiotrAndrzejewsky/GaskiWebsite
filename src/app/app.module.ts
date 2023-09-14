@@ -8,7 +8,7 @@ import { ImageSlotsComponent } from './image-slots/image-slots.component';
 import { FacilityDescriptionComponent } from './facility-description/facility-description.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptionMobileComponent } from './facility-descripton-mobile/facility-description-mobile.component';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, provideImgixLoader} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './big-image/big-image.component';
 import {
@@ -64,7 +64,7 @@ import { RoomComponent } from './room/room.component';
         BrowserAnimationsModule,
         NgOptimizedImage
     ],
-  providers: [],
+    providers: [],
   bootstrap: [
     AppComponent,
   ],

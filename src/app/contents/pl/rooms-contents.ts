@@ -5,7 +5,7 @@ export const rooms: Room = {
         basePricePerNight: 150,
         pricePerPerson: 30,
         isPlaceReservable: true,
-        imageLink: 'https://picsum.photos/1000'
+        imageLink: ['https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000']
     },
     'gwiezdny': {
         description: 'Mały, ale przytulny pokój z tematyczną dekoracją kosmiczną.',
@@ -13,7 +13,7 @@ export const rooms: Room = {
         basePricePerNight: 100,
         pricePerPerson: 0,
         isPlaceReservable: true,
-        imageLink: 'https://picsum.photos/1000'
+        imageLink: ['https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000']
     },
     'zielony': {
         description: 'Pokój zielony, ozdobiony roślinami i naturalnymi materiałami.',
@@ -21,7 +21,7 @@ export const rooms: Room = {
         basePricePerNight: 180,
         pricePerPerson: 40,
         isPlaceReservable: true,
-        imageLink: 'https://picsum.photos/1000'
+        imageLink: ['https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000']
     },
     'romantyczny': {
         description: 'Nastrojowy pokój dla zakochanych, z własnym kominkiem.',
@@ -29,7 +29,7 @@ export const rooms: Room = {
         basePricePerNight: 200,
         pricePerPerson: 50,
         isPlaceReservable: true,
-        imageLink: 'https://picsum.photos/1000'
+        imageLink: ['https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000']
     }
 }
 
@@ -43,5 +43,5 @@ export type RoomDetails = {
     basePricePerNight: number,
     pricePerPerson: number,
     isPlaceReservable: boolean,
-    imageLink: string
+    imageLink: string[]
 }
