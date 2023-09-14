@@ -29,6 +29,8 @@ import { GetSelectedImageTitlePipe } from './get-selected-image-title.pipe';
 import { GetVisibleContentPipe } from './get-visible-content.pipe';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './room/room.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
+import { OverallComponent } from './overall/overall.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { RoomComponent } from './room/room.component';
       GetSelectedImageTitlePipe,
       GetVisibleContentPipe,
       RoomsComponent,
-      RoomComponent
+      RoomComponent,
+      RoomDetailsComponent,
+      OverallComponent
   ],
     imports: [
         BrowserModule,

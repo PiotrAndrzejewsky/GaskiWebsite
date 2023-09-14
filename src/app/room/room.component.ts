@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {RoomDetails} from "../contents/pl/rooms-contents";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-room',
@@ -12,7 +13,11 @@ export class RoomComponent implements OnInit{
     @Input() title?: string;
     public indexToDisplay: number = 0;
 
+    constructor(private router: Router) {
+    }
+
     moveToRoomSite() {
+        this.router.navigate(['rooms', this.title])
     }
     ngOnInit() {
 
