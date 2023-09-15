@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RoomDetails, rooms} from "../contents/pl/rooms-contents";
 
 @Component({
   selector: 'app-room-details',
@@ -7,12 +8,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./room-details.component.scss']
 })
 export class RoomDetailsComponent implements OnInit {
-    constructor(private route: ActivatedRoute) { }
+    public roomName: string = '';
+    public roomDetails?: RoomDetails ;
+    constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
-            const roomName = params['name'];
-            console.log(roomName); // Do something with the parameter
+            this.roomName = params['name'];
+
+            if(!rooms.hasOwnProperty(this.roomName))
+            {
+                this.router.navigate(['']);
+                return;
+            }
+
+            this.roomDetails = rooms[this.roomName];
         });
     }
 }
