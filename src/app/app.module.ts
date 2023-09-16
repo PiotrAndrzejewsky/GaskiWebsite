@@ -31,6 +31,7 @@ import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './room/room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { WelcomePage } from './welcome-page/welcome-page.component';
+import { PricesComponent } from './prices/prices.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { WelcomePage } from './welcome-page/welcome-page.component';
       RoomsComponent,
       RoomComponent,
       RoomDetailsComponent,
-      WelcomePage
+      WelcomePage,
+      PricesComponent
   ],
     imports: [
         BrowserModule,
