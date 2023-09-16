@@ -2,7 +2,7 @@
 
 
     <div class="position-relative flex justify-content-center align-items-center room-wrapper">
-        <div style="height: 500px" class="image-wrapper position-relative"  >
+        <div  class="image-wrapper position-relative"  >
 
             <ng-container *ngFor="let link of content?.imageLink; index as i">
                     <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="500" width="500" (click)="moveToRoomSite()" >

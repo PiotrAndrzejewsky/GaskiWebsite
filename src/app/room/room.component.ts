@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {RoomDetails} from "../contents/pl/rooms-contents";
 import {Router} from "@angular/router";
 
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./room.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomComponent implements OnInit{
+export class RoomComponent {
     @Input() content?: RoomDetails;
     @Input() title?: string;
     public indexToDisplay: number = 0;
@@ -18,9 +18,6 @@ export class RoomComponent implements OnInit{
 
     moveToRoomSite() {
         this.router.navigate(['rooms', this.title])
-    }
-    ngOnInit() {
-
     }
 
     nextImage() {

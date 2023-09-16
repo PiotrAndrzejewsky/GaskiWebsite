@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OverallComponent } from './overall.component';
+import { WelcomePage } from './welcome-page.component';
 
 describe('OverallComponent', () => {
-  let component: OverallComponent;
-  let fixture: ComponentFixture<OverallComponent>;
+  let component: WelcomePage;
+  let fixture: ComponentFixture<WelcomePage>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [OverallComponent]
+      declarations: [WelcomePage]
     });
-    fixture = TestBed.createComponent(OverallComponent);
+    fixture = TestBed.createComponent(WelcomePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

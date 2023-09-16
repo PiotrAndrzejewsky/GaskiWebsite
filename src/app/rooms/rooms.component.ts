@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Room, rooms} from "../contents/pl/rooms-contents";
 
 @Component({
@@ -7,9 +7,7 @@ import {Room, rooms} from "../contents/pl/rooms-contents";
   styleUrls: ['./rooms.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomsComponent implements OnInit{
+export class RoomsComponent {
     public rooms: Room = rooms;
-    ngOnInit() {
 
-    }
 }

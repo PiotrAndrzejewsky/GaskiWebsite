@@ -30,7 +30,7 @@ import { GetVisibleContentPipe } from './get-visible-content.pipe';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './room/room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
-import { OverallComponent } from './overall/overall.component';
+import { WelcomePage } from './welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,7 @@ import { OverallComponent } from './overall/overall.component';
       RoomsComponent,
       RoomComponent,
       RoomDetailsComponent,
-      OverallComponent
+      WelcomePage
   ],
     imports: [
         BrowserModule,
