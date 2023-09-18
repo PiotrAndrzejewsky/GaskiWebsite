@@ -22,7 +22,8 @@ export class RoomDetailsComponent implements OnInit {
                 return;
             }
 
-            this.roomDetails = rooms[this.roomName];
+            this.roomDetails = rooms.get(this.roomName);
+            // czyli tutaj chce wyciagnac value od keya, czyli wysatrczy zrobic rooms.get
         });
     }
 }
