@@ -8,7 +8,7 @@ import { ImageSlotsComponent } from './image-slots/image-slots.component';
 import { FacilityDescriptionComponent } from './facility-description/facility-description.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptionMobileComponent } from './facility-descripton-mobile/facility-description-mobile.component';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, provideImgixLoader} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './big-image/big-image.component';
 import {
@@ -27,6 +27,11 @@ import { TransformToContentKeyPipe } from './facilities/utilities/transform-to-c
 import { GetImageLinkPipe } from './get-image-link.pipe';
 import { GetSelectedImageTitlePipe } from './get-selected-image-title.pipe';
 import { GetVisibleContentPipe } from './get-visible-content.pipe';
+import { RoomsComponent } from './rooms/rooms.component';
+import { RoomComponent } from './room/room.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
+import { WelcomePage } from './welcome-page/welcome-page.component';
+import { PricesComponent } from './prices/prices.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +56,12 @@ import { GetVisibleContentPipe } from './get-visible-content.pipe';
       TransformToContentKeyPipe,
       GetImageLinkPipe,
       GetSelectedImageTitlePipe,
-      GetVisibleContentPipe
+      GetVisibleContentPipe,
+      RoomsComponent,
+      RoomComponent,
+      RoomDetailsComponent,
+      WelcomePage,
+      PricesComponent
   ],
     imports: [
         BrowserModule,
@@ -60,7 +70,7 @@ import { GetVisibleContentPipe } from './get-visible-content.pipe';
         BrowserAnimationsModule,
         NgOptimizedImage
     ],
-  providers: [],
+    providers: [],
   bootstrap: [
     AppComponent,
   ],
