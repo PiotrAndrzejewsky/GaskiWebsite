@@ -3,9 +3,9 @@ import {Router} from "@angular/router";
 import {MatDrawer} from "@angular/material/sidenav";
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
     @ViewChild('drawer') drawer?: MatDrawer;
@@ -20,9 +20,9 @@ export class NavbarComponent {
     scrollToElement(elementName: string) {
 
         let element = document.querySelector('app-' + elementName);
-        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        element?.scrollIntoView({behavior: 'smooth', block: 'start'});
 
-        if(this.drawer)
+        if (this.drawer)
             this.toggleDrawer()
     }
 
