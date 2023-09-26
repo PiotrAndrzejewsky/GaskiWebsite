@@ -35,6 +35,7 @@ import { PricesComponent } from './prices/prices.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
+import { BannerComponent } from './banner/banner.component';
 
 
 
@@ -68,7 +69,8 @@ import {MatIconModule} from '@angular/material/icon';
       RoomDetailsComponent,
       WelcomePage,
       PricesComponent,
-      NavbarComponent
+      NavbarComponent,
+      BannerComponent
   ],
     imports: [
         BrowserModule,
