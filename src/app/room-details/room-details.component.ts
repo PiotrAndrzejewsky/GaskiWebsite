@@ -16,7 +16,7 @@ export class RoomDetailsComponent implements OnInit {
         this.route.params.subscribe(params => {
             this.roomName = params['name'];
 
-            if(!rooms.hasOwnProperty(this.roomName))
+            if(!rooms.has(this.roomName))
             {
                 this.router.navigate(['']);
                 return;
@@ -27,3 +27,7 @@ export class RoomDetailsComponent implements OnInit {
         });
     }
 }
+// czyli tuttaj jets ze jesli rooms ma property takie to git jak nie to naviagte
+
+
+// jam muse zrobic

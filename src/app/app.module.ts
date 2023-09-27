@@ -8,7 +8,7 @@ import { ImageSlotsComponent } from './image-slots/image-slots.component';
 import { FacilityDescriptionComponent } from './facility-description/facility-description.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptionMobileComponent } from './facility-descripton-mobile/facility-description-mobile.component';
-import {NgOptimizedImage, provideImgixLoader} from "@angular/common";
+import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './big-image/big-image.component';
 import {
@@ -32,6 +32,12 @@ import { RoomComponent } from './room/room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { WelcomePage } from './welcome-page/welcome-page.component';
 import { PricesComponent } from './prices/prices.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+
+
+
 
 @NgModule({
   declarations: [
@@ -61,14 +67,18 @@ import { PricesComponent } from './prices/prices.component';
       RoomComponent,
       RoomDetailsComponent,
       WelcomePage,
-      PricesComponent
+      PricesComponent,
+      NavbarComponent
   ],
     imports: [
         BrowserModule,
         NgbModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatSidenavModule,
+        MatIconModule
+
     ],
     providers: [],
   bootstrap: [
