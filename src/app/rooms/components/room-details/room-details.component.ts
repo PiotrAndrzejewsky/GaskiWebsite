@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {RoomDetails, rooms} from "../contents/pl/rooms-contents";
+import {RoomDetails, rooms} from "../../../contents/pl/rooms-contents";
 
 @Component({
   selector: 'app-room-details',

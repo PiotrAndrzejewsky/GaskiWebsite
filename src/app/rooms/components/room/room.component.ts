@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {RoomDetails} from "../contents/pl/rooms-contents";
+import {RoomDetails} from "../../../contents/pl/rooms-contents";
 import {Router} from "@angular/router";
 
 @Component({

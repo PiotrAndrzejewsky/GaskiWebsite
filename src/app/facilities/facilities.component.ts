@@ -1,14 +1,12 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {fadeInStill} from "../shared/animations";
-import {ContentKey, Contents, contents, EnhancedContents, FacilitieContent} from "../contents/pl/facilities-content";
-import {ContentSelectedService} from "../core/services/content-selected.service";
-import { map, Observable} from "rxjs";
+import {ContentKey, Contents, contents, EnhancedContents} from "../contents/pl/facilities-content";
 
 @Component({
-  selector: 'app-facilities',
-  templateUrl: './facilities.component.html',
-  styleUrls: ['./facilities.component.scss'],
-  animations: [fadeInStill],
+    selector: 'app-facilities',
+    templateUrl: './facilities.component.html',
+    styleUrls: ['./facilities.component.scss'],
+    animations: [fadeInStill],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 
@@ -26,7 +24,8 @@ export class FacilitiesComponent implements OnInit {
                 description: contents[cur as ContentKey].description,
                 isVisible: false,
                 isSelected: false
-            }}
+            }
+        }
     }, {} as EnhancedContents)
 
     ngOnInit() {
@@ -39,12 +38,13 @@ export class FacilitiesComponent implements OnInit {
         })
         console.log('w  funkcji setujacaej:' + this.contentsEnhanced)
     }
+
     setIsVisible(key: ContentKey) {
         this.contentsEnhanced[key].isVisible = true;
     }
 
 
-    //TODO try this code in every single ngFor rendered mobile component, with ngOnDestroy hook.
+    //TODO make appearing animation
 
     // private facilitiesMobileObserver = new IntersectionObserver((entrie) => {
     //    entrie.forEach((entry) => {
@@ -61,6 +61,5 @@ export class FacilitiesComponent implements OnInit {
     //     });
     // }
 
-    constructor(private elementRef: ElementRef, private state: ContentSelectedService) {}
 
 }

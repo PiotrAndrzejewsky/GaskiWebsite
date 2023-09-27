@@ -1,6 +1,7 @@
-<ng-container >
+<ng-container>
     <span class="w-100 position-relative  justify-content-center">
         <img src="{{images | getSelectedImageLink}}" alt="{{images | getSelectedImageTitle}}" class="rounded">
-        <app-image-slots class="position-absolute" (mouseEnterEvent)="changeSelection($event)" [images]="images" ></app-image-slots>
+        <app-image-slots class="position-absolute" (mouseEnterEvent)="changeSelection($event)"
+                         [images]="images"></app-image-slots>
     </span>
 </ng-container>

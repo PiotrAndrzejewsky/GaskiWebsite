@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {ContentKey, FacilitieContent} from "../contents/pl/facilities-content";
+import {ContentKey, FacilitieContent} from "../../../contents/pl/facilities-content";
 
 @Component({
   selector: 'app-facility-descripton-mobile',

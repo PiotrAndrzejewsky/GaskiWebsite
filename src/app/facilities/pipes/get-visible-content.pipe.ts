@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ContentKey, EnhancedContents} from "./contents/pl/facilities-content";
+import {ContentKey, EnhancedContents} from "../../contents/pl/facilities-content";
 
 @Pipe({
   name: 'getVisibleContent'

@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
-import {slideFromLeft} from "../shared/animations";
+import {slideFromLeft} from "../../../shared/animations";
 
 @Component({
   selector: 'app-facility-description',
