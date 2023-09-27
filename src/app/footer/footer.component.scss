@@ -1,5 +1,7 @@
+@import '../../assets/variables.scss';
+
 section {
-    background-color: lavender;
+    background-color: $primary-color;
 }
 article {
     text-align: center;

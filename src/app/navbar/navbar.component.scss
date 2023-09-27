@@ -1,3 +1,4 @@
+@import "../../assets/variables";
 .mobile-nav {
     width: 100vw;
     height: 75px;
@@ -21,12 +22,11 @@
 p {
     margin: 0;
 }
-
 .navbar {
     top: 0;
     left: 0;
     width: 100vw;
-    border: 1px solid grey;
+    border: 1px solid $border-color;
     z-index: 2;
     background-color: white;
     display: block;
@@ -47,6 +47,10 @@ p {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    cursor: pointer;
+}
+.link {
+    cursor: pointer;
 }
 
 .sidenav {
