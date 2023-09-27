@@ -1,0 +1,6 @@
+<section >
+    <app-room *ngFor="let room of rooms | keyvalue" class=""
+              [content]="room.value"
+              [title]="room.key">
+    </app-room>
+</section>
