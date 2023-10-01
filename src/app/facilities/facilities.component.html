@@ -8,11 +8,12 @@
 
 <section class="d-md-none row justify-content-center">
     <ng-container *ngIf="contentsEnhanced as contents">
-        <app-facility-descripton-mobile *ngFor="let key of contents | getKeys"
+        <app-facility-descripton-mobile *ngFor="let key of contents | getKeys" [@appearFromBottom]="contents[key | transformToContentKey].isVisible"
                                         [isVisible]="contents[key | transformToContentKey].isVisible"
                                         [link]="contents[key | transformToContentKey].src"
                                         [title]="contents[key | transformToContentKey].title"
-                                        [description]="contents[key | transformToContentKey].description">
+                                        [description]="contents[key | transformToContentKey].description"
+                                        id="{{key}}">
         </app-facility-descripton-mobile>
     </ng-container>
 </section>

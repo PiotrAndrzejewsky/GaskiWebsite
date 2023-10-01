@@ -36,6 +36,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
+import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 
 
 
@@ -70,7 +71,8 @@ import { BannerComponent } from './banner/banner.component';
       WelcomePage,
       PricesComponent,
       NavbarComponent,
-      BannerComponent
+      BannerComponent,
+      WelcomeTextComponent
   ],
     imports: [
         BrowserModule,

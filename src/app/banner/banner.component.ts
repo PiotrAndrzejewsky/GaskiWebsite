@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent {
-
+    scrollDown() {
+          document.querySelector('app-welcome-text')?.scrollIntoView();
+    }
 }
