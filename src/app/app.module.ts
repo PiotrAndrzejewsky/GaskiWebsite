@@ -37,6 +37,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
 import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
+import { ReservationInfoComponent } from './reservation-info/reservation-info.component';
 
 
 
@@ -72,7 +73,8 @@ import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
       PricesComponent,
       NavbarComponent,
       BannerComponent,
-      WelcomeTextComponent
+      WelcomeTextComponent,
+      ReservationInfoComponent
   ],
     imports: [
         BrowserModule,
