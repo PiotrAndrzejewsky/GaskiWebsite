@@ -31,7 +31,7 @@ display: flex;
 }
 
 .price {
-    left: 30%;
+    left: 10%;
     font-size: 26px;
     font-family: "Malgun Gothic";
 }
@@ -39,26 +39,45 @@ display: flex;
 .button-wrapper {
     right: 10%;
     bottom: 10%;
+
+    mat-icon {
+        color: white;
+    }
 }
 .left-button {
-    width: 100px;
-    height: 30px;
-    background-color: grey;
-    border: 1px solid white;
+    width: 80px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid white;
     right: 10%;
     bottom: 10%;
+    filter: brightness(0.85);
 }
 .right-button {
-    width: 100px;
-    height: 30px;
-    background-color: grey;
-    border: 1px solid white;
+    width: 80px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid white;
     right: 3.5%;
     bottom: 10%;
+    filter: brightness(0.85);
+
 }
+.left-button:hover {
+    filter: brightness(1);
+}
+.right-button:hover {
+    filter: brightness(1);
+}
+
 img {
     width: 100%;
     cursor: pointer;
+    object-fit: contain;
+    height: unset;
+}
+img-holder {
+    width: 40%;
 }
 
 @media (min-width: 1024px) {

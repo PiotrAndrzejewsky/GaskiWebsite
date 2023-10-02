@@ -1,5 +1,5 @@
 export const contents: Record<ContentKey, FacilitieContent>  = {
-    beach: {title: 'Plaża', description: 'Plaża w Gąskach to najelpsza plaża pod słońcem, mamy niedzeje że przypadnie Państwu do gustu', src: "https://picsum.photos/500"},
+    beach: {title: 'Plaża', description: 'Plaża w Gąskach to najelpsza plaża pod słońcem, mamy niedzeje że przypadnie Państwu do gustu', src: "../c"},
     pools: {title: 'Baseny', description: 'Wierzymy, że gąskowe baseny będą dla Państwa odetchnieniem od wszelkich obowiązków. Życzymy miłego pluskania', src: "https://picsum.photos/500?seed=52"},
     transport: {title: 'Hulajnogi', description: 'We wszystkie miejsca dojedzecie Państwo hulajnogami, udostępnionymi za darmo w naszej bazie', src: "https://picsum.photos/500?seed=51"},
     aquapark: {title: 'Kompleks basenowy', description: 'Do basenów gąskowych przyjeżdzał Marek Aureliusz. Poczuj się jak to jest kąpać się tam gdzie imperator', src: "https://picsum.photos/500?seed=53"},
