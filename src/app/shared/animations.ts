@@ -22,3 +22,9 @@ export const isSelected =
             animate('500ms ease')
         ])
     ]);
+export const appearFromBottom = trigger('appearFromBottom', [
+    state('false', style({ transform: 'translateY(40px)', opacity: 0 })),
+    state('void', style({ transform: 'translateY(40px)', opacity: 0 })),
+    state('true', style({ transform: 'translateY(0)', opacity: 1 })),
+    transition('* => true', animate('500ms ease')),
+]);

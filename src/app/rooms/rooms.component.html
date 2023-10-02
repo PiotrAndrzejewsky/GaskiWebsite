@@ -1,6 +1,8 @@
 <section >
-    <app-room *ngFor="let room of rooms | keyvalue" class=""
+    <h1 class="text-center">Nasze pokoje</h1>
+    <app-room *ngFor="let room of rooms | keyvalue" class="" [@appearFromBottom]="visibilityHolder[room.key]?.isVisible"
               [content]="room.value"
-              [title]="room.key">
+              [title]="room.key"
+                id="{{room.key}}">
     </app-room>
 </section>

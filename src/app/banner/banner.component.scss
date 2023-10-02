@@ -1,5 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900");
 section {
     width: 100vw;
     height: 100vh;
 }
+.text-background {
+    background-color: rgba(127, 126, 122, 0.3);
+    width: 30%;
+    height: fit-content;
+    padding: 20px;
+    right: 10%;
+    bottom: 55%;
+}
+span {
+    width: fit-content;
+}
+h1, p {
+    color: white;
+    padding: 0;
+    margin: 0;
+    font-family: cursive;
+}
+h1 {
+    font-size: 2.5rem;
+}
 
+
+p {
+    padding-top: 20px;
+    font-size: 1.6rem;
+}
+
+.scroll-down1 {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    border:  3px solid white;
+    font-size: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; //---you can romove this line---
+    background-color: transparent;
+    z-index: 2;
+    bottom: 20%;
+    left: 45%;
+
+
+    mat-icon {
+        color: white;
+        animation: scrollDown1 1.5s ease infinite;
+    }
+}
+.hint::before {
+    content: '';
+    width: 130px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    bottom: 21.75%;
+    left: 48.5%;
+    background-color: white;
+    cursor: pointer;
+
+}
+.hint::after {
+    content: 'PRZEWIŃ';
+    color: white;
+    display: block;
+    position: absolute;
+    bottom: 20.85%;
+    left: 57.5%;
+    font-family: cursive;
+    cursor: pointer;
+
+}
+
+
+@keyframes scrollDown1{
+    0%{
+        transform: translateY(-15px) rotate(90deg);
+        opacity: 0;
+    }
+    50%{
+        transform: translateY(0px) rotate(90deg);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(15px) rotate(90deg);
+        opacity: 0;
+    }
+}

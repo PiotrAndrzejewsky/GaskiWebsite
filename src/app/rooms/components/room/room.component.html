@@ -4,21 +4,25 @@
     <div class="position-relative flex justify-content-center align-items-center room-wrapper">
         <div class="image-wrapper position-relative">
 
-            <ng-container *ngFor="let link of content?.imageLink; index as i">
-                <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="500" width="500"
-                     (click)="moveToRoomSite()">
-            </ng-container>
+            <div class="position-relative img-holder">
 
-            <div class="position-absolute info">
-                <p class="position-absolute title">Pokój {{title}}</p>
-                <p class="position-absolute description">{{content?.description}}</p>
-                <p class="position-absolute price">już od: {{content?.basePricePerNight}}</p>
+                <ng-container *ngFor="let link of content?.imageLink; index as i">
+                    <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="1000" width="1000"
+                         (click)="moveToRoomSite()">
+                </ng-container>
+
+                <span class="button-wrapper position-absolute d-none d-lg-flex">
+                    <div class="left-button rounded-start-2 d-flex justify-content-center align-items-center" (click)="previousImage()"><mat-icon>arrow_back_ios</mat-icon></div>
+                    <div class="right-button rounded-end-2 d-flex justify-content-center align-items-center" (click)="nextImage()"><mat-icon>arrow_forward_ios</mat-icon></div>
+                </span>
+
+            </div>
+            <div class="info">
+                <p class="position-relative title">Pokój {{title}}</p>
+                <p class="position-relative description">{{content?.description}}</p>
+                <p class="position-relative price">już od: {{content?.basePricePerNight}}</p>
             </div>
 
-            <span class="button-wrapper position-absolute d-none d-lg-flex">
-                <div class="left-button" (click)="previousImage()"></div>
-                <div class="right-button" (click)="nextImage()"></div>
-            </span>
 
 
         </div>
