@@ -5,4 +5,12 @@ section {
     padding-bottom: 80px;
     margin-bottom: 10%;
 }
+app-facility-description {
+    width: 30%;
+}
 
+@media (min-width: 1600px) {
+    app-facility-description {
+        width: 20%;
+    }
+}
