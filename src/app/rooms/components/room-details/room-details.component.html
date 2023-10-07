@@ -5,7 +5,7 @@
 <h3 class="text-center">Wnętrze:</h3>
 
 <ng-container *ngFor="let link of roomDetails?.imageLink">
-    <div class="image-wrapper">
+    <div class="d-flex justify-content-center">
         <img ngSrc="{{link}}" height="500" width="800" class="rounded-4">
     </div>
 </ng-container>
@@ -17,7 +17,7 @@
 <h4 class="text-center">Jak zarezerwować ?</h4>
 
 <!-- her is the example why I cannot use utility classes-->
-<div class="info-wrapper">
+<div class="d-flex justify-content-center">
     <p class="book-info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
