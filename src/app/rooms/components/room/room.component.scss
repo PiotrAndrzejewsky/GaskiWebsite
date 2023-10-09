@@ -41,9 +41,9 @@ article {
         color: white;
     }
 
-    .switch-botton {
-        width: 80px;
-        height: 50px;
+    .switch-button {
+        width: 120px;
+        height: 80px;
         background-color: transparent;
         border: 2px solid white;
         filter: brightness(0.85);
@@ -68,7 +68,8 @@ article {
 
 img {
     cursor: pointer;
-    border: 12px solid $primary-color;
+    width: 100%;
+    height: unset;
 }
 .img-holder {
     width: fit-content;
@@ -78,6 +79,11 @@ img {
     .image-wrapper {
         width: 75%;
     }
+
+    .switch-button {
+        width: 80px;
+        height: 50px;
+    }
 }
 
 @media (min-width: 1960px) {
@@ -85,4 +91,16 @@ img {
         width: 55%;
     }
 }
+
+@media (min-width: 560px) {
+    img {
+        border: 12px solid $primary-color;
+        height: initial;
+
+        .image-wrapper {
+            width: 85%;
+        }
+    }
+}
+
 

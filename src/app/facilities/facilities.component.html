@@ -6,7 +6,7 @@
     </div>
 </section>
 
-<section class="d-md-none row justify-content-center">
+<section class="d-md-none d-flex flex-column g-0 justify-content-center">
     <ng-container *ngIf="contentsEnhanced as contents">
         <app-facility-descripton-mobile *ngFor="let key of contents | getKeys" [@appearFromBottom]="contents[key | transformToContentKey].isVisible"
                                         [isVisible]="contents[key | transformToContentKey].isVisible"
