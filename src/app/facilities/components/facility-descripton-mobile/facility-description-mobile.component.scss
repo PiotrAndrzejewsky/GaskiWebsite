@@ -1,13 +1,6 @@
-@media (max-width: 375px) {
-    span {
-        overflow: scroll;
-    }
-}
-.image-wrapper
-{
-    width: 375px;
-    padding: 0;
-    overflow: hidden;
+img {
+    width: 100%;
+    height: unset;
 }
 
 .description{
@@ -15,5 +8,4 @@
     margin-top:10%;
     margin-bottom: 10%;
 }
-
 
