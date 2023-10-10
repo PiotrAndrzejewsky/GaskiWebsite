@@ -8,7 +8,6 @@ import {ContentKey, EnhancedContents} from "../../contents/pl/facilities-content
 export class GetSelectedContentPipe implements PipeTransform {
 
     transform(images: EnhancedContents): {title: string, description: string} {
-        // pipe dostaje cały kontent i zwraca tylko ten rekord, który jest ustawiony na true
         let result: {title: string, description: string} = {title: '', description: ''};
         Object.keys(images).forEach((key) => {
             if(images[key as ContentKey].isSelected)

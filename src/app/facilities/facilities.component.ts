@@ -39,16 +39,12 @@ export class FacilitiesComponent implements OnInit {
         Object.keys(this.contentsEnhanced).forEach((keyInstance) => {
             this.contentsEnhanced[keyInstance as ContentKey].isSelected = keyInstance === key;
         })
-        console.log('w  funkcji setujacaej:' + this.contentsEnhanced)
     }
 
     setIsVisible(key: ContentKey) {
         this.contentsEnhanced[key].isVisible = true;
         this.cdr.detectChanges()
     }
-
-
-    //TODO make appearing animation
 
     private facilitiesMobileObserver = new IntersectionObserver((entrie) => {
        entrie.forEach((entry) => {

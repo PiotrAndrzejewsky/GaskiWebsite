@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {ContentKey} from "../../../../contents/pl/facilities-content";
+import {ContentKey, EnhancedContents} from "../../../../contents/pl/facilities-content";
 
 @Pipe({
   name: 'getSelectedImageLink',
@@ -7,8 +7,8 @@ import {ContentKey} from "../../../../contents/pl/facilities-content";
 })
 export class GetSelectedImageLinkPipe implements PipeTransform {
 
-    transform(images: any): any {
-        let link = 'banana';
+    transform(images: EnhancedContents): string {
+        let link: string = 'banana';
         Object.keys(images).forEach((key) => {
             if(images[key as ContentKey].isSelected) {
                 console.log( images[key as ContentKey].src);
