@@ -38,6 +38,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
 import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { ReservationInfoComponent } from './reservation-info/reservation-info.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 
 
@@ -74,7 +75,8 @@ import { ReservationInfoComponent } from './reservation-info/reservation-info.co
       NavbarComponent,
       BannerComponent,
       WelcomeTextComponent,
-      ReservationInfoComponent
+      ReservationInfoComponent,
+      CalendarComponent
   ],
     imports: [
         BrowserModule,

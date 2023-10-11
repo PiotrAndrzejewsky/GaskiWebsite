@@ -10,6 +10,8 @@ import {RoomDetails, rooms} from "../../../contents/pl/rooms-contents";
 export class RoomDetailsComponent implements OnInit {
     public roomName: string = '';
     public roomDetails?: RoomDetails ;
+    public selected?: Date;
+
     constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
