@@ -22,4 +22,5 @@ describe('RoomsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
