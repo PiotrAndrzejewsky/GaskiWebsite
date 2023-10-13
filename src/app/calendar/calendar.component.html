@@ -1,11 +1,30 @@
-<button (click)="setMonth(-1)">&lt;</button>
-{{date | date}}
-<button (click)="setMonth(+1)">&gt;</button>
-<ul>
-    <li class="days" *ngFor="let day of days"> {{day}} </li>
-    <li *ngFor="let date of dates"
-        [ngClass]="{grey: !isSameMonth(date)}"
-        (click)="selected.emit(date)">
-        {{date | date:'d'}}
-    </li>
-</ul>
+<article class="m-auto">
+    <button (click)="setMonth(-1)">&lt;</button>
+    {{date | date}}
+    <button (click)="setMonth(+1)">&gt;</button>
+    <!--<ul>-->
+    <!--    <li class="days" *ngFor="let day of days"> {{day}} </li>-->
+    <!--    <li *ngFor="let date of dates"-->
+    <!--        [ngClass]="{grey: !isSameMonth(date)}"-->
+    <!--        (click)="selected.emit(date)">-->
+    <!--        {{date | date:'d'}}-->
+    <!--    </li>-->
+    <!--</ul>-->
+    <div class="calendar justify-content-center ">
+
+        <div class="calendar-header d-flex flex-row rounded-top-2">
+            <div class="calendar-header-item d-flex justify-content-center align-content-center flex-wrap"
+                 *ngFor="let day of days">{{day}}</div>
+        </div>
+
+        <div class="calendar-item-wrapper d-flex flex-row flex-wrap">
+            <div class="calendar-item position-relative"
+                 *ngFor="let date of calendarDates"
+                 (click)="selected.emit(date.date)">
+                <span class="position-absolute ">{{date.date | date:'d'}}</span>
+            </div>
+        </div>
+        <!--    tutaj musi byc na % zeby sie idelanie 7 mieściło -->
+    </div>
+
+</article>
