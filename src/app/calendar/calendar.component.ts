@@ -1,13 +1,15 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ReservationService} from "../core/reservation.service";
 import {calendarDate} from "../core/calendarDate.model";
+import {calendarStateColor} from "../shared/animations";
 
 const DAY_MS = 60 * 60 * 24 * 1000;
 
 @Component({
     selector: 'app-calendar',
     templateUrl: './calendar.component.html',
-    styleUrls: ['./calendar.component.scss']
+    styleUrls: ['./calendar.component.scss'],
+    animations: [calendarStateColor]
 })
 export class CalendarComponent implements OnInit {
     public calendarDates?: calendarDate[];
@@ -15,6 +17,7 @@ export class CalendarComponent implements OnInit {
     date = new Date();
     @Output() selected = new EventEmitter();
     private reservedDays?: Date[];
+    private selectedDays?: Date[];
 
     constructor(private reservationService: ReservationService) {
 
@@ -42,17 +45,54 @@ export class CalendarComponent implements OnInit {
     }
 
     getReservationState(date: Date) {
-        return this.reservedDays?.some(reservedDay =>
-            reservedDay.getMonth() === date.getMonth() && reservedDay.getDay() === date.getDay()
-        ) ? 'reserved' : 'free';
-        // to byl pierwzy if w sumie jedyny ktory sprawdza czy jest zajety.
-        //TODO tutaj jeszce musi byc drug if ktory sprawdzi czy ta data nie jest juz w selected array
+
+        if (this.selectedDays?.some(selectedDay =>
+            selectedDay.getMonth() === date.getMonth() && selectedDay.getDate() === date.getDate()))
+            return 'selected';
+
+        if (this.reservedDays?.some(reservedDay =>
+            reservedDay.getMonth() === date.getMonth() && reservedDay.getDate() === date.getDate())) {
+
+            if (this.isSameMonth(date))
+                return 'reserved';
+            return 'reservedOutOfMonth';
+        }
+
+        else {
+
+            if (this.isSameMonth(date)) {
+                return 'free';
+            }
+
+            else {
+                return 'freeOutOfMonth';
+            }
+        }
+
+    }
+
+    switchSelectDay(index: number, state: string) {
+        //TODO make sure index from trmplate is givem properly ( template satrs from 0 index)
+        //let index = this.calendarDates?.findIndex((element) => element.date === clickedDate);
+        let clickedDate: Date = this.calendarDates![index].date;
+
+        if (state === 'free' || state === 'freeHover' || state === 'freeOutOfMonth' || state === 'freeOutOfMonthHover') {
+            this.selectedDays?.push(clickedDate);
+            if (index || index === 0)
+                this.calendarDates![index].state = 'selected'
+        }
+
+        if (state === 'selected' || state === 'selectedHover') {
+            if (index || index === 0) {
+                this.calendarDates![index].state = this.isSameMonth(clickedDate) ? 'freeHover' : 'freeOutOfMonthHover';
+                this.selectedDays?.filter(selectedDay => selectedDay !== clickedDate);
+            }
+        }
     }
 
     private getCalendarDays(date = new Date) {
         const calendarStartTime =
             this.getCalendarStartDay(date)!.getTime() + 60 * 60 * 2 * 1000; /* add 2 hours for day light saving time adjustment */
-        // zalepiłem tutaj !
 
         return this.range(1, 42)
             .map(num => {
@@ -61,7 +101,6 @@ export class CalendarComponent implements OnInit {
                     state: this.getReservationState(new Date(calendarStartTime + DAY_MS * num))
                 }
             });
-        //TODO i tutaj wlasnie mapować do obiektu wraz ze statem
     }
 
     private getCalendarStartDay(date = new Date) {
@@ -76,4 +115,30 @@ export class CalendarComponent implements OnInit {
     private range(start: any, end: any, length = end - start + 1) {
         return Array.from({length}, (_, i) => start + i)
     }
+
+    deleteHoverState(index: number) {
+        let currentState = this.calendarDates![index].state;
+        if(this.endsWithHover(currentState))
+            this.calendarDates![index].state = this.cutLast5Characters(currentState);
+    }
+    addHoverState(index: number) {
+        let currentState = this.calendarDates![index].state;
+        if(currentState === 'free' || currentState === 'selected' || currentState === 'freeOutOfMonth')
+        {
+            this.calendarDates![index].state = this.getStateWithHover(currentState);
+        }
+    }
+    endsWithHover(inputString: string): boolean {
+        return inputString.endsWith('Hover');
+    }
+
+    cutLast5Characters(inputString: string): string {
+        return inputString.slice(0, -5);
+    }
+    getStateWithHover(inputString: string): string {
+        return inputString + 'Hover';
+    }
+
+
 }
+

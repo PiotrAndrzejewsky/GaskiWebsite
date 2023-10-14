@@ -10,7 +10,7 @@
     <!--        {{date | date:'d'}}-->
     <!--    </li>-->
     <!--</ul>-->
-    <div class="calendar justify-content-center ">
+    <div class="calendar justify-content-center">
 
         <div class="calendar-header d-flex flex-row rounded-top-2">
             <div class="calendar-header-item d-flex justify-content-center align-content-center flex-wrap"
@@ -19,12 +19,15 @@
 
         <div class="calendar-item-wrapper d-flex flex-row flex-wrap">
             <div class="calendar-item position-relative"
-                 *ngFor="let date of calendarDates"
-                 (click)="selected.emit(date.date)">
-                <span class="position-absolute ">{{date.date | date:'d'}}</span>
+                 *ngFor="let date of calendarDates; let i = index"
+                 (click)="switchSelectDay(i, date.state)"
+                 (mouseenter)="addHoverState(i)"
+                 (mouseleave)="deleteHoverState(i)"
+                [@calendarStateColor]="date.state"
+                [ngClass]="date.state !== 'reserved' && date.state !== 'reservedOutOfMonth' ? 'pointer': ''">
+                <span class="position-absolute user-select-none">{{date.date | date:'d'}}</span>
             </div>
         </div>
-        <!--    tutaj musi byc na % zeby sie idelanie 7 mieściło -->
     </div>
 
 </article>
