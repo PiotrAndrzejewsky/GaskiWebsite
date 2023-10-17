@@ -11,16 +11,11 @@
 </ng-container>
 
 <h4 class="text-center mt-5">Cennik:</h4>
+
 <app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
-<div class="text-center mb-5">MIJESCE NA KALKULATOR</div>
 
-<h4 class="text-center">Jak zarezerwować ?</h4>
+<app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-<!-- her is the example why I cannot use utility classes-->
-<div class="d-flex justify-content-center">
-    <p class="book-info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        afssdaddasasd
-    </p>
-</div>
+<button class="mx-auto d-block">zarezerwuj -></button>
+
+<app-reservation-info></app-reservation-info>

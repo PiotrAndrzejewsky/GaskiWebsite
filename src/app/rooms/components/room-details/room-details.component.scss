@@ -1,3 +1,4 @@
+@import "src/assets/variables.scss";
 h2 {
     margin-top: 5%;
 }
@@ -12,4 +13,11 @@ img {
 
 .book-info {
     width: fit-content;
+}
+
+button {
+    width: fit-content;
+    background-color: $primary-color;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }

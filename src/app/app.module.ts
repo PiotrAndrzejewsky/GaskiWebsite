@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,7 +8,7 @@ import { ImageSlotsComponent } from './facilities/components/image-slots/image-s
 import { FacilityDescriptionComponent } from './facilities/components/facility-description/facility-description.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptionMobileComponent } from './facilities/components/facility-descripton-mobile/facility-description-mobile.component';
-import {NgOptimizedImage} from "@angular/common";
+import {NgOptimizedImage, registerLocaleData} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './facilities/components/big-image/big-image.component';
 import {
@@ -38,8 +38,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
 import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { ReservationInfoComponent } from './reservation-info/reservation-info.component';
-
-
+import { CalendarComponent } from './calendar/calendar.component';
+import '@angular/common/locales/global/pl';
 
 
 @NgModule({
@@ -74,7 +74,8 @@ import { ReservationInfoComponent } from './reservation-info/reservation-info.co
       NavbarComponent,
       BannerComponent,
       WelcomeTextComponent,
-      ReservationInfoComponent
+      ReservationInfoComponent,
+      CalendarComponent
   ],
     imports: [
         BrowserModule,
@@ -86,7 +87,7 @@ import { ReservationInfoComponent } from './reservation-info/reservation-info.co
         MatIconModule
 
     ],
-    providers: [],
+    providers: [{provide: LOCALE_ID, useValue: "pl"}],
   bootstrap: [
     AppComponent,
   ],

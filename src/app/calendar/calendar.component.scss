@@ -1,0 +1,68 @@
+article {
+    width: 60%;
+}
+.month-wrapper {
+    width: fit-content;
+    margin-bottom: 1rem;
+
+    span {
+        width: 10rem;
+        display: block;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        background-color: #37deb4;
+    }
+}
+
+.calendar {
+    font-size: 0.8rem;
+}
+
+.calendar-header {
+    border: 2px solid black;
+    background-color: #37deb4;
+}
+
+.calendar-header-item {
+    width: 14.28%;
+    //aspect-ratio: 1;
+    //flex: 1;
+    height: 70px;
+    border-right: 1px solid gray;
+    font-size: 1rem;
+}
+.calendar-header-item:last-child {
+    border-right: 0;
+}
+
+.calendar-item-wrapper {
+
+}
+
+.calendar-item {
+    width: 14.28%;
+    height: 52px;
+    border-bottom: 1px solid lightslategrey;
+    border-right: 1px solid lightslategrey;
+
+    span {
+        left: 10%;
+        bottom: 20%;
+        color: inherit;
+    }
+}
+
+.calendar-item:nth-of-type(7n + 1) {
+    border-left: 1px solid lightslategrey;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.gray {
+    color: #79807e;
+}
