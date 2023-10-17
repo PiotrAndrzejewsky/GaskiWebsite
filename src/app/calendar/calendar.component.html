@@ -1,15 +1,10 @@
 <article class="m-auto">
-    <button (click)="setMonth(-1)">&lt;</button>
-    {{date | date}}
-    <button (click)="setMonth(+1)">&gt;</button>
-    <!--<ul>-->
-    <!--    <li class="days" *ngFor="let day of days"> {{day}} </li>-->
-    <!--    <li *ngFor="let date of dates"-->
-    <!--        [ngClass]="{grey: !isSameMonth(date)}"-->
-    <!--        (click)="selected.emit(date)">-->
-    <!--        {{date | date:'d'}}-->
-    <!--    </li>-->
-    <!--</ul>-->
+    <div class="mx-auto month-wrapper d-flex flex-row">
+        <button (click)="changeMonth(-1)">&lt;</button>
+        <span class="text-center">{{date | date: 'LLLL YYYY' }}</span>
+        <button (click)="changeMonth(1)">&gt;</button>
+    </div>
+
     <div class="calendar justify-content-center">
 
         <div class="calendar-header d-flex flex-row rounded-top-2">
@@ -25,7 +20,9 @@
                  (mouseleave)="deleteHoverState(i)"
                 [@calendarStateColor]="date.state"
                 [ngClass]="date.state !== 'reserved' && date.state !== 'reservedOutOfMonth' ? 'pointer': ''">
-                <span class="position-absolute user-select-none">{{date.date | date:'d'}}</span>
+                <span class="position-absolute user-select-none">
+                    {{date.date | date:'d'}}
+                </span>
             </div>
         </div>
     </div>

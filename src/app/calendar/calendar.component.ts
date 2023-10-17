@@ -15,28 +15,38 @@ export class CalendarComponent implements OnInit {
     public calendarDates?: calendarDate[];
     public days = ['Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob', 'Ndz'];
     date = new Date();
-    @Output() selected = new EventEmitter();
+
+    @Output() selected = new EventEmitter<Date[]>();
     private reservedDays?: Date[];
-    private selectedDays?: Date[];
+    private selectedDays: Date[] = [];
 
     constructor(private reservationService: ReservationService) {
 
     }
 
     ngOnInit() {
+        this.getReservedDays();
+        this.setCalendarDates();
+    }
+
+    emitSelectedDays() {
+        this.selected.emit(this.selectedDays);
+    }
+
+    getReservedDays() {
         this.reservationService.getReservedDaysForDateRange(this.date).subscribe((reservedDays) => {
             this.reservedDays = reservedDays;
-            this.calendarDates = this.getCalendarDays(this.date);
-            console.log('daty' + this.calendarDates[18].date + this.calendarDates[18].state)
-
         })
     }
 
-    setMonth(inc: any) {
+    setCalendarDates() {
+        this.calendarDates = this.getCalendarDays(this.date);
+    }
+
+    setMonth(inc: number) {
         const [year, month] = [this.date.getFullYear(), this.date.getMonth()];
         this.date = new Date(year, month + inc, 1);
-        //this.dates = this.getCalendarDays(this.date);
-        // tutuaj to wlg trzeba odpalic na nowo request z nowa datą, i jeszcze raz robic asercje czy azarezerowany cz nie i selekted
+        // tutaj bedzie trzeba po zmienieniu daty na nowo pobrac resered days, i na nowo robic aserje.
 
     }
 
@@ -72,14 +82,14 @@ export class CalendarComponent implements OnInit {
     }
 
     switchSelectDay(index: number, state: string) {
-        //TODO make sure index from trmplate is givem properly ( template satrs from 0 index)
-        //let index = this.calendarDates?.findIndex((element) => element.date === clickedDate);
         let clickedDate: Date = this.calendarDates![index].date;
 
         if (state === 'free' || state === 'freeHover' || state === 'freeOutOfMonth' || state === 'freeOutOfMonthHover') {
-            this.selectedDays?.push(clickedDate);
+            this.selectedDays.push(clickedDate);
+            this.emitSelectedDays();
             if (index || index === 0)
-                this.calendarDates![index].state = 'selected'
+                this.calendarDates![index].state = 'selected';
+
         }
 
         if (state === 'selected' || state === 'selectedHover') {
@@ -140,5 +150,13 @@ export class CalendarComponent implements OnInit {
     }
 
 
+
+    changeMonth(amount: number) {
+        this.setMonth(amount);
+        this.getReservedDays();
+        this.setCalendarDates();
+        //TODO trigger cd
+        console.log(this.selectedDays)
+    }
 }
 

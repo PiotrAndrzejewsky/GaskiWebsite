@@ -12,6 +12,8 @@ export class RoomDetailsComponent implements OnInit {
     public roomDetails?: RoomDetails ;
     public selected?: Date;
 
+    public selectedDays: Date[] = [];
+
     constructor(private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
@@ -29,7 +31,3 @@ export class RoomDetailsComponent implements OnInit {
         });
     }
 }
-// czyli tuttaj jets ze jesli rooms ma property takie to git jak nie to naviagte
-
-
-// jam muse zrobic

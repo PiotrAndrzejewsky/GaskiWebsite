@@ -33,9 +33,9 @@ export const calendarStateColor = trigger("calendarStateColor", [
     state('selected', style({backgroundColor: '#539ded'})),
     state('selectedHover', style({backgroundColor: '#7292b5'})),
     state('reserved', style({backgroundColor: '#e61212'})),
-    state('reservedOutOfMonth', style({backgroundColor: '#fa7070'})),
+    state('reservedOutOfMonth', style({backgroundColor: '#fa7070', color: '#79807e'})),
     state('free', style({backgroundColor: '#e3fae8'})),
     state('freeHover', style({backgroundColor: '#cadece'})),
-    state('freeOutOfMonth', style({backgroundColor: '#f2f7f3'})),
-    state('freeOutOfMonthHover', style({backgroundColor: '#dfe6e0'}))
+    state('freeOutOfMonth', style({backgroundColor: '#f2f7f3', color: '#79807e'})),
+    state('freeOutOfMonthHover', style({backgroundColor: '#dfe6e0', color: '#79807e'}))
 ])

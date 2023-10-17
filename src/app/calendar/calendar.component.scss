@@ -1,7 +1,21 @@
 article {
     width: 60%;
 }
-.grey {color: #ccc}
+.month-wrapper {
+    width: fit-content;
+    margin-bottom: 1rem;
+
+    span {
+        width: 10rem;
+        display: block;
+    }
+
+    button {
+        width: 30px;
+        height: 30px;
+        background-color: #37deb4;
+    }
+}
 
 .calendar {
     font-size: 0.8rem;
@@ -37,6 +51,7 @@ article {
     span {
         left: 10%;
         bottom: 20%;
+        color: inherit;
     }
 }
 
@@ -48,3 +63,6 @@ article {
     cursor: pointer;
 }
 
+.gray {
+    color: #79807e;
+}
