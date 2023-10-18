@@ -19,6 +19,8 @@ export class RoomDetailsComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe(params => {
             this.roomName = params['name'];
+            //TODO tutaj musi back furtka do pobrania pokoju na podstawie nazwy.
+            // chyba nie ma innej drogi, trzeba bedize zrobic serwis i jesli beddzie ten pokoj to wyswietlic.
 
             if(!rooms.has(this.roomName))
             {

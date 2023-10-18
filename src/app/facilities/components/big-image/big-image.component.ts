@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EnhancedContents} from "../../../contents/pl/facilities-content";
+import {Facilitie} from "../../../core/facilitie.model";
 
 @Component({
     selector: 'app-big-image',
@@ -8,15 +9,15 @@ import {EnhancedContents} from "../../../contents/pl/facilities-content";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BigImageComponent implements OnInit {
-    @Output() changeContentEvent = new EventEmitter<string>();
-    @Input() images?: EnhancedContents;
+    @Output() changeSelectedEvent = new EventEmitter<string>();
+    @Input() facilities?: Facilitie[];
+    @Input() selected?: string;
 
-    changeSelection(key: string) {
-        this.changeContentEvent.emit(key);
+    changeSelection(title: string) {
+        this.changeSelectedEvent.emit(title);
     }
 
     ngOnInit() {
-        console.log(this.images?.aquapark.src)
     }
 
 }

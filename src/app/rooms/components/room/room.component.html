@@ -2,7 +2,7 @@
     <div class="d-flex flex-column justify-content-center align-items-center ">
 
             <div class="position-relative img-holder">
-                <ng-container *ngFor="let link of content?.imageLink; index as i">
+                <ng-container *ngFor="let link of room?.imageLink; index as i">
                     <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="400" width="720" class="rounded-3"
                          (click)="moveToRoomSite()">
                 </ng-container>
@@ -15,9 +15,9 @@
 
             <div class="info d-flex justify-content-center align-items-center ">
                 <span>
-                    <p class="title">Pokój {{title}}</p>
-                    <p class="description">{{content?.description}}</p>
-                    <p class="price">już od: {{content?.basePricePerNight}}</p>
+                    <p class="title">Pokój {{room?.title}}</p>
+                    <p class="description">{{room?.description}}</p>
+                    <p class="price">już od: {{room?.basePricePerNight}}</p>
                 </span>
             </div>
     </div>
