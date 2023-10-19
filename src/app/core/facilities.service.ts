@@ -12,29 +12,39 @@ export class FacilitiesService {
     getFacilities() {
         let array: Facilitie[] = [
             {
-                title: 'plaża',
-                src: 'https://picsum.photos/500?seed=50',
+                title: 'Plaża',
+                src: 'assets/images/atrakcje/plaża.jpg',
                 description: 'Plaża w Gąskach to najelpsza plaża pod słońcem, mamy niedzeje że przypadnie Państwu do gustu'
             },
             {
-                title: 'ogrody',
-                src: 'https://picsum.photos/500?seed=51',
-                description: 'Widziałeś 1000 gatunków roślin ? nie ? to zobacz gąskowe ogrody!'
+                title: 'Latarnia',
+                src: 'assets/images/atrakcje/latarnia.jpg',
+                description: "Latarnia w gąskach to jedna z najwyższych latarni nad brzegiem morza. Zapraszamy do wejścią na samą górę! Wejście bezpłatne!"
             },
             {
-                title: 'baseny',
-                src: 'https://picsum.photos/500?seed=52',
-                description: 'Wierzymy, że gąskowe baseny będą dla Państwa odetchnieniem od wszelkich obowiązków. Życzymy miłego pluskania'
+                title: 'Ognisko',
+                src: 'assets/images/atrakcje/ognisko.jpg',
+                description: 'Możliwość rozpalenia ogniska na działce. Pomożemy w organizacji!'
             },
             {
-                title: 'aquapark',
-                src: 'https://picsum.photos/500?seed=54',
-                description: 'Do basenów gąskowych przyjeżdzał Marek Aureliusz. Poczuj się jak to jest kąpać się tam gdzie imperator'
+                title: 'Plac zabaw dla dzieci',
+                src: 'assets/images/atrakcje/plac-zabaw.jpg',
+                description: 'Posiadamy mały plac zabaw dla najmłodszych ze zjeżdżalnią i piaskownicą! Idealne dla dzieci. '
             },
             {
-                title: 'transport',
-                src: 'https://picsum.photos/500?seed=55',
-                description: 'We wszystkie miejsca dojedzecie Państwo hulajnogami, udostępnionymi za darmo w naszej bazie'
+                title: 'Taras',
+                src: 'assets/images/atrakcje/taras.jpg',
+                description: 'Osłonięty taras to idealne miejsce na wieczorny odpoczynek i integracje!'
+            },
+            {
+                title: 'Jacuzzi',
+                src: 'assets/images/atrakcje/jacuzzi.jpg',
+                description: 'Dla naszych gości mamy przygotowane jacuzzi! Zapraszamy do korzystania!'
+            },
+            {
+                title: 'Deptak',
+                src: 'assets/images/atrakcje/gofry.jpg',
+                description: 'Miejscowość Gąski słynie ze swojego deptaka. Znajdują się tutaj sklepy z pamiątkami, restauracje, lodziarnie.'
             },
 
         ];

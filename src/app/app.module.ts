@@ -11,14 +11,6 @@ import { FacilityDescriptionMobileComponent } from './facilities/components/faci
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './facilities/components/big-image/big-image.component';
-import {
-    getDescription,
-    GetImageLink, GetImageSrc,
-    GetIsSelectedValue,
-    GetIsVisibleValue,
-    GetKeyValue,
-    GetTitlePipe
-} from "./facilities/components/image-slots/pipes";
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './rooms/components/room/room.component';
 import { RoomDetailsComponent } from './rooms/components/room-details/room-details.component';
@@ -43,13 +35,6 @@ import '@angular/common/locales/global/pl';
     FacilityDescriptionMobileComponent,
     FooterComponent,
     BigImageComponent,
-      GetTitlePipe,
-      GetImageLink,
-      GetIsSelectedValue,
-      GetIsVisibleValue,
-      GetKeyValue,
-      getDescription,
-      GetImageSrc,
       RoomsComponent,
       RoomComponent,
       RoomDetailsComponent,
