@@ -35,4 +35,18 @@ export class RoomsService {
             delay(500)
         );
     }
+
+    getRoomByName(roomName: string): Observable<Room> {
+        return of({
+            title: 'Gwiezdny',
+            description: 'Mały, ale przytulny pokój z tematyczną dekoracją kosmiczną.',
+            maximumNumberOfPeopleAllowed: 1,
+            basePricePerNight: 100,
+            pricePerPerson: 0,
+            isPlaceReservable: true,
+            imageLink: ['https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000', 'https://picsum.photos/1000']
+        }).pipe(
+            delay(500)
+        )
+    }
 }

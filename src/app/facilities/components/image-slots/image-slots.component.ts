@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {EnhancedContents} from "../../../contents/pl/facilities-content";
 import {isSelected} from "../../../shared/animations";
 import {Facilitie} from "../../../core/facilitie.model";
 

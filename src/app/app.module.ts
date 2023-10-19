@@ -8,7 +8,7 @@ import { ImageSlotsComponent } from './facilities/components/image-slots/image-s
 import { FacilityDescriptionComponent } from './facilities/components/facility-description/facility-description.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FacilityDescriptionMobileComponent } from './facilities/components/facility-descripton-mobile/facility-description-mobile.component';
-import {NgOptimizedImage, registerLocaleData} from "@angular/common";
+import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './facilities/components/big-image/big-image.component';
 import {
@@ -19,14 +19,6 @@ import {
     GetKeyValue,
     GetTitlePipe
 } from "./facilities/components/image-slots/pipes";
-import { GetSelectedImageLinkPipe } from './facilities/components/big-image/utilities/get-selected-image-link.pipe';
-import { GetLinkForSelectedImagePipe } from './facilities/pipes/get-link-for-selected-image.pipe';
-import { GetSelectedContentPipe } from './facilities/pipes/get-selected-content.pipe';
-import { GetKeysPipe } from './facilities/pipes/get-keys.pipe';
-import { TransformToContentKeyPipe } from './facilities/pipes/transform-to-content-key.pipe';
-import { GetImageLinkPipe } from './facilities/pipes/get-image-link.pipe';
-import { GetSelectedImageTitlePipe } from './facilities/pipes/get-selected-image-title.pipe';
-import { GetVisibleContentPipe } from './facilities/pipes/get-visible-content.pipe';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './rooms/components/room/room.component';
 import { RoomDetailsComponent } from './rooms/components/room-details/room-details.component';
@@ -58,14 +50,6 @@ import '@angular/common/locales/global/pl';
       GetKeyValue,
       getDescription,
       GetImageSrc,
-      GetSelectedImageLinkPipe,
-      GetLinkForSelectedImagePipe,
-      GetSelectedContentPipe,
-      GetKeysPipe,
-      TransformToContentKeyPipe,
-      GetImageLinkPipe,
-      GetSelectedImageTitlePipe,
-      GetVisibleContentPipe,
       RoomsComponent,
       RoomComponent,
       RoomDetailsComponent,

@@ -1,8 +1,6 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {appearFromBottom} from "../shared/animations";
-import {ContentKey} from "../contents/pl/facilities-content";
 import {RoomsService} from "../core/rooms.service";
-import {Observable} from "rxjs";
 import {Room} from "../core/room.model";
 
 
@@ -16,8 +14,7 @@ import {Room} from "../core/room.model";
 export class RoomsComponent implements OnInit {
     public visibilityHolder:  {[key: string] : {isVisible: boolean }} = {};
 
-    public rooms: Room[] =[];
-    //IDK whether it is good practise
+    public rooms: Room[] = [];
 
     private observer = new IntersectionObserver((entrie) => {
         entrie.forEach((entry) => {
@@ -46,12 +43,12 @@ export class RoomsComponent implements OnInit {
     initializeObserver() {
         document.querySelectorAll('app-room').forEach((element) => {
             this.observer.observe(element);
-            this.pushToVisiblityHolder(element.id);
+            this.pushToVisibilityHolder(element.id);
         });
         this.cdr.detectChanges();
     }
 
-    pushToVisiblityHolder(id: string) {
+    pushToVisibilityHolder(id: string) {
         this.visibilityHolder[id] = { isVisible: false };
     }
 
