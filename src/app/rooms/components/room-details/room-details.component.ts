@@ -1,33 +1,48 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {RoomDetails, rooms} from "../../../contents/pl/rooms-contents";
+import {RoomsService} from "../../../core/rooms.service";
+import {Room} from "../../../core/room.model";
 
 @Component({
-  selector: 'app-room-details',
-  templateUrl: './room-details.component.html',
-  styleUrls: ['./room-details.component.scss']
+    selector: 'app-room-details',
+    templateUrl: './room-details.component.html',
+    styleUrls: ['./room-details.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoomDetailsComponent implements OnInit {
     public roomName: string = '';
-    public roomDetails?: RoomDetails ;
-    public selected?: Date;
+    public roomDetails?: Room;
+    public selected?: Date; // It Can be deleted
 
     public selectedDays: Date[] = [];
 
-    constructor(private route: ActivatedRoute, private router: Router) { }
+    constructor(private route: ActivatedRoute, private router: Router, private RoomService: RoomsService, private cdr: ChangeDetectorRef) {
+    }
 
     ngOnInit(): void {
         this.route.params.subscribe(params => {
             this.roomName = params['name'];
+            this.fetchRoomDatails();
+        });
 
-            if(!rooms.has(this.roomName))
-            {
-                this.router.navigate(['']);
-                return;
+
+    }
+
+    fetchRoomDatails() {
+        this.RoomService.getRoomByName(this.roomName).subscribe({
+            next: res => {
+                this.roomDetails = res;
+                this.cdr.detectChanges();
+            },
+            error: err => {
+                console.error(err);
+                this.redirectToMainPage()
             }
-
-            this.roomDetails = rooms.get(this.roomName);
-            // czyli tutaj chce wyciagnac value od keya, czyli wysatrczy zrobic rooms.get
         });
     }
+
+    redirectToMainPage() {
+        this.router.navigateByUrl('');
+    }
+
 }

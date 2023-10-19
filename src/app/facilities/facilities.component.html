@@ -1,20 +1,28 @@
-<h2 class="text-center">Co ciekawego u nas ?</h2>
+<ng-container *ngIf="facilities">
+    <h2 class="text-center">Co ciekawego u nas ?</h2>
 
-<section class="d-none d-md-block">
-    <div class="d-flex justify-content-center ">
-        <app-facility-description class="" [content]="contentsEnhanced | getSelectedContent" ></app-facility-description>
-        <app-big-image class="" (changeContentEvent)="setIsSelected($event)" [images]="contentsEnhanced"></app-big-image>
-    </div>
-</section>
+    <section class="d-none d-md-block">
+        <div class="d-flex justify-content-center ">
+            <ng-container *ngFor="let facilitie of facilities">
+                <app-facility-description
+                    *ngIf="facilitie.title === selected"
+                    class=""
+                    [content]="{title: facilitie.title, description: facilitie.description}">
+                </app-facility-description>
+            </ng-container>
 
-<section class="d-md-none d-flex flex-column g-0 justify-content-center">
-    <ng-container *ngIf="contentsEnhanced as contents">
-        <app-facility-descripton-mobile *ngFor="let key of contents | getKeys" [@appearFromBottom]="contents[key | transformToContentKey].isVisible"
-                                        [isVisible]="contents[key | transformToContentKey].isVisible"
-                                        [link]="contents[key | transformToContentKey].src"
-                                        [title]="contents[key | transformToContentKey].title"
-                                        [description]="contents[key | transformToContentKey].description"
-                                        id="{{key}}">
+            <app-big-image class="" (changeSelectedEvent)="setSelected($event)" [facilities]="facilities" [selected]="selected"></app-big-image>
+        </div>
+    </section>
+
+    <section class="d-md-none d-flex flex-column g-0 justify-content-center">
+        <app-facility-descripton-mobile *ngFor="let facilitie of facilities"
+                                        [@appearFromBottom]="visibilityHolder[facilitie.title]?.isVisible"
+                                        [link]="facilitie.src"
+                                        [title]="facilitie.title"
+                                        [description]="facilitie.description"
+                                        id="{{facilitie.title}}">
         </app-facility-descripton-mobile>
-    </ng-container>
-</section>
+    </section>
+
+</ng-container>

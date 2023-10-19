@@ -1,21 +1,24 @@
-<h2 class="text-center">{{roomName}}</h2>
+<ng-container *ngIf="roomDetails">
+    <h2 class="text-center">{{roomName}}</h2>
 
-<p class="room-description text-center">{{roomDetails?.description}}</p>
+    <p class="room-description text-center">{{roomDetails?.description}}</p>
 
-<h3 class="text-center">Wnętrze:</h3>
+    <h3 class="text-center">Wnętrze:</h3>
 
-<ng-container *ngFor="let link of roomDetails?.imageLink">
-    <div class="d-flex justify-content-center">
-        <img ngSrc="{{link}}" height="500" width="800" class="rounded-4">
-    </div>
+    <ng-container *ngFor="let link of roomDetails?.imageLink">
+        <div class="d-flex justify-content-center">
+            <img ngSrc="{{link}}" height="500" width="800" class="rounded-4">
+        </div>
+    </ng-container>
+
+    <h4 class="text-center mt-5">Cennik:</h4>
+
+    <app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
+
+    <app-calendar (selected)="selectedDays = $event"></app-calendar>
+
+    <button class="mx-auto d-block">zarezerwuj -></button>
+
+    <app-reservation-info></app-reservation-info>
+
 </ng-container>
-
-<h4 class="text-center mt-5">Cennik:</h4>
-
-<app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
-
-<app-calendar (selected)="selectedDays = $event"></app-calendar>
-
-<button class="mx-auto d-block">zarezerwuj -></button>
-
-<app-reservation-info></app-reservation-info>

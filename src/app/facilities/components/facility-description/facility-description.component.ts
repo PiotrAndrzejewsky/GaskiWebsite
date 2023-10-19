@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {slideFromLeft} from "../../../shared/animations";
 
 @Component({
@@ -11,7 +11,7 @@ import {slideFromLeft} from "../../../shared/animations";
 export class FacilityDescriptionComponent {
 
     @Input() content?: {title: string, description: string};
-    constructor(private cd: ChangeDetectorRef) {
+    constructor() {
     }
 
 
