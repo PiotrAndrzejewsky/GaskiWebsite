@@ -2,14 +2,19 @@
 section {
     width: 100vw;
     height: 100vh;
+
+    img {
+        object-fit: cover;
+    }
 }
 .text-background {
     background-color: rgba(127, 126, 122, 0.3);
-    width: 30%;
+    width: 70%;
     height: fit-content;
     padding: 20px;
-    right: 10%;
-    bottom: 55%;
+    right: 50%;
+    bottom: 50%;
+    transform: translateX(50%);
 }
 span {
     width: fit-content;
@@ -78,6 +83,14 @@ p {
 
 }
 
+@media (min-width: 900px) {
+    .text-background {
+        right: 50%;
+        bottom: 70vh;
+        width: 30%;
+        transform: translate(50%, 50%);
+    }
+}
 
 @keyframes scrollDown1{
     0%{

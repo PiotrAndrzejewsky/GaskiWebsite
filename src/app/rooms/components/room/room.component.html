@@ -1,24 +1,24 @@
 <article>
     <div class="d-flex flex-column justify-content-center align-items-center ">
+        <h2 class="title mb-2">{{room?.title}}</h2>
+        <p class="description mb-5">{{room?.description}}</p>
 
-            <div class="position-relative img-holder">
+            <div class="position-relative img-holder mb-5">
                 <ng-container *ngFor="let link of room?.imageLink; index as i">
-                    <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="400" width="720" class="rounded-3"
+                    <img priority="high" *ngIf="i === indexToDisplay" ngSrc="{{link}}" height="360" width="540" class="rounded-3"
                          (click)="moveToRoomSite()">
                 </ng-container>
 
-                <span class="button-wrapper position-absolute d-none d-lg-flex">
+                <span class="button-wrapper position-absolute d-none d-sm-flex">
                     <div class="switch-button left-button rounded-start-2 d-flex justify-content-center align-items-center" (click)="previousImage()"><mat-icon>arrow_back_ios</mat-icon></div>
                     <div class="switch-button right-button rounded-end-2 d-flex justify-content-center align-items-center" (click)="nextImage()"><mat-icon>arrow_forward_ios</mat-icon></div>
                 </span>
             </div>
 
-            <div class="info d-flex justify-content-center align-items-center ">
-                <span>
-                    <p class="title">Pokój {{room?.title}}</p>
-                    <p class="description">{{room?.description}}</p>
-                    <p class="price">już od: {{room?.basePricePerNight}}</p>
-                </span>
-            </div>
+
+        <p class="price text-center mb-5">Pokój dostępny od:<br>{{room?.basePricePerNight}} PLN / dzień</p>
+
+       <button mat-raised-button class="details-button " (click)="moveToRoomSite()">Zobacz więcej</button>
+
     </div>
 </article>

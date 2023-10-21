@@ -5,7 +5,17 @@ span {
 app-image-slots {
     right: 50%;
     bottom: -13%;
-    width: 555px;
+    width: 525px;
     padding: 0;
     transform: translateX(50%);
+}
+@media (min-width: 1800px) {
+    img {
+        width: 500px;
+        height: 500px;
+    }
+    app-image-slots {
+        width: 555px;
+    }
+
 }

@@ -36,6 +36,7 @@ export class RoomsComponent implements OnInit {
         this.roomsService.getAvailableRooms().subscribe((rooms) =>
         {
             this.rooms = rooms;
+            this.cdr.detectChanges();
             this.initializeObserver();
         })
     }

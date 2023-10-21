@@ -24,6 +24,7 @@ import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
 import { ReservationInfoComponent } from './reservation-info/reservation-info.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import '@angular/common/locales/global/pl';
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import '@angular/common/locales/global/pl';
         BrowserAnimationsModule,
         NgOptimizedImage,
         MatSidenavModule,
-        MatIconModule
+        MatIconModule,
+        MatButtonModule
 
     ],
     providers: [{provide: LOCALE_ID, useValue: "pl"}],

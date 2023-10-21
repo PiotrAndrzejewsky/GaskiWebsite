@@ -8,4 +8,11 @@ img {
     margin-top:10%;
     margin-bottom: 10%;
 }
+@media (min-width: 568px) {
+    img {
+        width: 568px;
+        height: 568px;
+    }
+
+}
 
