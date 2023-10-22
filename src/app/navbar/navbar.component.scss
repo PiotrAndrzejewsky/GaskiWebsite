@@ -5,7 +5,6 @@
     position: sticky;
     top: 10px;
     border: 1px solid black;
-
 }
 
 .standard-nav {
@@ -26,7 +25,8 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    border: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
     z-index: 2;
     background-color: white;
     display: block;

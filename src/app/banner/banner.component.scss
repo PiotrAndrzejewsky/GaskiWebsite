@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900");
+
 section {
     width: 100vw;
     height: 100vh;
@@ -7,6 +8,7 @@ section {
         object-fit: cover;
     }
 }
+
 .text-background {
     background-color: rgba(127, 126, 122, 0.3);
     width: 70%;
@@ -16,19 +18,21 @@ section {
     bottom: 50%;
     transform: translateX(50%);
 }
+
 span {
     width: fit-content;
 }
+
 h1, p {
     color: white;
     padding: 0;
     margin: 0;
     font-family: cursive;
 }
+
 h1 {
     font-size: 2.5rem;
 }
-
 
 p {
     padding-top: 20px;
@@ -44,43 +48,51 @@ p {
     overflow: hidden;
     cursor: pointer;
     display: flex;
-    flex-flow: column;
     align-items: center;
     justify-content: center;
     margin: 0 auto; //---you can romove this line---
     background-color: transparent;
     z-index: 2;
-    bottom: 20%;
-    left: 45%;
+    bottom: 20vh;
+    left: 45vw;
 
 
     mat-icon {
         color: white;
         animation: scrollDown1 1.5s ease infinite;
+        display: block;
     }
-}
-.hint::before {
-    content: '';
-    width: 130px;
-    height: 1px;
-    display: block;
-    position: absolute;
-    bottom: 21.75%;
-    left: 48.5%;
-    background-color: white;
-    cursor: pointer;
+
 
 }
-.hint::after {
-    content: 'PRZEWIŃ';
-    color: white;
-    display: block;
-    position: absolute;
-    bottom: 20.85%;
-    left: 57.5%;
+
+.arrow {
+    border-top: 1px solid white;
+    cursor: pointer;
+    z-index: 3;
+    position: relative;
+    width: 8vw;
+    transform: translateY(50%);
+    margin-left: 1vw;
+
+}
+
+.text {
     font-family: cursive;
     cursor: pointer;
+    color: white;
+    z-index: 3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1vw;
+}
 
+.hint {
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 @media (min-width: 900px) {
