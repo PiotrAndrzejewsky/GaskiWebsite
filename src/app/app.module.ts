@@ -25,6 +25,7 @@ import { ReservationInfoComponent } from './reservation-info/reservation-info.co
 import { CalendarComponent } from './calendar/calendar.component';
 import '@angular/common/locales/global/pl';
 import {MatButtonModule} from "@angular/material/button";
+import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MatButtonModule} from "@angular/material/button";
       BannerComponent,
       WelcomeTextComponent,
       ReservationInfoComponent,
-      CalendarComponent
+      CalendarComponent,
+      ReservationSummaryComponent
   ],
     imports: [
         BrowserModule,

@@ -21,7 +21,7 @@ export class ImageSlotsComponent {
             if (!elementReference?.matches(":hover"))
                 return;
             this.mouseEnterEvent.emit(title);
-        }, 80);
+        }, 50);
     }
 
 }

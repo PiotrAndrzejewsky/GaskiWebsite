@@ -17,7 +17,7 @@
 
     <app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-    <button class="mx-auto d-block">zarezerwuj -></button>
+    <button class="mx-auto d-block" (click)="goToSummary()">zarezerwuj -></button>
 
     <app-reservation-info></app-reservation-info>
 

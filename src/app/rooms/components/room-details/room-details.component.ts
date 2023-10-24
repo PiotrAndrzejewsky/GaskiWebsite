@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@an
 import {ActivatedRoute, Router} from '@angular/router';
 import {RoomsService} from "../../../core/rooms.service";
 import {Room} from "../../../core/room.model";
+import {ReservationService} from "../../../core/reservation.service";
 
 @Component({
     selector: 'app-room-details',
@@ -16,7 +17,11 @@ export class RoomDetailsComponent implements OnInit {
 
     public selectedDays: Date[] = [];
 
-    constructor(private route: ActivatedRoute, private router: Router, private RoomService: RoomsService, private cdr: ChangeDetectorRef) {
+    constructor(private route: ActivatedRoute,
+                private router: Router,
+                private RoomService: RoomsService,
+                private cdr: ChangeDetectorRef,
+                private reservationService: ReservationService) {
     }
 
     ngOnInit(): void {
@@ -43,6 +48,18 @@ export class RoomDetailsComponent implements OnInit {
 
     redirectToMainPage() {
         this.router.navigateByUrl('');
+    }
+
+    goToSummary() {
+
+        this.reservationService.setReservedDays({
+            days: this.selectedDays,
+            roomName: this.roomName
+        });
+
+        this.router.navigate(['summary']);
+        // musi nawigowac do summary
+
     }
 
 }
