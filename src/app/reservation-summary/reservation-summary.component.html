@@ -1,1 +1,31 @@
-<p>reservation-summary works!</p>
+<h3 class="mx-auto my-4">Podsumowanie:</h3>
+
+<div class="summary-container">
+    <div class="summary-item">
+        <span class="label">Zarezerwowane dni:</span>
+        <span
+            class="value"
+            *ngFor="let day of reservation.days; let last = last">{{day | date: 'dd-MM-YYYY'}}{{ !last ? ", " : '' }}
+        </span>
+    </div>
+    <div class="summary-item">
+        <span class="label">Liczba dni:</span>
+        <span class="value">{{reservation?.days?.length}}</span>
+    </div>
+    <div class="summary-item">
+        <span class="label">Koszt noclegu na dzień:</span>
+<!--        <span class="value">{{  | currency:'PLN':true }}</span>-->
+        <span class="value">{{reservation.perDayCost}}</span>
+    </div>
+    <div class="summary-item">
+        <span class="label">Koszt sprzątania:</span>
+        <span class="value">{{reservation.serviceCost}}</span>
+<!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
+    </div>
+    <div class="summary-item">
+        <span class="label">Razem:</span>
+        <span class="value">{{finalCost}}</span>
+        <!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
+
+    </div>
+</div>

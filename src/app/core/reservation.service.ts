@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {of} from "rxjs";
-import {ReservedDays} from "./reservedDays.model";
+import {Reservation} from "./reservedDays.model";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ReservationService {
 
-    private reservedDays?: ReservedDays;
+    private reservedDays?: Reservation;
 
     constructor() {
     }
@@ -23,11 +23,14 @@ export class ReservationService {
         return of(array);
     }
 
-    setReservedDays(arg: ReservedDays) {
+    setReservedDays(arg: Reservation) {
         this.reservedDays = arg;
     }
 
-    getReservedDays() {
-        return this.reservedDays;
+    getReservedDays(): Reservation {
+        if(this.reservedDays)
+            return this.reservedDays
+        else
+            return {days: [], roomName: '', perDayCost: 0, serviceCost: 0}
     }
 }

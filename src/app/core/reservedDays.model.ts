@@ -1,4 +1,7 @@
-export type ReservedDays = {
+export type Reservation = {
     days: Date[],
-    roomName: string;
+    roomName: string,
+    perDayCost: number,
+    serviceCost: number,
+
 }

@@ -54,12 +54,13 @@ export class RoomDetailsComponent implements OnInit {
 
         this.reservationService.setReservedDays({
             days: this.selectedDays,
-            roomName: this.roomName
+            roomName: this.roomName,
+            perDayCost: this.roomDetails!.basePricePerNight,
+            serviceCost: this.roomDetails!.pricePerPerson
+            //TODO change propertie here
         });
 
         this.router.navigate(['summary']);
-        // musi nawigowac do summary
-
     }
 
 }
