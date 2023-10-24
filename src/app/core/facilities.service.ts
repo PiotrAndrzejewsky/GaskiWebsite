@@ -48,8 +48,6 @@ export class FacilitiesService {
             },
 
         ];
-        return of(array).pipe(
-            delay(1000)
-        )
+        return of(array).pipe()
     }
 }

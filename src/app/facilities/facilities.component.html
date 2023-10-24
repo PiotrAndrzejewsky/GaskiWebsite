@@ -1,7 +1,6 @@
-<ng-container *ngIf="facilities">
-    <h2 class="text-center">Co ciekawego u nas ?</h2>
+ <h2 class="text-center my-5 py-5">Co ciekawego u nas ?</h2>
 
-    <section class="d-none d-md-block">
+    <section class="d-none d-md-block my-5 py-5">
         <div class="d-flex justify-content-center ">
             <ng-container *ngFor="let facilitie of facilities">
                 <app-facility-description
@@ -24,5 +23,3 @@
                                         id="{{facilitie.title}}">
         </app-facility-descripton-mobile>
     </section>
-
-</ng-container>

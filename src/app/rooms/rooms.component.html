@@ -1,5 +1,5 @@
-<section *ngIf="rooms">
-    <h1 class="text-center">Nasze pokoje</h1>
+<section class="my-5 pt-5">
+    <h1 class="text-center mb-5 pb-5">Dostępne pokoje:</h1>
     <app-room *ngFor="let room of rooms" class="" [@appearFromBottom]="visibilityHolder[room.title]?.isVisible"
                 [room]="
                 {
