@@ -46,7 +46,6 @@ export class CalendarComponent implements OnInit {
     setMonth(inc: number) {
         const [year, month] = [this.date.getFullYear(), this.date.getMonth()];
         this.date = new Date(year, month + inc, 1);
-        // tutaj bedzie trzeba po zmienieniu daty na nowo pobrac resered days, i na nowo robic aserje.
 
     }
 
@@ -95,10 +94,11 @@ export class CalendarComponent implements OnInit {
         if (state === 'selected' || state === 'selectedHover') {
             if (index || index === 0) {
                 this.calendarDates![index].state = this.isSameMonth(clickedDate) ? 'freeHover' : 'freeOutOfMonthHover';
-                this.selectedDays?.filter(selectedDay => selectedDay !== clickedDate);
+                this.selectedDays = this.selectedDays.filter(date => !this.isSameDate(date, clickedDate));
             }
         }
     }
+
 
     private getCalendarDays(date = new Date) {
         const calendarStartTime =
@@ -156,7 +156,14 @@ export class CalendarComponent implements OnInit {
         this.getReservedDays();
         this.setCalendarDates();
         //TODO trigger cd
-        console.log(this.selectedDays)
+    }
+
+    isSameDate(date1: Date, date2: Date): boolean {
+        return (
+            date1.getFullYear() === date2.getFullYear() &&
+            date1.getMonth() === date2.getMonth() &&
+            date1.getDate() === date2.getDate()
+        );
     }
 }
 
