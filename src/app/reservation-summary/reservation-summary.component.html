@@ -1,5 +1,7 @@
 <h3 class="mx-auto my-4">Podsumowanie:</h3>
-
+<p class="w-50 mx-auto">Dziękujemy za wybranie odpowiadającyh terminów. Prosimy Cię teraz o podanie danych kontaktowych w celu skontaktowania się z Tobą.<br>
+    Jeśli potiwerdzisz formularz, skontaktujemy się z Tobą.<br> Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki na nasze konto bankowe w wysokości 100zł.
+</p>
 <div class="summary-container">
     <div class="summary-item">
         <span class="label">Zarezerwowane dni:</span>
@@ -29,3 +31,16 @@
 
     </div>
 </div>
+
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class=" mx-auto my-5 d-flex flex-column justify-content-center align-content-center w-25">
+    <mat-form-field>
+        <input matInput formControlName="firstName" placeholder="First Name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="telephone" placeholder="Telephone Number">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput formControlName="email" placeholder="Email">
+    </mat-form-field>
+    <button mat-raised-button color="warn" type="submit">Submit</button>
+</form>

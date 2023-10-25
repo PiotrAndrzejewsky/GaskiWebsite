@@ -26,6 +26,8 @@ import { CalendarComponent } from './calendar/calendar.component';
 import '@angular/common/locales/global/pl';
 import {MatButtonModule} from "@angular/material/button";
 import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { ReservationSummaryComponent } from './reservation-summary/reservation-s
         NgOptimizedImage,
         MatSidenavModule,
         MatIconModule,
-        MatButtonModule
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule
 
     ],
     providers: [{provide: LOCALE_ID, useValue: "pl"}],
