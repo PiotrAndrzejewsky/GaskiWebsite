@@ -7,7 +7,7 @@
 
     <ng-container *ngFor="let link of roomDetails?.imageLink">
         <div class="d-flex justify-content-center">
-            <img ngSrc="{{link}}" height="500" width="800" class="rounded-4">
+            <img ngSrc="{{link}}" height="400" width="600" class="rounded-4">
         </div>
     </ng-container>
 
@@ -17,7 +17,7 @@
 
     <app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-    <button class="mx-auto d-block" (click)="goToSummary()">zarezerwuj -></button>
+    <button class="mx-auto d-block" (click)="goToSummary()" mat-raised-button color="warn" >zarezerwuj -></button>
 
     <p class="info mx-auto w-50">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
         Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>

@@ -1,8 +1,8 @@
 <article class="m-auto">
     <div class="mx-auto month-wrapper d-flex flex-row">
-        <button (click)="changeMonth(-1)" class="">&lt;</button>
+        <button (click)="changeMonth(-1)" class="" mat-raised-button>&lt;</button>
         <span class="text-center">{{date | date: 'LLLL YYYY' }}</span>
-        <button (click)="changeMonth(1)">&gt;</button>
+        <button (click)="changeMonth(1)" mat-raised-button>&gt;</button>
     </div>
 
     <div class="calendar justify-content-center">
