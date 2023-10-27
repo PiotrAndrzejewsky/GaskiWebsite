@@ -28,6 +28,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ThankYouComponent } from './thank-you/thank-you.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {ReactiveFormsModule} from "@angular/forms";
       WelcomeTextComponent,
       ReservationInfoComponent,
       CalendarComponent,
-      ReservationSummaryComponent
+      ReservationSummaryComponent,
+      ThankYouComponent
   ],
     imports: [
         BrowserModule,

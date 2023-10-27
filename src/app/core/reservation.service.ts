@@ -33,4 +33,14 @@ export class ReservationService {
         else
             return {days: [], roomName: '', perDayCost: 0, serviceCost: 0}
     }
+
+    getOverallCost() {
+        if(this.reservedDays)
+            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * this.reservedDays?.days.length;
+        else return 0;
+    }
+
+    pushReservation() {
+        // push reservation to the server.
+    }
 }

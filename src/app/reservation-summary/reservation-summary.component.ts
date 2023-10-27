@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {ReservationService} from "../core/reservation.service";
 import {Reservation} from "../core/reservedDays.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-reservation-summary',
@@ -9,6 +10,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./reservation-summary.component.scss']
 })
 export class ReservationSummaryComponent {
+
     public contactForm: FormGroup = this.fb.group({
         firstName: ['', Validators.required],
         telephone: ['', Validators.required],
@@ -20,7 +22,7 @@ export class ReservationSummaryComponent {
 
     public finalCost: number = 0 ;
 
-    constructor(private reservedDays: ReservationService, private fb: FormBuilder) {
+    constructor(private reservedDays: ReservationService, private fb: FormBuilder, private router: Router) {
         this.reservation = reservedDays.getReservedDays();
         this.setFinalCost();
     }
@@ -30,16 +32,20 @@ export class ReservationSummaryComponent {
     }
 
     setFinalCost() {
-        this.finalCost = this.reservation.serviceCost + this.reservation.perDayCost * this.reservation.days.length;
+        this.finalCost = this.reservedDays.getOverallCost();
     }
 
 
 
     onSubmit() {
-        if (this.contactForm?.valid) {
-            console.log('Form Data:', this.contactForm.value);
-            // Add further processing logic here (e.g., sending data to server)
+        if (this.contactForm?.invalid) {
+            return;
         }
+        // tutaj router wbija na nowa strone.
+        // tutaj wysylac requesta na strone.
+        this.reservedDays.pushReservation();
+        this.router.navigate(['thanks']);
+
     }
 
 

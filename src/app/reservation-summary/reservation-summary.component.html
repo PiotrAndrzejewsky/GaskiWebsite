@@ -1,8 +1,9 @@
-<h3 class="mx-auto my-4">Podsumowanie:</h3>
-<p class="w-50 mx-auto">Dziękujemy za wybranie odpowiadającyh terminów. Prosimy Cię teraz o podanie danych kontaktowych w celu skontaktowania się z Tobą.<br>
+<h3 class="mx-auto my-5 pt-5">Podsumowanie:</h3>
+<p class="w-50 mx-auto my-5 text-center">Dziękujemy za wybranie odpowiadającyh terminów. Prosimy Cię teraz o podanie danych kontaktowych w celu skontaktowania się z Tobą.<br>
     Jeśli potiwerdzisz formularz, skontaktujemy się z Tobą.<br> Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki na nasze konto bankowe w wysokości 100zł.
 </p>
-<div class="summary-container">
+
+<div class="summary-container d-flex justify-content-center flex-column align-items-center my-5 py-5">
     <div class="summary-item">
         <span class="label">Zarezerwowane dni:</span>
         <span
@@ -32,15 +33,20 @@
     </div>
 </div>
 
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class=" mx-auto my-5 d-flex flex-column justify-content-center align-content-center w-25">
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class=" mx-auto my-5  d-flex flex-column justify-content-center align-content-center ">
+
     <mat-form-field>
-        <input matInput formControlName="firstName" placeholder="First Name">
+        <input matInput formControlName="firstName" placeholder="Imie">
+        <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput formControlName="telephone" placeholder="Telephone Number">
+        <input matInput formControlName="telephone" placeholder="Telefon">
+        <mat-error *ngIf="contactForm.get('telephone')?.invalid">To pole nie może być puste</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput formControlName="email" placeholder="Email">
+        <input matInput formControlName="email" placeholder="E-mail">
+        <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Podaj prawidłowy e-mail</mat-error>
+        <mat-error *ngIf="contactForm.get('email')?.hasError('required')">To pole nie może być puste</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="warn" type="submit">Submit</button>
+    <button mat-raised-button color="warn" type="submit" [disabled] = "contactForm.invalid" >Submit</button>
 </form>
