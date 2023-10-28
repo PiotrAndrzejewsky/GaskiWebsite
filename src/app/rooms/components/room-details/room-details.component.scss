@@ -1,3 +1,4 @@
+@import "src/assets/variables.scss";
 h2 {
     margin-top: 5%;
 }
@@ -6,19 +7,21 @@ h2 {
     margin-bottom: 6%;
 }
 
-
-.image-wrapper {
-    display: flex;
-    justify-content: center;
-}
 img {
     margin: 2%;
-
 }
+
 .book-info {
     width: fit-content;
 }
-.info-wrapper {
-    display: flex;
-    justify-content: center;
+
+button {
+    width: fit-content;
+    background-color: $primary-color;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info {
+    width: 40%;
 }

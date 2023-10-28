@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { BigImageComponent } from './big-image.component';
+import {NO_ERRORS_SCHEMA} from "@angular/core";
 
 describe('BigImageComponent', () => {
   let component: BigImageComponent;
@@ -8,7 +8,10 @@ describe('BigImageComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [BigImageComponent]
+        declarations: [
+            BigImageComponent,
+        ],
+        schemas: [NO_ERRORS_SCHEMA],
     });
     fixture = TestBed.createComponent(BigImageComponent);
     component = fixture.componentInstance;

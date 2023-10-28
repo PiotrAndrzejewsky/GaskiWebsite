@@ -1,3 +1,10 @@
-h2 {
-    margin-bottom: 10vh;
+
+app-facility-description {
+    width: 30%;
+}
+
+@media (min-width: 1600px) {
+    app-facility-description {
+        width: 20%;
+    }
 }

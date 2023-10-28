@@ -1,76 +1,94 @@
+@import "../../../../assets/variables";
+
 article {
     margin-bottom: 6%;
 }
-.room-wrapper {
-display: flex;
-}
 
-.image-wrapper {
-    width: 100%;
-    height: 50rem;
-}
 
-.info {
-    background-color: white;
-    width: 500px;
-    height: 230px;
-    bottom: 0;
-    left: 0;
+span {
+    width: fit-content;
 }
 
 .title {
-    left: 30px;
-    bottom: 140px;
-    font-size: 32px;
-    font-family: "Malgun Gothic";
+    width: fit-content;
 }
 
 .description {
-    left: 30px;
-    bottom: 120px;
+    width: fit-content;
     color: grey;
 }
 
 .price {
-    left: 50px;
-    bottom: 40px;
-    font-size: 26px;
-    font-family: "Malgun Gothic";
+    width: fit-content;
+    font-size: 1.2rem;
+}
+
+.details-button {
+    background-color: darkorange !important;
 }
 
 .button-wrapper {
     right: 10%;
     bottom: 10%;
+
+    mat-icon {
+        color: white;
+    }
+
+    .switch-button {
+        width: 60px;
+        height: 34px;
+        background-color: transparent;
+        border: 2px solid white;
+        filter: brightness(0.85);
+    }
+
+    .left-button {
+        right: 10%;
+        bottom: 10%;
+    }
+
+    .right-button {
+        right: 3.5%;
+        bottom: 10%;
+    }
+
+    .left-button:hover, .right-button:hover {
+        filter: brightness(1);
+    }
 }
-.left-button {
-    width: 100px;
-    height: 30px;
-    background-color: grey;
-    border: 1px solid white;
-    right: 10%;
-    bottom: 10%;
-}
-.right-button {
-    width: 100px;
-    height: 30px;
-    background-color: grey;
-    border: 1px solid white;
-    right: 3.5%;
-    bottom: 10%;
-}
+
+
 img {
-width: 100%
+    cursor: pointer;
 }
 
-@media (min-width: 1024px) {
-    .image-wrapper {
-        width: 75%;
+.img-holder {
+    width: fit-content;
+}
+
+
+@media (max-width: 576px) {
+    img {
+        width: 100%;
+        height: unset;
     }
 }
 
-@media (min-width: 1960px) {
-    .image-wrapper {
-        width: 55%;
+
+@media (min-width: 2000px) {
+    img {
+        width: 801px;
+        height: 534px;
     }
+    .button-wrapper {
+        .switch-button {
+            width: 98px;
+            height: 60px;
+        }
+    }
+
+
 }
+
 

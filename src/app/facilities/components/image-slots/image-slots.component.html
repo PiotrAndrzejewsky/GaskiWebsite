@@ -1,9 +1,9 @@
 <section class="flex flex-row">
-    <ng-container *ngIf="images">
-        <div *ngFor="let key of images | getKeys" class="image-wrapper position-relative"
-             [@isSelected]="images[key | transformToContentKey].isSelected">
-            <img (mouseenter)="emitNewSelection(key, img)" ngSrc="{{images[key | transformToContentKey].src}}" fill
-                 class="" alt="{{images[key | transformToContentKey].title}}" #img>
+    <ng-container *ngIf="facilities">
+        <div *ngFor="let facilitie of facilities" class="image-wrapper position-relative"
+             [@isSelected]="facilitie.title === selected">
+            <img (mouseenter)="emitNewSelection(facilitie.title, img)" ngSrc="{{facilitie.src}}" fill
+                 class="" alt="{{facilitie.title}}" #img>
         </div>
     </ng-container>
 

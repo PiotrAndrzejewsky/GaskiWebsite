@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {EnhancedContents} from "../../../contents/pl/facilities-content";
 import {isSelected} from "../../../shared/animations";
+import {Facilitie} from "../../../core/facilitie.model";
 
 @Component({
     selector: 'app-image-slots',
@@ -12,16 +12,16 @@ import {isSelected} from "../../../shared/animations";
 })
 export class ImageSlotsComponent {
     @Output() mouseEnterEvent: EventEmitter<string> = new EventEmitter<string>();
-    @Input() images?: EnhancedContents; //TODO make proper type here
+    @Input() facilities?: Facilitie[];
+    @Input() selected?: string;
 
-    emitNewSelection(key: string, elementReference: HTMLImageElement): void {
+    emitNewSelection(title: string, elementReference: HTMLImageElement): void {
 
         setTimeout(() => {
             if (!elementReference?.matches(":hover"))
                 return;
-            this.mouseEnterEvent.emit(key);
-            console.log('emit@')
-        }, 80);
+            this.mouseEnterEvent.emit(title);
+        }, 50);
     }
 
 }

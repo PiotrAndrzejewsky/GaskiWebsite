@@ -1,7 +1,10 @@
-<ng-container>
-    <span class="w-100 position-relative  justify-content-center">
-        <img src="{{images | getSelectedImageLink}}" alt="{{images | getSelectedImageTitle}}" class="rounded">
+<ng-container *ngFor="let facilitie of facilities">
+    <span *ngIf="facilitie.title === selected" class="w-100 position-relative  justify-content-center">
+            <img  ngSrc="{{facilitie.src}}" alt="{{facilitie.title}}" class="rounded" width="450" height="450">
+<!--        tuta trzeba wlasnie zroibc teog ngFor -->
         <app-image-slots class="position-absolute" (mouseEnterEvent)="changeSelection($event)"
-                         [images]="images"></app-image-slots>
+                         [facilities]="facilities"
+                         [selected]="selected">
+        </app-image-slots>
     </span>
 </ng-container>

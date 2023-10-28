@@ -1,26 +1,30 @@
-<h2 class="text-center">{{roomName}}</h2>
+<ng-container>
+    <h2 class="text-center">{{roomName}}</h2>
 
-<p class="room-description text-center">{{roomDetails?.description}}</p>
+    <p class="room-description text-center">{{roomDetails?.description}}</p>
 
-<h3 class="text-center">Wnętrze:</h3>
+    <h3 class="text-center">Wnętrze:</h3>
 
-<ng-container *ngFor="let link of roomDetails?.imageLink">
-    <div class="image-wrapper">
-        <img ngSrc="{{link}}" height="500" width="800" class="rounded-4">
-    </div>
-</ng-container>
+    <ng-container *ngFor="let link of roomDetails?.imageLink">
+        <div class="d-flex justify-content-center">
+            <img ngSrc="{{link}}" height="400" width="600" class="rounded-4">
+        </div>
+    </ng-container>
 
-<h4 class="text-center mt-5">Cennik:</h4>
-<app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
-<div class="text-center mb-5">MIJESCE NA KALKULATOR</div>
+    <h4 class="text-center mt-5">Cennik:</h4>
 
-<h4 class="text-center">Jak zarezerwować ?</h4>
+    <app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
 
-<!-- her is the example why I cannot use utility classes-->
-<div class="info-wrapper">
-    <p class="book-info">Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br>
-        afssdaddasasd
+    <app-calendar (selected)="selectedDays = $event"></app-calendar>
+
+    <button class="mx-auto d-block" (click)="goToSummary()" mat-raised-button color="warn" >zarezerwuj -></button>
+
+    <p class="info mx-auto w-50">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
+        Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>
+        Zostaniesz poproszony o podanie swoich danych kontaktowych.
+        Jeśli zatwierdzisz formularz, twoja rezerwacja będzie dla nas widoczna. <br>
+        Tak szybko jak będzie to możliwie skontaktujemy się z Tobą. Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
+        wysokości 100zł na nasze konto bankowe.
     </p>
-</div>
+
+</ng-container>

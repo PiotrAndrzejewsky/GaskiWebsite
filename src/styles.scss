@@ -16,12 +16,22 @@ html, body {
 
 body {
     margin: 0;
-
-
 }
 
-app-facilities, app-rooms {
+app-facilities, app-rooms, app-welcome-text {
     scroll-margin-top: 150px;
 }
 
+app-room {
+    display: block;
+}
+
+app-banner {
+    position: relative;
+}
+
+.container-fluid {
+    padding: 0 !important;
+    --bs-gutter-x: 0 !important;
+}
 
