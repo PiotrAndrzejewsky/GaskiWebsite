@@ -1,7 +1,8 @@
 <section class="my-5 pt-5">
     <h1 class="text-center mb-5 pb-5">Dostępne pokoje:</h1>
-    <app-room *ngFor="let room of rooms" class="" [@appearFromBottom]="visibilityHolder[room.title]?.isVisible"
-                [room]="
+    <ng-container *ngFor="let room of rooms; let last = last">
+        <app-room  class="py-5" [@appearFromBottom]="visibilityHolder[room.title]?.isVisible"
+                  [room]="
                 {
                 title: room.title,
                 description: room.description,
@@ -12,6 +13,12 @@
                 imageLink: room.imageLink
                 }"
 
-                id="{{room.title}}">
-    </app-room>
+                  id="{{room.title}}">
+        </app-room>
+
+        <div *ngIf="!last" class="room-separator w-25 rounded-start-pill rounded-end-pill mx-auto my-5 "></div>
+
+    </ng-container>
+
+
 </section>

@@ -17,13 +17,14 @@
 
     <app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-    <button class="mx-auto d-block" (click)="goToSummary()" mat-raised-button color="warn" >zarezerwuj -></button>
+    <button class="mx-auto d-block reservationButton" (click)="goToSummary()" mat-raised-button color="warn" >Zarezerwuj</button>
 
-    <p class="info mx-auto w-50">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
+    <p class="info mx-auto w-50 text-center">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
         Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>
         Zostaniesz poproszony o podanie swoich danych kontaktowych.
         Jeśli zatwierdzisz formularz, twoja rezerwacja będzie dla nas widoczna. <br>
-        Tak szybko jak będzie to możliwie skontaktujemy się z Tobą. Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
+        Tak szybko jak będzie to możliwie skontaktujemy się z Tobą.<br>
+        Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
         wysokości 100zł na nasze konto bankowe.
     </p>
 
