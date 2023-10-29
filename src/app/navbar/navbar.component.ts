@@ -20,9 +20,8 @@ export class NavbarComponent {
     jumpToElement(elementName: string) {
 
         this.router.navigate(['']).then(() => {
-            setTimeout(() => {this.scrollToElement(elementName)}, 50)
+            setTimeout(() => {this.scrollToElement(elementName)}, 0)
         })
-
 
         if (this.drawer)
             this.toggleDrawer()

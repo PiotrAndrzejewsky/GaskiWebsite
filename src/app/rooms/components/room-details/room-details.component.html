@@ -1,32 +1,32 @@
-<ng-container>
-    <h2 class="text-center">{{roomName}}</h2>
+<h2 class="text-center">{{roomName}}</h2>
 
-    <p class="room-description text-center">{{roomDetails?.description}}</p>
+<p class="room-description text-center">{{roomDetails?.description}}</p>
 
-    <h3 class="text-center">Wnętrze:</h3>
-    <article class="d-xxl-flex flex-xxl-wrap w-50 mx-auto">
-        <ng-container *ngFor="let link of roomDetails?.imageLink">
-            <div class="d-flex justify-content-center">
-                <img ngSrc="{{link}}" height="400" width="600" class="rounded-4 m-xxl-3">
-            </div>
-        </ng-container>
-    </article>
+<h3 class="text-center">Wnętrze:</h3>
+<article class="d-xxl-flex flex-xxl-wrap w-50 mx-auto">
+    <ng-container *ngFor="let link of roomDetails?.imageLink">
+        <div class="d-flex justify-content-center">
+            <img class="rounded-4 m-xxl-3" height="400" ngSrc="{{link}}" width="600">
+        </div>
+    </ng-container>
+</article>
 
-    <h4 class="text-center mt-5">Cennik:</h4>
+<h4 class="text-center mt-5 pt-5">Cennik:</h4>
 
-    <app-prices [pricePerDay]="roomDetails?.basePricePerNight" [priceForService]="100"></app-prices>
+<app-prices [priceForService]="100" [pricePerDay]="roomDetails?.basePricePerNight"></app-prices>
 
-    <app-calendar (selected)="selectedDays = $event"></app-calendar>
+<h3 class="text-center py-3 mt-5">Jak rezerwować ?</h3>
 
-    <button class="mx-auto d-block reservationButton" (click)="goToSummary()" mat-raised-button color="warn" >Zarezerwuj</button>
+<p class="info mx-auto w-50 text-center pt-2 mb-5 pb-5">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób
+    sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
+    Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>
+    Zostaniesz poproszony o podanie swoich danych kontaktowych.
+    Jeśli zatwierdzisz formularz, twoja rezerwacja będzie dla nas widoczna. <br>
+    Tak szybko jak będzie to możliwie skontaktujemy się z Tobą.<br>
+    Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
+    wysokości 100zł na nasze konto bankowe.
+</p>
 
-    <p class="info mx-auto w-50 text-center">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
-        Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>
-        Zostaniesz poproszony o podanie swoich danych kontaktowych.
-        Jeśli zatwierdzisz formularz, twoja rezerwacja będzie dla nas widoczna. <br>
-        Tak szybko jak będzie to możliwie skontaktujemy się z Tobą.<br>
-        Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
-        wysokości 100zł na nasze konto bankowe.
-    </p>
+<app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-</ng-container>
+<button (click)="goToSummary()" class="mx-auto d-block reservationButton my-5" color="warn" mat-raised-button>Zarezerwuj</button>

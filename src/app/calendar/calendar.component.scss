@@ -3,11 +3,12 @@ article {
 }
 .month-wrapper {
     width: fit-content;
-    margin-bottom: 1rem;
+    box-sizing: border-box;
 
     span {
-        width: 10rem;
+        width: 15rem;
         display: block;
+        font-size: 1.4rem;
     }
 
     button {
@@ -71,8 +72,11 @@ mat-icon {
     font-size: 1.4rem !important;
     height: 1.4rem !important;
     width: 1.4rem !important;
-    margin: 0 0 0 0px !important;
+    margin: 0 0 0 0 !important;
     color: white !important;
-
+}
+.month {
+    font-size: 1.3rem;
+    //padding: 0 10px 0 10px;
 
 }
