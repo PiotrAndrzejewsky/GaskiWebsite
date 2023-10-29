@@ -15,6 +15,11 @@ export class NavbarComponent {
 
     moveToMainPage() {
         this.router.navigate(['./']);
+        setTimeout(() => {window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'auto',
+        });}, 0)
     }
 
     jumpToElement(elementName: string) {
