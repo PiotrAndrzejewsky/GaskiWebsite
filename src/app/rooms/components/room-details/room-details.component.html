@@ -4,12 +4,13 @@
     <p class="room-description text-center">{{roomDetails?.description}}</p>
 
     <h3 class="text-center">Wnętrze:</h3>
-
-    <ng-container *ngFor="let link of roomDetails?.imageLink">
-        <div class="d-flex justify-content-center">
-            <img ngSrc="{{link}}" height="400" width="600" class="rounded-4">
-        </div>
-    </ng-container>
+    <article class="d-xxl-flex flex-xxl-wrap w-50 mx-auto">
+        <ng-container *ngFor="let link of roomDetails?.imageLink">
+            <div class="d-flex justify-content-center">
+                <img ngSrc="{{link}}" height="400" width="600" class="rounded-4 m-xxl-3">
+            </div>
+        </ng-container>
+    </article>
 
     <h4 class="text-center mt-5">Cennik:</h4>
 
