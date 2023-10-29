@@ -55,17 +55,17 @@ export class CalendarComponent implements OnInit {
 
     getReservationState(date: Date) {
 
-        if (this.selectedDays?.some(selectedDay =>
-            selectedDay.getMonth() === date.getMonth() && selectedDay.getDate() === date.getDate()))
+        if (this.selectedDays?.some(selectedDay => this.isSameDate(selectedDay, date)))
             return 'selected';
 
-        if (this.reservedDays?.some(reservedDay =>
-            reservedDay.getMonth() === date.getMonth() && reservedDay.getDate() === date.getDate())) {
+
+        if (this.reservedDays?.some(reservedDay => this.isSameDate(reservedDay, date))) {
 
             if (this.isSameMonth(date))
                 return 'reserved';
             return 'reservedOutOfMonth';
         }
+
 
         else {
 
