@@ -18,8 +18,12 @@ body {
     margin: 0;
 }
 
-app-facilities, app-rooms, app-welcome-text {
+app-rooms, app-welcome-text {
     scroll-margin-top: 150px;
+}
+
+app-facilities {
+    scroll-margin-top: 80px;
 }
 
 app-room {

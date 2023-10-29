@@ -17,13 +17,20 @@ export class NavbarComponent {
         this.router.navigate(['./']);
     }
 
-    scrollToElement(elementName: string) {
+    jumpToElement(elementName: string) {
 
-        let element = document.querySelector('app-' + elementName);
-        element?.scrollIntoView({behavior: 'smooth', block: 'start'});
+        this.router.navigate(['']).then(() => {
+            setTimeout(() => {this.scrollToElement(elementName)}, 50)
+        })
+
 
         if (this.drawer)
             this.toggleDrawer()
+    }
+
+    scrollToElement(elementName: string) {
+        let element = document.querySelector('app-' + elementName);
+        element?.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
 
     toggleDrawer() {
