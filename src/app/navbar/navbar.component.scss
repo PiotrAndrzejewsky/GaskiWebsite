@@ -5,7 +5,7 @@
     height: 75px;
     position: sticky;
     top: 10px;
-    border: 1px solid black;
+    border-bottom: 1px solid $border-color;
 }
 
 .standard-nav {
@@ -44,7 +44,7 @@ p {
     height: 100vh;
     position: absolute;
     top: -37px;
-    right: -1px;
+    right: 0;
     background-color: transparent;
 }
 
