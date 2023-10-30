@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,22 +11,6 @@ import { FacilityDescriptionMobileComponent } from './facilities/components/faci
 import {NgOptimizedImage} from "@angular/common";
 import { FooterComponent } from './footer/footer.component';
 import { BigImageComponent } from './facilities/components/big-image/big-image.component';
-import {
-    getDescription,
-    GetImageLink, GetImageSrc,
-    GetIsSelectedValue,
-    GetIsVisibleValue,
-    GetKeyValue,
-    GetTitlePipe
-} from "./facilities/components/image-slots/pipes";
-import { GetSelectedImageLinkPipe } from './facilities/components/big-image/utilities/get-selected-image-link.pipe';
-import { GetLinkForSelectedImagePipe } from './facilities/pipes/get-link-for-selected-image.pipe';
-import { GetSelectedContentPipe } from './facilities/pipes/get-selected-content.pipe';
-import { GetKeysPipe } from './facilities/pipes/get-keys.pipe';
-import { TransformToContentKeyPipe } from './facilities/pipes/transform-to-content-key.pipe';
-import { GetImageLinkPipe } from './facilities/pipes/get-image-link.pipe';
-import { GetSelectedImageTitlePipe } from './facilities/pipes/get-selected-image-title.pipe';
-import { GetVisibleContentPipe } from './facilities/pipes/get-visible-content.pipe';
 import { RoomsComponent } from './rooms/rooms.component';
 import { RoomComponent } from './rooms/components/room/room.component';
 import { RoomDetailsComponent } from './rooms/components/room-details/room-details.component';
@@ -36,8 +20,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import { BannerComponent } from './banner/banner.component';
-
-
+import { WelcomeTextComponent } from './welcome-text/welcome-text.component';
+import { ReservationInfoComponent } from './reservation-info/reservation-info.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import '@angular/common/locales/global/pl';
+import {MatButtonModule} from "@angular/material/button";
+import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
+import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { CalendarLegendComponent } from './calendar/components/calendar-legend/calendar-legend.component';
 
 
 @NgModule({
@@ -49,28 +41,19 @@ import { BannerComponent } from './banner/banner.component';
     FacilityDescriptionMobileComponent,
     FooterComponent,
     BigImageComponent,
-      GetTitlePipe,
-      GetImageLink,
-      GetIsSelectedValue,
-      GetIsVisibleValue,
-      GetKeyValue,
-      getDescription,
-      GetImageSrc,
-      GetSelectedImageLinkPipe,
-      GetLinkForSelectedImagePipe,
-      GetSelectedContentPipe,
-      GetKeysPipe,
-      TransformToContentKeyPipe,
-      GetImageLinkPipe,
-      GetSelectedImageTitlePipe,
-      GetVisibleContentPipe,
       RoomsComponent,
       RoomComponent,
       RoomDetailsComponent,
       WelcomePage,
       PricesComponent,
       NavbarComponent,
-      BannerComponent
+      BannerComponent,
+      WelcomeTextComponent,
+      ReservationInfoComponent,
+      CalendarComponent,
+      ReservationSummaryComponent,
+      ThankYouComponent,
+      CalendarLegendComponent
   ],
     imports: [
         BrowserModule,
@@ -79,10 +62,13 @@ import { BannerComponent } from './banner/banner.component';
         BrowserAnimationsModule,
         NgOptimizedImage,
         MatSidenavModule,
-        MatIconModule
+        MatIconModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule
 
     ],
-    providers: [],
+    providers: [{provide: LOCALE_ID, useValue: "pl"}],
   bootstrap: [
     AppComponent,
   ],

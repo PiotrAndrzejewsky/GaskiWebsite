@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {RoomDetails} from "../../../contents/pl/rooms-contents";
 import {Router} from "@angular/router";
+import {Room} from "../../../core/room.model";
+import {ScrollService} from "../../../core/scroll.service";
 
 @Component({
   selector: 'app-room',
@@ -9,21 +10,22 @@ import {Router} from "@angular/router";
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RoomComponent {
-    @Input() content?: RoomDetails;
-    @Input() title?: string;
+    @Input() room?: Room;
     public indexToDisplay: number = 0;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private scrollService: ScrollService) {
     }
 
     moveToRoomSite() {
-        this.router.navigate(['rooms', this.title])
+        this.router.navigate(['rooms', this.room?.title]);
+        this.scrollService.resetScrollPosition();
+
     }
 
     nextImage() {
-        if(!this.content?.imageLink)
+        if(!this.room?.imageLink)
             return
-        if(this.indexToDisplay === this.content.imageLink.length -1) {
+        if(this.indexToDisplay === this.room.imageLink.length -1) {
             this.indexToDisplay = 0;
         }
         else {
@@ -33,10 +35,10 @@ export class RoomComponent {
     }
 
     previousImage() {
-        if(!this.content?.imageLink)
+        if(!this.room?.imageLink)
             return
         if(this.indexToDisplay === 0) {
-            this.indexToDisplay = this.content.imageLink.length -1;
+            this.indexToDisplay = this.room.imageLink.length -1;
         }
         else {
             this.indexToDisplay--;

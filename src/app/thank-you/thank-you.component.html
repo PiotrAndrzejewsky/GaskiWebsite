@@ -1,0 +1,14 @@
+<p class="text-center w-50 mx-auto">
+    Dziękujemy za zarezerowowanie noclegu!<br>
+Tak szybko jak będzie to możliwe skontaktujemy sie z Tobą.<br>
+    Na podanego e-maila wysłaliśmy potwierdzenie rezerwacji. <br>
+    Pamiętaj ze rezerwacja staje się dopiero ważna po wpłaceniu zaliczki wysokości 100zł na nasze konto bankowe.
+</p>
+
+<p  *ngFor="let day of reservation?.days; let last = last" class="text-center"> zarezerwowane dni: {{day | date: 'dd-MM-YYYY'}}{{ !last ? ", " : '' }}</p>
+
+<p class="text-center">łączna kwota do zapłaty: {{overalCost}}</p>
+
+<p class="text-center">kwota zaliczki: 100zł</p>
+
+

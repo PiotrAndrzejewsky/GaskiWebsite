@@ -1,6 +1,24 @@
-<section >
-    <app-room *ngFor="let room of rooms | keyvalue" class=""
-              [content]="room.value"
-              [title]="room.key">
-    </app-room>
+<section class="my-5 pt-5">
+    <h1 class="text-center mb-5 pb-5">Dostępne pokoje:</h1>
+    <ng-container *ngFor="let room of rooms; let last = last">
+        <app-room  class="py-5" [@appearFromBottom]="visibilityHolder[room.title]?.isVisible"
+                  [room]="
+                {
+                title: room.title,
+                description: room.description,
+                maximumNumberOfPeopleAllowed: room.maximumNumberOfPeopleAllowed,
+                basePricePerNight: room.basePricePerNight,
+                pricePerPerson: room.pricePerPerson,
+                isPlaceReservable: room.isPlaceReservable,
+                imageLink: room.imageLink
+                }"
+
+                  id="{{room.title}}">
+        </app-room>
+
+        <div *ngIf="!last" class="room-separator w-25 rounded-start-pill rounded-end-pill mx-auto my-5 "></div>
+
+    </ng-container>
+
+
 </section>

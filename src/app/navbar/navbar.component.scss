@@ -1,32 +1,39 @@
 @import "../../assets/variables";
+
 .mobile-nav {
     width: 100vw;
     height: 75px;
     position: sticky;
     top: 10px;
-    border: 1px solid black;
-
+    border-bottom: 1px solid $border-color;
 }
 
 .standard-nav {
     height: 55px;
     position: sticky;
-    flex: 1;
     flex-direction: row;
     justify-content: space-around;
-    padding-right: 15vw;
-    padding-left: 15vw;
+    padding-right: 8%;
+    padding-left: 8%;
     align-items: center;
-
 }
+
+@media (min-width: 1800px) {
+    .standard-nav {
+        padding-right: 17.5%;
+        padding-left: 17.5%;
+    }
+}
+
 p {
     margin: 0;
 }
 .navbar {
     top: 0;
     left: 0;
-    width: 100vw;
-    border: 1px solid $border-color;
+    width: 100%;
+    border-bottom: 1px solid $border-color;
+    //border-top: 1px solid $border-color;
     z-index: 2;
     background-color: white;
     display: block;
@@ -36,7 +43,8 @@ p {
     width: 100vw;
     height: 100vh;
     position: absolute;
-    top: -36px;
+    top: -37px;
+    right: 0;
     background-color: transparent;
 }
 
@@ -51,11 +59,36 @@ p {
 }
 .link {
     cursor: pointer;
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: nowrap;
+
+    p {
+        border: 3px solid transparent;
+    }
+
+    p:hover {
+        border-bottom: 3px solid $primary-color;
+        border-radius: 50%;
+    }
+
+}
+
+
+.logo-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+
+    img {
+        flex: none;
+        cursor: pointer;
+    }
 }
 
 .sidenav {
-    padding-left: 20px;
-    padding-right: 20px;
     background-color: white;
     width: 80vw;
 }
