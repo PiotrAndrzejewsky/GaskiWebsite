@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatDrawer} from "@angular/material/sidenav";
 
@@ -10,7 +10,9 @@ import {MatDrawer} from "@angular/material/sidenav";
 export class NavbarComponent {
     @ViewChild('drawer') drawer?: MatDrawer;
 
-    constructor(private router: Router) {
+    public isDrawerVisible = false;
+
+    constructor(private router: Router, private cdr: ChangeDetectorRef) {
     }
 
     moveToMainPage() {
@@ -38,7 +40,10 @@ export class NavbarComponent {
     }
 
     toggleDrawer() {
+        this.isDrawerVisible = !this.isDrawerVisible;
+        this.cdr.detectChanges();
         this.drawer?.toggle();
+        this.cdr.detectChanges();
     }
 
 }

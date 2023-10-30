@@ -8,13 +8,13 @@
 
 <nav class="d-md-none navbar mobile-nav">
 
-    <mat-icon (click)="drawer.toggle()" class="">menu</mat-icon>
+    <mat-icon (click)="toggleDrawer()" class="">menu</mat-icon>
     <div (click)="moveToMainPage()" class="image-wrapper"><img alt="logo" src="./assets/images/logo-Gąski-50w.png">
     </div>
 
     <div class="position-relative">
 
-        <mat-drawer-container class="sidebar-container">
+        <mat-drawer-container class="sidebar-container" *ngIf="isDrawerVisible">
             <mat-drawer #drawer class="sidenav" mode="side">
                 <div (click)="jumpToElement('rooms')" class="sidenav-link">
                     <p>Pokoje</p>
