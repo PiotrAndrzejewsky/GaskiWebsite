@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
 import {Room} from "../../../core/room.model";
+import {ScrollService} from "../../../core/scroll.service";
 
 @Component({
   selector: 'app-room',
@@ -12,11 +13,13 @@ export class RoomComponent {
     @Input() room?: Room;
     public indexToDisplay: number = 0;
 
-    constructor(private router: Router) {
+    constructor(private router: Router, private scrollService: ScrollService) {
     }
 
     moveToRoomSite() {
-        this.router.navigate(['rooms', this.room?.title])
+        this.router.navigate(['rooms', this.room?.title]);
+        this.scrollService.resetScrollPosition();
+
     }
 
     nextImage() {

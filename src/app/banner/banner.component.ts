@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
     scrollDown() {
-          document.querySelector('app-welcome-text')?.scrollIntoView();
+          document.querySelector('app-welcome-text')?.scrollIntoView({behavior: 'smooth' });
     }
 }
