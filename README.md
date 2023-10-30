@@ -104,5 +104,5 @@ ng serve
 ```
  Then navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
  
- Note that the application will not work properly without running GaskiWEbsiteBackend.
+ Note that the application will not work properly without running GaskiWebsiteBackend.
 
