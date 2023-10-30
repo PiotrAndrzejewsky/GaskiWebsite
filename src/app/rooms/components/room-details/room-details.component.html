@@ -3,10 +3,10 @@
 <p class="room-description text-center">{{roomDetails?.description}}</p>
 
 <h3 class="text-center">Wnętrze:</h3>
-<article class="d-xxl-flex flex-xxl-wrap w-50 mx-auto">
+<article class="d-xl-flex flex-xl-wrap mx-auto">
     <ng-container *ngFor="let link of roomDetails?.imageLink">
-        <div class="d-flex justify-content-center">
-            <img class="rounded-4 m-xxl-3" height="400" ngSrc="{{link}}" width="600">
+        <div class="d-flex justify-content-center mx-auto">
+            <img class="rounded-4 m-xl-3" height="400" ngSrc="{{link}}" width="600">
         </div>
     </ng-container>
 </article>

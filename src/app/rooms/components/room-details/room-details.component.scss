@@ -39,3 +39,15 @@ mat-icon{
 //        height: 600px;
 //    }
 //}
+
+@media (min-width: 1200px) {
+    article {
+        width: 75%;
+    }
+}
+
+@media (min-width: 2000px) {
+    article {
+        width: 50%;
+    }
+}
