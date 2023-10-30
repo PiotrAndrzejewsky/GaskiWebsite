@@ -71,11 +71,12 @@ The project is created with:
       - [ ] Adding a new facility
       - [ ] Deletion of facility
 ## Usage 
-<img  src="./images/login_page.png"/> 
-<img  src="./images/dashboard_day.png"/>
-<img  src="./images/dashboard_custom_range.png"/> 
-<img  src="./images/add_order_dialog.png"/> 
-<img  src="./images/add_order_type_dialog.png"/>
+<img  src="./screens/banner.png"/> 
+<img  src="./screens/banner_mobile.png"/>
+<img  src="./screens/rooms.png"/> 
+<img  src="./screens/rooms_mobile.png"/> 
+<img  src="./screens/facilites.png"/>
+<img  src="./screens/interactive_calendar.png"/>
 
 ## Prerequisites
  Make sure you have Node.js and npm (Node Package Manager) installed on your computer.<br>
