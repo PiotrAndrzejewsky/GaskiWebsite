@@ -13,10 +13,18 @@
     position: sticky;
     flex-direction: row;
     justify-content: space-around;
-    padding-right: 17.5%;
-    padding-left: 17.5%;
+    padding-right: 8%;
+    padding-left: 8%;
     align-items: center;
 }
+
+@media (min-width: 1800px) {
+    .standard-nav {
+        padding-right: 17.5%;
+        padding-left: 17.5%;
+    }
+}
+
 p {
     margin: 0;
 }
@@ -54,6 +62,7 @@ p {
     flex: 1;
     justify-content: center;
     text-align: center;
+    flex-wrap: nowrap;
 
     p {
         border: 3px solid transparent;
@@ -71,6 +80,8 @@ p {
     flex: 1;
     display: flex;
     justify-content: center;
+    padding-left: -20px;
+    padding-right: -20px;
 
     img {
         flex: none;
@@ -79,8 +90,6 @@ p {
 }
 
 .sidenav {
-    padding-left: 20px;
-    padding-right: 20px;
     background-color: white;
     width: 80vw;
 }
