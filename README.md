@@ -17,10 +17,12 @@ The project is created with:
 * angular/core: "16.1.3" <img style="width:20px" src="https://user-images.githubusercontent.com/25181517/183890595-779a7e64-3f43-4634-bad2-eceef4e80268.png" />
 * rxjs: "7.8.0" <img style="width:20px" src="https://rxjs.dev/assets/images/logos/Rx_Logo_S.png"/>
 * typescript: "4.9.4"  <img style="width:20px" src="https://user-images.githubusercontent.com/25181517/183890598-19a0ac2d-e88a-4005-a8df-1ee36782fde1.png" />
-* bootstrap: "5.3.0" <img style="width:23px" src="https://raw.githubusercontent.com/themedotid/bootstrap-icon/HEAD/docs/bootstrap-icon-css.png" />
+* bootstrap: "5.3.0" <img style="width:22px" src="https://raw.githubusercontent.com/themedotid/bootstrap-icon/HEAD/docs/bootstrap-icon-css.png" />
 * ngx-cookie-service: "15.0.0" 
 * angular/material: "15.2.9" <img style="width:20px" src="https://material.angular.io/assets/img/angular-material-logo.svg" />
 * Git: "2.39.1" <img style="width:20px" src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" />
+* Jasmine: "4.5.0" <img style="width:20px" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/22/Logo_jasmine.svg/1280px-Logo_jasmine.svg.png" />
+* Karma: "6.4.0" <img style="width:20px" src="https://angular.io/generated/images/marketing/concept-icons/karma.png" />
 * AWS: <img style="width:25px" src="https://a0.awsstatic.com/libra-css/images/logos/aws_smile-header-desktop-en-white_59x35.png" />
 
 ## Features
@@ -70,12 +72,14 @@ The project is created with:
       - [ ] Display of currently presented facilities
       - [ ] Adding a new facility
       - [ ] Deletion of facility
+- [ ] Website translation 
 ## Usage 
-<img  src="./images/login_page.png"/> 
-<img  src="./images/dashboard_day.png"/>
-<img  src="./images/dashboard_custom_range.png"/> 
-<img  src="./images/add_order_dialog.png"/> 
-<img  src="./images/add_order_type_dialog.png"/>
+<img  src="./screens/banner.png"/> 
+<img  src="./screens/banner_mobile.png"/>
+<img  src="./screens/rooms.png"/> 
+<img  src="./screens/rooms_mobile.png"/> 
+<img  src="./screens/facilites.png"/>
+<img  src="./screens/interactive_calendar.png"/>
 
 ## Prerequisites
  Make sure you have Node.js and npm (Node Package Manager) installed on your computer.<br>
@@ -103,5 +107,5 @@ ng serve
 ```
  Then navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
  
- Note that the application will not work properly without running GaskiWEbsiteBackend.
+ Note that the application will not work properly without running GaskiWebsiteBackend.
 
