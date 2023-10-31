@@ -1,16 +1,18 @@
 import {ChangeDetectorRef, Component, ViewChild} from '@angular/core';
 import {Router} from "@angular/router";
 import {MatDrawer} from "@angular/material/sidenav";
+import {rotate} from "../shared/animations";
 
 @Component({
     selector: 'app-navbar',
     templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss']
+    styleUrls: ['./navbar.component.scss'],
+    animations: [rotate]
 })
 export class NavbarComponent {
     @ViewChild('drawer') drawer?: MatDrawer;
 
-    public isDrawerVisible = false;
+    public isDrawerVisible: boolean = false;
 
     constructor(private router: Router, private cdr: ChangeDetectorRef) {
     }

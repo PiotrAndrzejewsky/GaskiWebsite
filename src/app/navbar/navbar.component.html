@@ -8,7 +8,7 @@
 
 <nav class="d-md-none navbar mobile-nav">
 
-    <mat-icon (click)="toggleDrawer()" class="">menu</mat-icon>
+    <mat-icon (click)="toggleDrawer()" [@rotate]="isDrawerVisible">menu</mat-icon>
     <div (click)="moveToMainPage()" class="image-wrapper"><img alt="logo" src="./assets/images/logo-Gąski-50w.png">
     </div>
 

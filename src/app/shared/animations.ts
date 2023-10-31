@@ -39,3 +39,10 @@ export const calendarStateColor = trigger("calendarStateColor", [
     state('freeOutOfMonth', style({backgroundColor: '#f2f7f3', color: '#79807e'})),
     state('freeOutOfMonthHover', style({backgroundColor: '#dfe6e0', color: '#79807e'}))
 ])
+
+export const rotate =  trigger('rotate', [
+    state('false', style({ transform: 'rotate(0deg)' })),
+    state('true', style({ transform: 'rotate(90deg)' })),
+    transition('false => true', animate('275ms ease-out')),
+    transition('true => false', animate('180ms ease-in'))
+]);
