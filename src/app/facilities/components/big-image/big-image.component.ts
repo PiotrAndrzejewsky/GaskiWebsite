@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {Facilitie} from "../../../core/facilitie.model";
+import {Facilitie} from "../../../core/models/facilitie.model";
 
 @Component({
     selector: 'app-big-image',

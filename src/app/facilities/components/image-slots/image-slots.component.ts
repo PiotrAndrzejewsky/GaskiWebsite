@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {isSelected} from "../../../shared/animations";
-import {Facilitie} from "../../../core/facilitie.model";
+import {Facilitie} from "../../../core/models/facilitie.model";
 
 @Component({
     selector: 'app-image-slots',

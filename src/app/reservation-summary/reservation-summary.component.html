@@ -5,24 +5,29 @@
 
 <div class="summary-container d-flex justify-content-center flex-column align-items-center my-5 py-5">
     <div class="summary-item">
-        <span class="label">Zarezerwowane dni:</span>
+        <span class="label">Data przyjazdu:</span>
         <span
-            class="value"
-            *ngFor="let day of reservation.days; let last = last">{{day | date: 'dd-MM-YYYY'}}{{ !last ? ", " : '' }}
+            class="value">{{reservation!.days!.firstDay | date: 'dd-MM-YYYY'}} 15:00
+        </span>
+    </div>
+    <div class="summary-item">
+        <span class="label">Data odjazdu:</span>
+        <span
+            class="value">{{reservation!.days!.lastDay | nextDay | date: 'dd-MM-YYYY'}} 12:00
         </span>
     </div>
     <div class="summary-item">
         <span class="label">Liczba dni:</span>
-        <span class="value">{{reservation?.days?.length}}</span>
+        <span class="value">{{reservation!.days!.firstDay | amountOfDays: reservation!.days!.lastDay}}</span>
     </div>
     <div class="summary-item">
         <span class="label">Koszt noclegu na dzień:</span>
 <!--        <span class="value">{{  | currency:'PLN':true }}</span>-->
-        <span class="value">{{reservation.perDayCost}}</span>
+        <span class="value">{{reservation?.perDayCost}}</span>
     </div>
     <div class="summary-item">
         <span class="label">Koszt sprzątania:</span>
-        <span class="value">{{reservation.serviceCost}}</span>
+        <span class="value">{{reservation?.serviceCost}}</span>
 <!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
     </div>
     <div class="summary-item">

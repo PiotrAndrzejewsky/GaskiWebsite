@@ -29,4 +29,10 @@
 
 <app-calendar (selected)="selectedDays = $event"></app-calendar>
 
-<button (click)="goToSummary()" class="mx-auto d-block reservationButton my-5" color="warn" mat-raised-button>Zarezerwuj</button>
+<button (click)="goToSummary()" class="mx-auto d-block reservationButton mt-5 mb-2" color="warn" mat-raised-button>Zarezerwuj</button>
+<div class="d-flex justify-content-center flex-column align-items-center">
+    <mat-error class="text-center" *ngIf="errors.minimumError">Musisz zaznaczyć conajmniej 1 dzień!<br></mat-error>
+    <mat-error class="text-center" *ngIf="errors.maximumError">Możesz zarezerwować do 15dni!<br>Aby zarezerwować dłuższy pobyt skontaktuj się z nami!<br></mat-error>
+    <mat-error class="text-center" *ngIf="errors.connectionError">Twoja rezerwacja nie może być przerywana!<br></mat-error>
+</div>
+

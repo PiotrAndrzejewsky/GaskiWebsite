@@ -30,6 +30,8 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CalendarLegendComponent } from './calendar/components/calendar-legend/calendar-legend.component';
+import { AmountOfDaysPipe } from './core/pipes/amount-of-days.pipe';
+import { NextDayPipe } from './core/pipes/next-day.pipe';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { CalendarLegendComponent } from './calendar/components/calendar-legend/c
       CalendarComponent,
       ReservationSummaryComponent,
       ThankYouComponent,
-      CalendarLegendComponent
+      CalendarLegendComponent,
+      AmountOfDaysPipe,
+      NextDayPipe
   ],
     imports: [
         BrowserModule,

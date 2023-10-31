@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {appearFromBottom} from "../shared/animations";
-import {RoomsService} from "../core/rooms.service";
-import {Room} from "../core/room.model";
+import {RoomsService} from "../core/services/rooms.service";
+import {Room} from "../core/models/room.model";
 
 
 @Component({

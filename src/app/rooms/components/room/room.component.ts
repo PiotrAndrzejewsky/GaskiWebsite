@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Router} from "@angular/router";
-import {Room} from "../../../core/room.model";
-import {ScrollService} from "../../../core/scroll.service";
+import {Room} from "../../../core/models/room.model";
+import {ScrollService} from "../../../core/services/scroll.service";
 
 @Component({
   selector: 'app-room',

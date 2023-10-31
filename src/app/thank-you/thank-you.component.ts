@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ReservationService} from "../core/reservation.service";
-import {Reservation} from "../core/reservedDays.model";
+import {ReservationService} from "../core/services/reservation.service";
+import {Reservation} from "../core/models/reservedDays.model";
 
 @Component({
   selector: 'app-thank-you',

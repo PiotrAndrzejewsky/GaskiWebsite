@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {appearFromBottom, fadeInStill} from "../shared/animations";
-import {FacilitiesService} from "../core/facilities.service";
-import {Facilitie} from "../core/facilitie.model";
+import {FacilitiesService} from "../core/services/facilities.service";
+import {Facilitie} from "../core/models/facilitie.model";
 
 @Component({
     selector: 'app-facilities',

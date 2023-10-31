@@ -36,7 +36,7 @@ export class ReservationService {
 
     getOverallCost() {
         if(this.reservedDays)
-            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * this.getDaysDifference(this.reservedDays.days.start, this.reservedDays.days.end);
+            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * (this.getDaysDifference(this.reservedDays.days.firstDay, this.reservedDays.days.lastDay) + 1) ;
         else return 0;
     }
 
