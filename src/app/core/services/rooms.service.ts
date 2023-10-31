@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Room} from './room.model';
+import {Room} from '../models/room.model';
 import {delay, Observable, of} from "rxjs";
 
 @Injectable({

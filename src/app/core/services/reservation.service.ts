@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {of} from "rxjs";
-import {Reservation} from "./reservedDays.model";
+import {Reservation} from "../models/reservedDays.model";
 
 @Injectable({
     providedIn: 'root'
@@ -27,20 +27,25 @@ export class ReservationService {
         this.reservedDays = arg;
     }
 
-    getReservedDays(): Reservation {
+    getReservedDays(): Reservation | undefined {
         if(this.reservedDays)
             return this.reservedDays
-        else
-            return {days: [], roomName: '', perDayCost: 0, serviceCost: 0}
+       else
+           return undefined;
     }
 
     getOverallCost() {
         if(this.reservedDays)
-            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * this.reservedDays?.days.length;
+            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * this.getDaysDifference(this.reservedDays.days.start, this.reservedDays.days.end);
         else return 0;
     }
 
     pushReservation() {
         // push reservation to the server.
+    }
+
+    getDaysDifference(startDate: Date, endDate: Date): number {
+        const differenceInDays = Math.floor((endDate.getDate() - startDate.getDate()) );
+        return Math.abs(differenceInDays);
     }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {delay, map, of} from "rxjs";
-import {Facilitie} from "./facilitie.model";
+import {Facilitie} from "../models/facilitie.model";
 
 @Injectable({
   providedIn: 'root'
