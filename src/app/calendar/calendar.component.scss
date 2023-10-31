@@ -1,24 +1,32 @@
+@import "../../assets/variables.scss";
+
 article {
-    width: 60%;
+    width: 90%;
 }
+
 .month-wrapper {
     width: fit-content;
     box-sizing: border-box;
 
     span {
-       // width: 15rem;
         display: block;
-        //font-size: 1.4rem;
+        width: 9rem;
     }
 
     button {
         width: 30px;
         height: 30px;
-        background-color: #37deb4;
+        //background-color: #37deb4;
+        background-color: $primary-color;
     }
 }
 
 @media (min-width: 960px) {
+
+    article {
+        width: 60%;
+    }
+
     .month-wrapper {
 
         span {
@@ -34,7 +42,7 @@ article {
 
 .calendar-header {
     border: 2px solid black;
-    background-color: #37deb4;
+    background-color: $primary-color;
 }
 
 .calendar-header-item {
