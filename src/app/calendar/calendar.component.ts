@@ -1,6 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ReservationService} from "../core/reservation.service";
-import {calendarDate} from "../core/calendarDate.model";
+import {ReservationService} from "../core/services/reservation.service";
+import {calendarDate} from "../core/models/calendarDate.model";
 import {calendarStateColor} from "../shared/animations";
 
 const DAY_MS = 60 * 60 * 24 * 1000;
@@ -16,7 +16,7 @@ export class CalendarComponent implements OnInit {
     public days = ['Pon', 'Wt', 'Śr', 'Czw', 'Pt', 'Sob', 'Ndz'];
     date = new Date();
 
-    @Output() selected = new EventEmitter<Date[]>();
+    @Output() selected = new EventEmitter<Date[]>(); // here I need to cratesepartate object
     private reservedDays?: Date[];
     private selectedDays: Date[] = [];
 
@@ -95,6 +95,7 @@ export class CalendarComponent implements OnInit {
             if (index || index === 0) {
                 this.calendarDates![index].state = this.isSameMonth(clickedDate) ? 'freeHover' : 'freeOutOfMonthHover';
                 this.selectedDays = this.selectedDays.filter(date => !this.isSameDate(date, clickedDate));
+                this.emitSelectedDays();
             }
         }
     }
