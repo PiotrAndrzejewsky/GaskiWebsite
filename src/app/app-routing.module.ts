@@ -4,11 +4,14 @@ import {RoomDetailsComponent} from "./rooms/components/room-details/room-details
 import {WelcomePage} from "./welcome-page/welcome-page.component";
 import {ReservationSummaryComponent} from "./reservation-summary/reservation-summary.component";
 import {ThankYouComponent} from "./thank-you/thank-you.component";
+import {reservationGuard} from "./core/guards/reservation.guard";
+import {reservationProccesUnfinishedGuard} from "./core/guards/reservation-procces-unfinished.guard";
+import {reservationProccesFinishedGuard} from "./core/guards/reservation-procces-finished.guard";
 
 const routes: Routes = [
     { path: 'rooms/:name', component: RoomDetailsComponent },
-    { path: 'summary', component: ReservationSummaryComponent},
-    { path: 'thanks', component: ThankYouComponent},
+    { path: 'summary', component: ReservationSummaryComponent, canActivate: [reservationGuard, reservationProccesUnfinishedGuard]},
+    { path: 'thanks', component: ThankYouComponent, canActivate: [reservationGuard, reservationProccesFinishedGuard] },
     { path: '', component: WelcomePage},
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

@@ -72,6 +72,7 @@ export class RoomDetailsComponent implements OnInit {
             perDayCost: this.roomDetails!.basePricePerNight,
             serviceCost: this.roomDetails!.pricePerPerson
         });
+        this.reservationService.setReservationProccesUnfinished();
 
         this.router.navigate(['summary']).then();
     }
