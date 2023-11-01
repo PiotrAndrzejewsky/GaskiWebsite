@@ -15,7 +15,7 @@ export class ThankYouComponent implements OnInit {
     // nie no na ten moment getuje poprostu z seriwsu i tyle to co zarezerwowoalemi tyle. poznie jsie zastanowie czy to w cookies zrobic czy tak jak jest zostawic
 
     ngOnInit() {
-        this.reservation = this.reservationService.getReservedDays();
+        this.reservation = this.reservationService.getReservation();
         this.overalCost = this.reservationService.getOverallCost();
     }
 

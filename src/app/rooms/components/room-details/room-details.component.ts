@@ -66,7 +66,7 @@ export class RoomDetailsComponent implements OnInit {
         let edgeDays: EdgeDays = this.getEdgeDays();
         //TODO getEdgeDays and validateDays sort's an array of selectedDays. For more optimal use write function that sorts array and delete sorting code from those fucntions
 
-        this.reservationService.setReservedDays({
+        this.reservationService.setReservation({
             days: edgeDays,
             roomName: this.roomName,
             perDayCost: this.roomDetails!.basePricePerNight,

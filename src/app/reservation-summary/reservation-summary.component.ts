@@ -23,7 +23,7 @@ export class ReservationSummaryComponent {
     public finalCost: number = 0 ;
 
     constructor(private reservedDays: ReservationService, private fb: FormBuilder, private router: Router) {
-        this.reservation = reservedDays.getReservedDays();
+        this.reservation = reservedDays.getReservation();
         this.setFinalCost();
     }
 

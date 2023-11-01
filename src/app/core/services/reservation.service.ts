@@ -23,11 +23,13 @@ export class ReservationService {
         return of(array);
     }
 
-    setReservedDays(arg: Reservation) {
-        this.reservedDays = arg;
+    setReservation(reservation: Reservation) {
+        //this.reservedDays = reservation;
+
+
     }
 
-    getReservedDays(): Reservation | undefined {
+    getReservation(): Reservation | undefined {
         if(this.reservedDays)
             return this.reservedDays
        else
