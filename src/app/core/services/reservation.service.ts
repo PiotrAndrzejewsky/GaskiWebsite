@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
 import {of} from "rxjs";
 import {Reservation} from "../models/reservedDays.model";
+import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class ReservationService {
 
-    private reservedDays?: Reservation;
 
-    constructor() {
+    constructor(private cookies: CookieService) {
     }
 
     getReservedDaysForDateRange(firstDay: Date) {
@@ -24,22 +24,35 @@ export class ReservationService {
     }
 
     setReservation(reservation: Reservation) {
-        //this.reservedDays = reservation;
-
-
+        const reservationJson = JSON.stringify(reservation);
+        this.cookies.set('reservation', reservationJson)
     }
 
-    getReservation(): Reservation | undefined {
-        if(this.reservedDays)
-            return this.reservedDays
-       else
-           return undefined;
+    getReservation(): Reservation {
+        let reservation = JSON.parse(this.cookies.get('reservation'));
+
+
+        //reservation.startDate = new Date(reservation.startDate);
+        //reservation.endDate = new Date(reservation.endDate);
+        reservation.days.firstDay = new Date(reservation.days.firstDay);
+        reservation.days.lastDay = new Date(reservation.days.lastDay);
+
+
+
+        return reservation;
+    }
+
+    setReservationProccesUnfinished() {
+        this.cookies.set('reservationFinished', 'false');
+    }
+
+    setReservationProccesFinished() {
+        this.cookies.set('reservationFinished', 'true');
     }
 
     getOverallCost() {
-        if(this.reservedDays)
-            return this.reservedDays?.serviceCost + this.reservedDays?.perDayCost * (this.getDaysDifference(this.reservedDays.days.firstDay, this.reservedDays.days.lastDay) + 1) ;
-        else return 0;
+            let reservation = this.getReservation();
+            return reservation.serviceCost + reservation.perDayCost * (this.getDaysDifference(reservation.days.firstDay, reservation.days.lastDay) + 1) ;
     }
 
     pushReservation() {
@@ -47,7 +60,10 @@ export class ReservationService {
     }
 
     getDaysDifference(startDate: Date, endDate: Date): number {
-        const differenceInDays = Math.floor((endDate.getDate() - startDate.getDate()) );
+        console.log(typeof(startDate))
+        console.log(endDate)
+        const differenceInDays = Math.floor(endDate.getDate() - startDate.getDate() );
+        //const differenceInDays = 4;
         return Math.abs(differenceInDays);
     }
 }

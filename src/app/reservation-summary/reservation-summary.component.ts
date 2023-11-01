@@ -22,8 +22,8 @@ export class ReservationSummaryComponent {
 
     public finalCost: number = 0 ;
 
-    constructor(private reservedDays: ReservationService, private fb: FormBuilder, private router: Router) {
-        this.reservation = reservedDays.getReservation();
+    constructor(private reservationService: ReservationService, private fb: FormBuilder, private router: Router) {
+        this.reservation = reservationService.getReservation();
         this.setFinalCost();
     }
 
@@ -32,7 +32,7 @@ export class ReservationSummaryComponent {
     }
 
     setFinalCost() {
-        this.finalCost = this.reservedDays.getOverallCost();
+        this.finalCost = this.reservationService.getOverallCost();
     }
 
 
@@ -43,7 +43,8 @@ export class ReservationSummaryComponent {
         }
         // tutaj router wbija na nowa strone.
         // tutaj wysylac requesta na strone.
-        this.reservedDays.pushReservation();
+        this.reservationService.pushReservation();
+        this.reservationService.setReservationProccesFinished()
         this.router.navigate(['thanks']);
 
     }
