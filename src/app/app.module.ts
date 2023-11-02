@@ -33,6 +33,7 @@ import { CalendarLegendComponent } from './calendar/components/calendar-legend/c
 import { AmountOfDaysPipe } from './core/pipes/amount-of-days.pipe';
 import { NextDayPipe } from './core/pipes/next-day.pipe';
 import {CookieService} from "ngx-cookie-service";
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {CookieService} from "ngx-cookie-service";
       ThankYouComponent,
       CalendarLegendComponent,
       AmountOfDaysPipe,
-      NextDayPipe
+      NextDayPipe,
+      AdminLoginComponent
   ],
     imports: [
         BrowserModule,

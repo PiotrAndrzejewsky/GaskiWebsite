@@ -7,11 +7,13 @@ import {ThankYouComponent} from "./thank-you/thank-you.component";
 import {reservationGuard} from "./core/guards/reservation.guard";
 import {reservationProccesUnfinishedGuard} from "./core/guards/reservation-procces-unfinished.guard";
 import {reservationProccesFinishedGuard} from "./core/guards/reservation-procces-finished.guard";
+import {AdminLoginComponent} from "./admin-login/admin-login.component";
 
 const routes: Routes = [
     { path: 'rooms/:name', component: RoomDetailsComponent },
     { path: 'summary', component: ReservationSummaryComponent, canActivate: [reservationGuard, reservationProccesUnfinishedGuard]},
     { path: 'thanks', component: ThankYouComponent, canActivate: [reservationGuard, reservationProccesFinishedGuard] },
+    { path: '973482', component: AdminLoginComponent },
     { path: '', component: WelcomePage},
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
