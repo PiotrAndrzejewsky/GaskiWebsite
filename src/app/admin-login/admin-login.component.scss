@@ -1,0 +1,12 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: #3f51b5;
+    --mdc-protected-button-label-text-color: #fff;
+    color: white !important;
+}
