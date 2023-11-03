@@ -11,8 +11,7 @@ export class AdminLoginService {
     }
 
     login(password: string, respone: boolean) {
-        return of('token123').pipe(
-        );
+        return of('token123');
     }
 
     setAuthToken(token: string) {

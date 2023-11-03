@@ -27,7 +27,7 @@ import '@angular/common/locales/global/pl';
 import {MatButtonModule} from "@angular/material/button";
 import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CalendarLegendComponent } from './calendar/components/calendar-legend/calendar-legend.component';
 import { AmountOfDaysPipe } from './core/pipes/amount-of-days.pipe';
@@ -74,7 +74,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
         MatIconModule,
         MatButtonModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
 
     ],
     providers: [{provide: LOCALE_ID, useValue: "pl"}, CookieService],
