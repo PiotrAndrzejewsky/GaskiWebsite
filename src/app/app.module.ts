@@ -34,6 +34,7 @@ import { AmountOfDaysPipe } from './core/pipes/amount-of-days.pipe';
 import { NextDayPipe } from './core/pipes/next-day.pipe';
 import {CookieService} from "ngx-cookie-service";
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
       CalendarLegendComponent,
       AmountOfDaysPipe,
       NextDayPipe,
-      AdminLoginComponent
+      AdminLoginComponent,
+      AdminDashboardComponent
   ],
     imports: [
         BrowserModule,
