@@ -1,16 +1,8 @@
 div {
-    // Styles for the first level div
-
     div {
-        // Styles for the second level div
-
         div {
-            // Styles for the third level div
-
             &:hover {
-                // Styles for the third level div on hover
                 filter: brightness(99%);
-                //background-color: red;
             }
         }
     }

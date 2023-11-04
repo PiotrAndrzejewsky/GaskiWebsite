@@ -1,6 +1,7 @@
 export type Room = {
     title: string,
-    description: string,
+    shortDescription: string,
+    longDescription: string,
     maximumNumberOfPeopleAllowed: number,
     basePricePerNight: number,
     pricePerPerson: number,
