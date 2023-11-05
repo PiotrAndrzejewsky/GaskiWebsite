@@ -5,5 +5,10 @@ export type Reservation = {
     roomName: string,
     perDayCost: number,
     serviceCost: number,
+}
 
+export type ReservationWithContactData = Reservation & {
+    fullName: string,
+    telephone: string,
+    email: string
 }
