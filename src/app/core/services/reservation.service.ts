@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {of} from "rxjs";
-import {Reservation} from "../models/reservedDays.model";
+import {Observable, of} from "rxjs";
+import {Reservation, ReservationWithContactData} from "../models/reservedDays.model";
 import {CookieService} from "ngx-cookie-service";
 
 @Injectable({
@@ -31,15 +31,15 @@ export class ReservationService {
     getReservation(): Reservation {
         let reservation = JSON.parse(this.cookies.get('reservation'));
 
-
-        //reservation.startDate = new Date(reservation.startDate);
-        //reservation.endDate = new Date(reservation.endDate);
         reservation.days.firstDay = new Date(reservation.days.firstDay);
         reservation.days.lastDay = new Date(reservation.days.lastDay);
 
-
-
         return reservation;
+    }
+
+    getAvailableRooms(): Observable<string[]> {
+        //request for rooms
+        return of(['Pokój słoneczny', 'Domek']);
     }
 
     setReservationProccesUnfinished() {
@@ -55,7 +55,7 @@ export class ReservationService {
             return reservation.serviceCost + reservation.perDayCost * (this.getDaysDifference(reservation.days.firstDay, reservation.days.lastDay) + 1) ;
     }
 
-    pushReservation() {
+    pushReservationToServer(reservation: ReservationWithContactData) {
         // push reservation to the server.
     }
 

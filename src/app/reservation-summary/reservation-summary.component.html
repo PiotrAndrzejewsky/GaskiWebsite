@@ -46,11 +46,11 @@
         <div class="card">
             <div class="card-header text-center">Formularz kontaktowy</div>
             <div class="card-body">
-                <form (ngSubmit)="onSubmit()" [formGroup]="contactForm"
+                <form (ngSubmit)="makeReservation()" [formGroup]="contactForm"
                       class=" mx-auto my-5  d-flex flex-column justify-content-center align-content-center ">
                     <mat-form-field appearance="outline">
                         <mat-label>Imie</mat-label>
-                        <input formControlName="firstName" matInput placeholder="Wpisz swoje imie">
+                        <input formControlName="fullName" matInput placeholder="Wpisz swoje imie i nazwisko">
                         <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
