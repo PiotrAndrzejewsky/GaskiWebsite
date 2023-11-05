@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Add Reservation</h2>
+<mat-dialog-content>
+    <form [formGroup]="reservationForm" class="m-5 " >
+
+        <div class="form-group my-3">
+            <label for="startDate">Pierwszy dzień</label>
+            <input formControlName="firstDay" id="startDate" type="date" class="form-control">
+        </div>
+
+        <div class="form-group my-3">
+            <label for="endDate">Ostatni dzień</label>
+            <input formControlName="lastDay" id="endDate" type="date" class="form-control">
+        </div>
+
+        <div class="form-group my-3">
+            <label for="roomName">Nazwa pokoju</label>
+            <select formControlName="roomName" id=roomName class="form-select">
+                <option *ngFor="let room of data" value="{{room}}">{{room}}</option>
+            </select>
+        </div>
+
+        <div class="form-group my-3" readonly>
+            <label for="perDayCost">Koszt na dzień</label>
+            <input formControlName="perDayCost" id="perDayCost" type="number" class="form-control">
+        </div>
+
+        <div class="form-group my-3" readonly>
+            <label for="serviceCost">Koszt sprzątania</label>
+            <input formControlName="serviceCost" id="serviceCost" type="number" class="form-control">
+        </div>
+
+        <div class="form-group my-3">
+            <label for="telephone">Telefon</label>
+            <input formControlName="telephone" id="telephone" type="tel" class="form-control">
+        </div>
+
+        <div class="form-group my-3">
+            <label for="fullName">Imie i nazwisko</label>
+            <input formControlName="fullName" id="fullName" type="text" class="form-control">
+        </div>
+
+        <div class="form-group my-3">
+            <label for="email">E-mail</label>
+            <input formControlName="email" id="email" type="email" class="form-control">
+        </div>
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <button mat-button color="primary" (click)="submitForm()">Save</button>
+</mat-dialog-actions>

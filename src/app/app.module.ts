@@ -35,6 +35,8 @@ import { NextDayPipe } from './core/pipes/next-day.pipe';
 import {CookieService} from "ngx-cookie-service";
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AddReservationDialogComponent } from './admin-dashboard/components/add-reservation-dialog/add-reservation-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
       AmountOfDaysPipe,
       NextDayPipe,
       AdminLoginComponent,
-      AdminDashboardComponent
+      AdminDashboardComponent,
+      AddReservationDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -75,7 +78,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
         MatButtonModule,
         MatInputModule,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        MatDialogModule
 
     ],
     providers: [{provide: LOCALE_ID, useValue: "pl"}, CookieService],
