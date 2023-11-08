@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of} from "rxjs";
 import {Reservation, ReservationWithContactData} from "../models/reservedDays.model";
 import {CookieService} from "ngx-cookie-service";
+import {RoomShortInformation} from "../models/room.model";
 
 @Injectable({
     providedIn: 'root'
@@ -37,10 +38,7 @@ export class ReservationService {
         return reservation;
     }
 
-    getAvailableRooms(): Observable<string[]> {
-        //request for rooms
-        return of(['Pokój słoneczny', 'Domek']);
-    }
+
 
     setReservationProccesUnfinished() {
         this.cookies.set('reservationFinished', 'false');

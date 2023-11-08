@@ -4,6 +4,7 @@ import {ReservationService} from "../core/services/reservation.service";
 import {AddReservationDialogComponent} from "./components/add-reservation-dialog/add-reservation-dialog.component";
 import {hebrewNumerals} from "@ng-bootstrap/ng-bootstrap/datepicker/hebrew/hebrew";
 import {filter, Subject, switchMap, take, takeUntil} from "rxjs";
+import {RoomsService} from "../core/services/rooms.service";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,10 +14,10 @@ import {filter, Subject, switchMap, take, takeUntil} from "rxjs";
 export class AdminDashboardComponent implements OnDestroy {
     private $unSubscribe=new Subject<void>();
 
-    constructor(private dialog: MatDialog, private reservationService: ReservationService) {}
+    constructor(private dialog: MatDialog, private reservationService: ReservationService, private roomsService : RoomsService) {}
 
     openAddReservationDialog() {
-        this.reservationService.getAvailableRooms().pipe(
+        this.roomsService.getAvailableRooms().pipe(
             takeUntil(this.$unSubscribe),
             switchMap((res) => {
                 const dialogRef = this.dialog.open(AddReservationDialogComponent, {

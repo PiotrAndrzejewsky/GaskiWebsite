@@ -8,3 +8,9 @@ export type Room = {
     isPlaceReservable: boolean,
     imageLink: string[]
 }
+export type RoomShortInformation = {
+
+    title: string,
+    basePricePerNight: number,
+    serviceCost: number
+}
