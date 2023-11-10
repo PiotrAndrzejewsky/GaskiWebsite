@@ -1,4 +1,4 @@
-<h2 mat-dialog-title >Dodaj nowy pokój</h2>
+<h1 mat-dialog-title class="text-center my-4">Dodaj nowy pokój</h1>
 
 <mat-dialog-content>
     <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
@@ -18,25 +18,25 @@
             <textarea class="form-control" id="longDescription" formControlName="longDescription" rows="5" required></textarea>
         </div>
 
-<!--        <div class="mb-3 form-group">-->
-<!--            <label for="maximumNumberOfPeopleAllowed" class="form-label">Maximum Number of People Allowed</label>-->
-<!--            <input type="number" class="form-control" id="maximumNumberOfPeopleAllowed" formControlName="maximumNumberOfPeopleAllowed" required>-->
-<!--        </div>-->
+        <div class="mb-3 form-group">
+            <label for="maximumNumberOfPeopleAllowed" class="form-label">Maksymalna liczba osób</label>
+            <input type="number" class="form-control" id="maximumNumberOfPeopleAllowed" formControlName="maximumNumberOfPeopleAllowed" required>
+        </div>
 
         <div class="mb-3 form-group">
-            <label for="basePricePerNight" class="form-label">Cena za dobę</label>
+            <label for="basePricePerNight" class="form-label">Cena bazowa za dobę</label>
             <input type="number" class="form-control" id="basePricePerNight" formControlName="basePricePerNight" required>
         </div>
 
-<!--        <div class="mb-3 form-group">-->
-<!--            <label for="pricePerPerson" class="form-label">Cena za osobę</label>-->
-<!--            <input type="number" class="form-control" id="pricePerPerson" formControlName="pricePerPerson" required>-->
-<!--        </div>-->
+        <div class="mb-3 form-group">
+            <label for="pricePerPerson" class="form-label">Cena za osobę</label>
+            <input type="number" class="form-control" id="pricePerPerson" formControlName="pricePerPerson" required>
+        </div>
 
-<!--        <div class="mb-3 form-check">-->
-<!--            <input type="checkbox" class="form-check-input" id="isPlaceReservable" formControlName="isPlaceReservable">-->
-<!--            <label class="form-check-label" for="isPlaceReservable">Is Place Reservable</label>-->
-<!--        </div>-->
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="isPlaceReservable" formControlName="isPlaceReservable">
+            <label class="form-check-label" for="isPlaceReservable">Możliwość rezerwacji</label>
+        </div>
 
         <div class="mb-3 form-group">
             <label for="imageLink" class="form-label">Zdjęcia</label>
@@ -48,9 +48,9 @@
     </form>
 </mat-dialog-content>
 
-<mat-dialog-actions>
+<mat-dialog-actions align="center">
     <button mat-button (click)="onCancel()">Cancel</button>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="roomForm.invalid">Submit</button>
 </mat-dialog-actions>
 
 
