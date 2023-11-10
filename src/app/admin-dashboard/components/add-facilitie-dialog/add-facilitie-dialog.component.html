@@ -1,33 +1,37 @@
-<h1 class="modal-title">Add New Facility</h1>
-<div class="modal-body">
-    <form [formGroup]="facilityForm">
-        <div class="form-group">
-            <label for="title">Nazwa</label>
-            <input type="text" class="form-control" id="title" formControlName="title">
-            <div *ngIf="facilityForm.get('title')?.hasError('required')">
-                <small class="text-danger">Nazwa jest wymagana</small>
-            </div>
-        </div>
+<h1 class="text-center" mat-dialog-title >Dodaj nowe udogodnienie</h1>
+<mat-dialog-content>
 
-        <div class="form-group">
-            <label for="description">Opis</label>
-            <textarea class="form-control" id="description" formControlName="description"></textarea>
-            <div *ngIf="facilityForm.get('description')?.hasError('required')">
-                <small class="text-danger">Opis jest wymagany</small>
+        <form [formGroup]="facilityForm">
+            <div class="form-group">
+                <label for="title">Nazwa</label>
+                <input type="text" class="form-control" id="title" formControlName="title">
+                <div *ngIf="facilityForm.get('title')?.hasError('required')">
+                    <small class="text-danger">Nazwa jest wymagana</small>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label for="images">Zdjęcie</label>
-            <input type="file" class="form-control" id="images" formControlName="src">
-            <small class="form-text text-muted">Zdjęcie powinno być w formacie 1:1</small>
-            <div *ngIf="facilityForm.get('src')?.hasError('required')">
-                <small class="text-danger">zdjęcie jest wymagane</small>
+            <div class="form-group">
+                <label for="description">Opis</label>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+                <div *ngIf="facilityForm.get('description')?.hasError('required')">
+                    <small class="text-danger">Opis jest wymagany</small>
+                </div>
             </div>
-        </div>
-    </form>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="onSave()" [disabled]="facilityForm.invalid">Save</button>
-</div>
+
+            <div class="form-group">
+                <label for="images">Zdjęcie</label>
+                <input type="file" class="form-control" id="images" formControlName="src">
+                <small class="form-text text-muted">Zdjęcie powinno być w formacie 1:1</small>
+                <div *ngIf="facilityForm.get('src')?.hasError('required')">
+                    <small class="text-danger">zdjęcie jest wymagane</small>
+                </div>
+            </div>
+        </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+        <button type="button" mat-dialog-close class="btn btn-secondary" (click)="onCancel()">Anuluj</button>
+        <button type="button" class="btn btn-primary" (click)="onSave()" [disabled]="facilityForm.invalid">Dodaj</button>
+</mat-dialog-actions>
+

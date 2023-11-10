@@ -5,6 +5,8 @@ import {AddReservationDialogComponent} from "./components/add-reservation-dialog
 import {filter, Subject, switchMap, take, takeUntil} from "rxjs";
 import {RoomsService} from "../core/services/rooms.service";
 import {AddRoomDialogComponent} from "./components/add-room-dialog/add-room-dialog.component";
+import {AddFacilitieDialogComponent} from "./components/add-facilitie-dialog/add-facilitie-dialog.component";
+import {FacilitiesService} from "../core/services/facilities.service";
 
 @Component({
     selector: 'app-admin-dashboard',
@@ -14,7 +16,7 @@ import {AddRoomDialogComponent} from "./components/add-room-dialog/add-room-dial
 export class AdminDashboardComponent implements OnDestroy {
     private $unSubscribe = new Subject<void>();
 
-    constructor(private dialog: MatDialog, private reservationService: ReservationService, private roomsService: RoomsService) {
+    constructor(private dialog: MatDialog, private reservationService: ReservationService, private roomsService: RoomsService, private facilitiesService: FacilitiesService) {
     }
 
     openAddReservationDialog() {
@@ -41,8 +43,8 @@ export class AdminDashboardComponent implements OnDestroy {
         dialogRef.afterClosed().pipe(
             take(1),
             filter(res => !!res),
-            switchMap((res) => {
-                return this.roomsService.addNewRoom(res)
+            switchMap((newRoom) => {
+                return this.roomsService.addNewRoom(newRoom)
             })
         ).pipe(
             takeUntil(this.$unSubscribe)
@@ -52,6 +54,27 @@ export class AdminDashboardComponent implements OnDestroy {
             },
             error: (err) => {
                 //TODO send rejection message
+            }
+        })
+    }
+
+    openAddNewFacilitieDialog() {
+        const dialogRef = this.dialog.open(AddFacilitieDialogComponent);
+
+        dialogRef.afterClosed().pipe(
+            take(1),
+            filter(res => !!res),
+            switchMap((newFacilite) => {
+                return this.facilitiesService.addNewFacilitie(newFacilite);
+            })
+        ).pipe(
+            takeUntil(this.$unSubscribe)
+        ).subscribe({
+            next: (res) => {
+                //TODO send success messeage
+            },
+            error: (error) => {
+                //TODO send rejection messeage
             }
         })
     }

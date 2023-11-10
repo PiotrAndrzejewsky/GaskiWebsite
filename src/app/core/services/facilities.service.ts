@@ -50,4 +50,9 @@ export class FacilitiesService {
         ];
         return of(array).pipe()
     }
+
+    addNewFacilitie(facilite: Facilitie){
+     // push facilite to server
+     return of('true');
+    }
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import {Facilitie} from "../../../core/models/facilitie.model";
 
 @Component({
     selector: 'app-add-facilitie-dialog',
@@ -25,13 +26,12 @@ export class AddFacilitieDialogComponent {
         this.dialogRef.close();
     }
 
-    onSave(): void {
-        if (this.facilityForm.valid) {
-            // Implement your save logic here
-            this.dialogRef.close(this.facilityForm.value);
-        }
-    }
+    onSave() {
+        if(this.facilityForm.invalid)
+            return
 
-    // Helper method to get form controls for easier access in the template
+        let newFacilitie: Facilitie = this.facilityForm.value;
+        this.dialogRef.close(newFacilitie);
+    }
 
 }
