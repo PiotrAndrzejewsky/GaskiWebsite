@@ -38,6 +38,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AddReservationDialogComponent } from './admin-dashboard/components/add-reservation-dialog/add-reservation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
 import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-dialog/add-room-dialog.component';
+import { AddFacilitieDialogComponent } from './admin-dashboard/components/add-facilitie-dialog/add-facilitie-dialog.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-di
       AdminLoginComponent,
       AdminDashboardComponent,
       AddReservationDialogComponent,
-      AddRoomDialogComponent
+      AddRoomDialogComponent,
+      AddFacilitieDialogComponent
   ],
     imports: [
         BrowserModule,
