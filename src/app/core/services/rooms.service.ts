@@ -58,4 +58,8 @@ export class RoomsService {
             imageLink: ['assets/images/pokoje/domek/domek-front.jpg','assets/images/pokoje/domek/domek-sypialnia.jpg', 'assets/images/pokoje/domek/domek-pokoje.jpg', 'assets/images/pokoje/domek/domek-salon.jpg','assets/images/pokoje/domek/domek-pokoj-dzieciecy.jpg', 'assets/images/pokoje/domek/domek-lazienka.jpg', 'assets/images/pokoje/domek/domek-kuchnia.jpg', 'assets/images/pokoje/domek/domek-bok.jpg']
         }).pipe()
     }
+
+    addNewRoom(room : any) {
+        return of('true');
+    }
 }

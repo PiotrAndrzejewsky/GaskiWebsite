@@ -37,6 +37,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AddReservationDialogComponent } from './admin-dashboard/components/add-reservation-dialog/add-reservation-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-dialog/add-room-dialog.component';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import {MatDialogModule} from "@angular/material/dialog";
       NextDayPipe,
       AdminLoginComponent,
       AdminDashboardComponent,
-      AddReservationDialogComponent
+      AddReservationDialogComponent,
+      AddRoomDialogComponent
   ],
     imports: [
         BrowserModule,
