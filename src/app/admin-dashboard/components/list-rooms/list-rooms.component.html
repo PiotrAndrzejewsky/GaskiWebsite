@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h2 class="modal-title">Room List</h2>
+    <button type="button" class="close" aria-label="Close" mat-dialog-close>
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="card-columns">
+        <div *ngFor="let room of data; let i = index" class="card">
+            <img [src]="room.imageLink[0]" alt="Room Image" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ room.title }}</h5>
+                <p class="card-text">{{ room.shortDescription }}</p>
+                <button type="button" class="btn btn-danger" (click)="onDeleteClick(i)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
+</div>
