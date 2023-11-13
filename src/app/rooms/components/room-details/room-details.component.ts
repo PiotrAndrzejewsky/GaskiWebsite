@@ -123,9 +123,15 @@ export class RoomDetailsComponent implements OnInit {
             const current = dates[i];
             const next = dates[i + 1];
 
-            const differenceInDays = Math.abs((next.getDate() - current.getDate()));
+            const newDate = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 1);
+            console.log(newDate)
 
-            if (differenceInDays !== 1) {
+
+            //const differenceInDays = Math.abs((next.getDate() - current.getDate()));
+
+            const differenceInDays = Math.abs((next.getDate() - newDate.getDate()));
+
+            if (differenceInDays !== 0) {
                 return false;
             }
         }
