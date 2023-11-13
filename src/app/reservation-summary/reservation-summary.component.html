@@ -1,6 +1,8 @@
 <h3 class="mx-auto my-5 pt-5">Podsumowanie:</h3>
-<p class="w-50 mx-auto my-5 text-center">Dziękujemy za wybranie odpowiadającyh terminów. Prosimy Cię teraz o podanie danych kontaktowych w celu skontaktowania się z Tobą.<br>
-    Jeśli potiwerdzisz formularz, skontaktujemy się z Tobą.<br> Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki na nasze konto bankowe w wysokości 100zł.
+<p class="w-50 mx-auto my-5 text-center">Dziękujemy za wybranie odpowiadającyh terminów. Prosimy Cię teraz o podanie
+    danych kontaktowych w celu skontaktowania się z Tobą.<br>
+    Jeśli potiwerdzisz formularz, skontaktujemy się z Tobą.<br> Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
+    na nasze konto bankowe w wysokości 100zł.
 </p>
 
 <div class="summary-container d-flex justify-content-center flex-column align-items-center my-5 py-5">
@@ -22,13 +24,13 @@
     </div>
     <div class="summary-item">
         <span class="label">Koszt noclegu na dzień:</span>
-<!--        <span class="value">{{  | currency:'PLN':true }}</span>-->
+        <!--        <span class="value">{{  | currency:'PLN':true }}</span>-->
         <span class="value">{{reservation?.perDayCost}}</span>
     </div>
     <div class="summary-item">
         <span class="label">Koszt sprzątania:</span>
         <span class="value">{{reservation?.serviceCost}}</span>
-<!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
+        <!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
     </div>
     <div class="summary-item">
         <span class="label">Razem:</span>
@@ -38,20 +40,35 @@
     </div>
 </div>
 
-<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class=" mx-auto my-5  d-flex flex-column justify-content-center align-content-center ">
 
-    <mat-form-field>
-        <input matInput formControlName="firstName" placeholder="Imie">
-        <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput formControlName="telephone" placeholder="Telefon">
-        <mat-error *ngIf="contactForm.get('telephone')?.invalid">To pole nie może być puste</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput formControlName="email" placeholder="E-mail">
-        <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Podaj prawidłowy e-mail</mat-error>
-        <mat-error *ngIf="contactForm.get('email')?.hasError('required')">To pole nie może być puste</mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="warn" type="submit" [disabled] = "contactForm.invalid" >Submit</button>
-</form>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-xl-4 col-xxl-3">
+        <div class="card">
+            <div class="card-header text-center">Formularz kontaktowy</div>
+            <div class="card-body">
+                <form (ngSubmit)="makeReservation()" [formGroup]="contactForm"
+                      class=" mx-auto my-5  d-flex flex-column justify-content-center align-content-center ">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Imie</mat-label>
+                        <input formControlName="fullName" matInput placeholder="Wpisz swoje imie i nazwisko">
+                        <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Telefon</mat-label>
+                        <input formControlName="telephone" matInput placeholder="Wpisz swój numer telefonu">
+                        <mat-error *ngIf="contactForm.get('telephone')?.invalid">To pole nie może być puste</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>E-mail</mat-label>
+                        <input formControlName="email" matInput placeholder="Wpisz swój adres e-mail">
+                        <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Podaj prawidłowy e-mail</mat-error>
+                        <mat-error *ngIf="contactForm.get('email')?.hasError('required')">To pole nie może być puste</mat-error>
+                    </mat-form-field>
+                    <button [disabled]="contactForm.invalid" color="warn" mat-raised-button type="submit">Potwierdź rezerwacje</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

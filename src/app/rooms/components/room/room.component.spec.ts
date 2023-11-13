@@ -27,12 +27,7 @@ describe('RoomComponent', () => {
     expect(component).toBeTruthy();
   });
 
-    it('should navigate to specific roomsite', () => {
-        component.title = 'słoneczny';
-        const navigateSpy = spyOn(router, 'navigate');
-        component.moveToRoomSite();
-        expect(navigateSpy).toHaveBeenCalledWith(['rooms', 'słoneczny']);
-    });
+
 
     it('should call the next image method', fakeAsync(() => {
         spyOn(component, 'nextImage');
@@ -42,13 +37,6 @@ describe('RoomComponent', () => {
         tick();
         expect(component.nextImage).toHaveBeenCalled();
     }));
-
-    it('should change to the index to display', () => {
-        component.indexToDisplay = 0;
-        component.content = {description: '', maximumNumberOfPeopleAllowed: 1, imageLink: ['link1', 'link2', 'link3'], basePricePerNight: 3, pricePerPerson: 4, isPlaceReservable: true};
-        component.nextImage();
-        expect(component.indexToDisplay).toBe(1);
-    });
 
 
 

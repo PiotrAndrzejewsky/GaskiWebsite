@@ -1,0 +1,56 @@
+<h1 mat-dialog-title class="text-center my-4">Dodaj nowy pokój</h1>
+
+<mat-dialog-content>
+    <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 form-group">
+            <label for="title" class="form-label">Nazwa pokoju</label>
+            <input type="text" class="form-control" id="title" formControlName="title" required>
+            <small id="titleHint" class="form-text text-muted">Na przykład "Pokój słoneczny".</small>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="shortDescription" class="form-label">Krótki opis</label>
+            <textarea class="form-control" id="shortDescription" formControlName="shortDescription" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="longDescription" class="form-label">Długi opis</label>
+            <textarea class="form-control" id="longDescription" formControlName="longDescription" rows="5" required></textarea>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="maximumNumberOfPeopleAllowed" class="form-label">Maksymalna liczba osób</label>
+            <input type="number" class="form-control" id="maximumNumberOfPeopleAllowed" formControlName="maximumNumberOfPeopleAllowed" required>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="basePricePerNight" class="form-label">Cena bazowa za dobę</label>
+            <input type="number" class="form-control" id="basePricePerNight" formControlName="basePricePerNight" required>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="pricePerPerson" class="form-label">Cena za osobę</label>
+            <input type="number" class="form-control" id="pricePerPerson" formControlName="pricePerPerson" required>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="isPlaceReservable" formControlName="isPlaceReservable">
+            <label class="form-check-label" for="isPlaceReservable">Możliwość rezerwacji</label>
+        </div>
+
+        <div class="mb-3 form-group">
+            <label for="imageLink" class="form-label">Zdjęcia</label>
+            <input type="file" class="form-control" id="imageLink" formControlName="imageLink" required multiple>
+            <small id="resolutionHint" class="form-text text-muted">Pamiętaj aby zdjęcia były w formacie 3:2</small>
+        </div>
+
+
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button mat-button (click)="onCancel()">Anuluj</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="roomForm.invalid">Dodaj</button>
+</mat-dialog-actions>
+
+

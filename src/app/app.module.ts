@@ -27,11 +27,19 @@ import '@angular/common/locales/global/pl';
 import {MatButtonModule} from "@angular/material/button";
 import { ReservationSummaryComponent } from './reservation-summary/reservation-summary.component';
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ThankYouComponent } from './thank-you/thank-you.component';
 import { CalendarLegendComponent } from './calendar/components/calendar-legend/calendar-legend.component';
 import { AmountOfDaysPipe } from './core/pipes/amount-of-days.pipe';
 import { NextDayPipe } from './core/pipes/next-day.pipe';
+import {CookieService} from "ngx-cookie-service";
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AddReservationDialogComponent } from './admin-dashboard/components/add-reservation-dialog/add-reservation-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-dialog/add-room-dialog.component';
+import { AddFacilitieDialogComponent } from './admin-dashboard/components/add-facilitie-dialog/add-facilitie-dialog.component';
+import { ListRoomsComponent } from './admin-dashboard/components/list-rooms/list-rooms.component';
 
 
 @NgModule({
@@ -57,7 +65,13 @@ import { NextDayPipe } from './core/pipes/next-day.pipe';
       ThankYouComponent,
       CalendarLegendComponent,
       AmountOfDaysPipe,
-      NextDayPipe
+      NextDayPipe,
+      AdminLoginComponent,
+      AdminDashboardComponent,
+      AddReservationDialogComponent,
+      AddRoomDialogComponent,
+      AddFacilitieDialogComponent,
+      ListRoomsComponent
   ],
     imports: [
         BrowserModule,
@@ -69,10 +83,12 @@ import { NextDayPipe } from './core/pipes/next-day.pipe';
         MatIconModule,
         MatButtonModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule,
+        MatDialogModule
 
     ],
-    providers: [{provide: LOCALE_ID, useValue: "pl"}],
+    providers: [{provide: LOCALE_ID, useValue: "pl"}, CookieService],
   bootstrap: [
     AppComponent,
   ],

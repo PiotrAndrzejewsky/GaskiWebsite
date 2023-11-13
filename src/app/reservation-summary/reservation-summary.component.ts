@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ReservationService} from "../core/services/reservation.service";
-import {Reservation} from "../core/models/reservedDays.model";
+import {Reservation, ReservationWithContactData} from "../core/models/reservedDays.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 
@@ -12,7 +12,7 @@ import {Router} from "@angular/router";
 export class ReservationSummaryComponent {
 
     public contactForm: FormGroup = this.fb.group({
-        firstName: ['', Validators.required],
+        fullName: ['', Validators.required],
         telephone: ['', Validators.required],
         email: ['', [Validators.required, Validators.email]]
     });
@@ -22,8 +22,8 @@ export class ReservationSummaryComponent {
 
     public finalCost: number = 0 ;
 
-    constructor(private reservedDays: ReservationService, private fb: FormBuilder, private router: Router) {
-        this.reservation = reservedDays.getReservedDays();
+    constructor(private reservationService: ReservationService, private fb: FormBuilder, private router: Router) {
+        this.reservation = reservationService.getReservation();
         this.setFinalCost();
     }
 
@@ -32,21 +32,36 @@ export class ReservationSummaryComponent {
     }
 
     setFinalCost() {
-        this.finalCost = this.reservedDays.getOverallCost();
+        this.finalCost = this.reservationService.getOverallCost();
     }
 
 
 
-    onSubmit() {
+    makeReservation() {
         if (this.contactForm?.invalid) {
             return;
         }
         // tutaj router wbija na nowa strone.
         // tutaj wysylac requesta na strone.
-        this.reservedDays.pushReservation();
-        this.router.navigate(['thanks']);
+        this.reservationService.pushReservationToServer(this.assignContactDataToReservation());
+        this.reservationService.setReservationProccesFinished()
+        this.router.navigate(['thanks']).then();
 
     }
+    assignContactDataToReservation(): ReservationWithContactData {
+
+        return {
+            days: this.reservation!.days,
+            perDayCost: this.reservation!.perDayCost,
+            serviceCost: this.reservation!.serviceCost,
+            roomName: this.reservation!.roomName,
+            fullName: this.contactForm.get('firstName')?.value,
+            telephone: this.contactForm.get('telephone')?.value,
+            email: this.contactForm.get('e-mail')?.value
+        };
+
+    }
+
 
 
 

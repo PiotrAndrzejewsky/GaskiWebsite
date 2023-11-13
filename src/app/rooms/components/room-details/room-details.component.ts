@@ -62,17 +62,17 @@ export class RoomDetailsComponent implements OnInit {
             this.cdr.detectChanges();
             return;
         }
-        console.log('robi sie dalej');
 
         let edgeDays: EdgeDays = this.getEdgeDays();
         //TODO getEdgeDays and validateDays sort's an array of selectedDays. For more optimal use write function that sorts array and delete sorting code from those fucntions
 
-        this.reservationService.setReservedDays({
+        this.reservationService.setReservation({
             days: edgeDays,
             roomName: this.roomName,
             perDayCost: this.roomDetails!.basePricePerNight,
             serviceCost: this.roomDetails!.pricePerPerson
         });
+        this.reservationService.setReservationProccesUnfinished();
 
         this.router.navigate(['summary']).then();
     }
@@ -123,9 +123,15 @@ export class RoomDetailsComponent implements OnInit {
             const current = dates[i];
             const next = dates[i + 1];
 
-            const differenceInDays = Math.abs((next.getDate() - current.getDate()));
+            const newDate = new Date(current.getFullYear(), current.getMonth(), current.getDate() + 1);
+            console.log(newDate)
 
-            if (differenceInDays !== 1) {
+
+            //const differenceInDays = Math.abs((next.getDate() - current.getDate()));
+
+            const differenceInDays = Math.abs((next.getDate() - newDate.getDate()));
+
+            if (differenceInDays !== 0) {
                 return false;
             }
         }
