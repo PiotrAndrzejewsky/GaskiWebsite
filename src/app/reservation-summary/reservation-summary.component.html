@@ -5,38 +5,32 @@
     na nasze konto bankowe w wysokości 100zł.
 </p>
 
-<div class="summary-container d-flex justify-content-center flex-column align-items-center my-5 py-5">
-    <div class="summary-item">
-        <span class="label">Data przyjazdu:</span>
-        <span
-            class="value">{{reservation!.days!.firstDay | date: 'dd-MM-YYYY'}} 15:00
-        </span>
-    </div>
-    <div class="summary-item">
-        <span class="label">Data odjazdu:</span>
-        <span
-            class="value">{{reservation!.days!.lastDay | nextDay | date: 'dd-MM-YYYY'}} 12:00
-        </span>
-    </div>
-    <div class="summary-item">
-        <span class="label">Liczba dni:</span>
-        <span class="value">{{reservation!.days!.firstDay | amountOfDays: reservation!.days!.lastDay}}</span>
-    </div>
-    <div class="summary-item">
-        <span class="label">Koszt noclegu na dzień:</span>
-        <!--        <span class="value">{{  | currency:'PLN':true }}</span>-->
-        <span class="value">{{reservation?.perDayCost}}</span>
-    </div>
-    <div class="summary-item">
-        <span class="label">Koszt sprzątania:</span>
-        <span class="value">{{reservation?.serviceCost}}</span>
-        <!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
-    </div>
-    <div class="summary-item">
-        <span class="label">Razem:</span>
-        <span class="value">{{finalCost}}</span>
-        <!--        <span class="value">{{ serviceCost | currency:'PLN':true }}</span>-->
-
+<div class="d-flex justify-content-center">
+    <div class="wrapper my-5 ">
+        <div class="value-wrapper">
+            <span class="label">Data przyjazdu:</span>
+            <span class="value"> {{reservation!.days!.firstDay | date: 'dd-MM-YYYY'}} 15:00 </span>
+        </div>
+        <div class="value-wrapper">
+            <span class="label">Data odjazdu:</span>
+            <span class=""> {{reservation!.days!.lastDay | nextDay | date: 'dd-MM-YYYY'}} 12:00</span>
+        </div>
+        <div class="value-wrapper">
+            <span class="label">Liczba dni:</span>
+            <span class=""> {{reservation!.days!.firstDay | amountOfDays: reservation!.days!.lastDay}}</span>
+        </div>
+        <div class="value-wrapper">
+            <span class="label">Koszt noclegu na dzień:</span>
+            <span class="value"> {{reservation?.perDayCost | currency:'PLN':true}}</span>
+        </div>
+        <div class="value-wrapper">
+            <span class="label">Koszt sprzątania:</span>
+            <span class="value"> {{reservation?.serviceCost | currency:'PLN':true}}</span>
+        </div>
+        <div class="value-wrapper">
+            <span class="label">Razem:</span>
+            <span class="value"> {{finalCost | currency:'PLN':true}}</span>
+        </div>
     </div>
 </div>
 
@@ -44,27 +38,27 @@
 <div class="row justify-content-center">
     <div class="col-md-6 col-xl-4 col-xxl-3">
         <div class="card">
-            <div class="card-header text-center">Formularz kontaktowy</div>
+            <div class="card-header text-center bg-primary-subtle">Formularz kontaktowy</div>
             <div class="card-body">
                 <form (ngSubmit)="makeReservation()" [formGroup]="contactForm"
                       class=" mx-auto my-5  d-flex flex-column justify-content-center align-content-center ">
                     <mat-form-field appearance="outline">
                         <mat-label>Imie</mat-label>
-                        <input formControlName="fullName" matInput placeholder="Wpisz swoje imie i nazwisko">
+                        <input formControlName="fullName"  type="text" matInput placeholder="Wpisz swoje imie i nazwisko">
                         <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Telefon</mat-label>
-                        <input formControlName="telephone" matInput placeholder="Wpisz swój numer telefonu">
+                        <input formControlName="telephone" type="telehone" matInput placeholder="Wpisz swój numer telefonu">
                         <mat-error *ngIf="contactForm.get('telephone')?.invalid">To pole nie może być puste</mat-error>
                     </mat-form-field>
-                    <mat-form-field appearance="outline">
+                    <mat-form-field appearance="outline" >
                         <mat-label>E-mail</mat-label>
-                        <input formControlName="email" matInput placeholder="Wpisz swój adres e-mail">
+                        <input formControlName="email" matInput type="email" placeholder="Wpisz swój adres e-mail">
                         <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Podaj prawidłowy e-mail</mat-error>
                         <mat-error *ngIf="contactForm.get('email')?.hasError('required')">To pole nie może być puste</mat-error>
                     </mat-form-field>
-                    <button [disabled]="contactForm.invalid" color="warn" mat-raised-button type="submit">Potwierdź rezerwacje</button>
+                    <button  mat-raised-button color="accent" type="submit" class="my-3">Potwierdź rezerwacje</button>
                 </form>
             </div>
         </div>

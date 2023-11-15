@@ -2,11 +2,7 @@ h3 {
     width: fit-content;
 }
 
-.summary-container {
-    font-family: 'Arial', sans-serif;
-    padding: 20px;
 
-}
 
 .summary-item {
     display: flex;
@@ -18,17 +14,10 @@ h3 {
     font-weight: bold;
 }
 
-.value {
-    font-size: 1.1em;
-    display: inline-block;
+.wrapper {
+    width: fit-content;
 }
 
-//form {
-//    width: 40%;
-//}
-//
-//@media (min-width: 980px) {
-//    form {
-//        width: 20%;
-//    }
-//}
+.value-wrapper {
+    margin: 15px;
+}
