@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {AdminLoginService} from "../core/services/admin-login.service";
-import {catchError} from "rxjs";
+import {catchError, Subject, takeUntil} from "rxjs";
 import {Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -9,7 +9,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.scss']
 })
-export class AdminLoginComponent {
+export class AdminLoginComponent implements OnDestroy {
+
+    private unSubscribe$ = new Subject<void>()
 
     public loginForm: FormGroup = this.fb.group({
         password: ['', Validators.required],
@@ -18,15 +20,26 @@ export class AdminLoginComponent {
     }
 
     login(password: string) {
-        this.loginService.login(password, true).subscribe({
+        this.loginService.login(password).pipe(
+            takeUntil(this.unSubscribe$),
+
+        ).subscribe({
             next: (response) => {
-                console.log('w next ');
                 this.loginService.setAuthToken(response);
                 this.router.navigate(['adminDashboard']).then();
             },
             error: (error) => {
-                console.log(error.error)
+                this.setIncorrectLoginError();
             }
         })
+    }
+
+    setIncorrectLoginError() {
+        this.loginForm.get('password')?.setErrors({incorrectPassword: true});
+    }
+
+    ngOnDestroy() {
+        this.unSubscribe$.next();
+        this.unSubscribe$.unsubscribe();
     }
 }
