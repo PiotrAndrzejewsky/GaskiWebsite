@@ -13,7 +13,7 @@ export class ReservationSummaryComponent {
 
     public contactForm: FormGroup = this.fb.group({
         fullName: ['', Validators.required],
-        telephone: ['', Validators.required],
+        telephone: ['', [Validators.required, Validators.pattern("[0-9]{9}")]],
         email: ['', [Validators.required, Validators.email]]
     });
 
@@ -22,6 +22,8 @@ export class ReservationSummaryComponent {
 
     public finalCost: number = 0 ;
 
+    public isTelephoneFormControlFocusedOrDirty: boolean = false;
+
     constructor(private reservationService: ReservationService, private fb: FormBuilder, private router: Router) {
         this.reservation = reservationService.getReservation();
         this.setFinalCost();
@@ -29,6 +31,12 @@ export class ReservationSummaryComponent {
 
     ngOnInit() {
 
+    }
+    setIsTelephoneFormControlFocused(bool: boolean) {
+        if(this.contactForm.get('telephone')?.dirty)
+            return
+
+        this.isTelephoneFormControlFocusedOrDirty = bool;
     }
 
     setFinalCost() {

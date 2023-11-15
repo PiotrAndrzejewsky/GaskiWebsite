@@ -49,8 +49,12 @@
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Telefon</mat-label>
-                        <input formControlName="telephone" type="telehone" matInput placeholder="Wpisz swój numer telefonu">
-                        <mat-error *ngIf="contactForm.get('telephone')?.invalid">To pole nie może być puste</mat-error>
+                        <input (focusin)="setIsTelephoneFormControlFocused(true)"  (focusout)="setIsTelephoneFormControlFocused(false)" formControlName="telephone" type="telehone" matInput placeholder="Wpisz swój numer telefonu" #telephone>
+                        <span *ngIf="isTelephoneFormControlFocusedOrDirty" matTextPrefix class="pe-1">+48</span>
+                        <mat-hint>Numer telefonu musi zawierać 9 cyfr</mat-hint>
+                        <mat-hint align="end">{{telephone.value.length}}/9</mat-hint>
+                        <mat-error *ngIf="contactForm.get('telephone')?.hasError('required')">To pole nie może być puste</mat-error>
+                        <mat-error *ngIf="contactForm.get('telephone')?.hasError('pattern')">Numer telefonu jest nieprawidłowy</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline" >
                         <mat-label>E-mail</mat-label>
