@@ -1,0 +1,9 @@
+<h1 class="text-center" mat-dialog-title>Potwierdzenie</h1>
+<mat-dialog-content>
+    <p class="my-5 py-5">{{data}}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+    <button (click)="onNoClick()" class="btn-primary btn">Anuluj</button>
+    <button (click)="onAccept()" class="btn">Potwierdź</button>
+</mat-dialog-actions>
