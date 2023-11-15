@@ -3,12 +3,12 @@
 <mat-dialog-content>
     <div class="container">
         <div class="row justify-content-evenly">
-            <div *ngFor="let room of rooms; let i = index" class="card col-12 col-lg-6 col-xl-4">
+            <div *ngFor="let room of rooms" class="card col-12 col-lg-6 col-xl-4">
                 <img [ngSrc]="room.imageLink[0]" alt="Zdjęcie pokoju" class="card-img-top" height="80" width="120">
                 <div class="card-body">
                     <h5 class="card-title text-center">{{ room.title }}</h5>
                     <div class="card-text smaller-text">
-                        <p><span class="fw-bold">krótki opis:</span> {{room.shortDescription }}</p>
+                        <p><span class="fw-bold">krótki opis:</span> {{room.shortDescription}}</p>
                         <p><span class="fw-bold">długi opis:</span> {{room.longDescription}}</p>
                         <p><span class="fw-bold">cena bazowa za dobę:</span> {{room.basePricePerNight}}</p>
                         <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
@@ -16,7 +16,7 @@
                         <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
                         <p><span class="fw-bold">koszt sprzątania:</span> 100</p>
                     </div>
-                    <button (click)="onDeleteClick(i)" class="btn btn-danger" type="button">Delete</button>
+                    <button (click)="onDeleteClick(room.title)" class="btn btn-danger" type="button">Delete</button>
                 </div>
             </div>
         </div>
