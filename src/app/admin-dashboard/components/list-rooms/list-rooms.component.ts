@@ -2,7 +2,7 @@ import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {Room} from "../../../core/models/room.model";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {RoomsService} from "../../../core/services/rooms.service";
-import {catchError, of, Subject, switchMap, takeUntil, tap} from "rxjs";
+import {catchError, filter, of, Subject, switchMap, take, takeUntil, tap} from "rxjs";
 import {ConfirmationService} from "../../../core/services/confirmation.service";
 
 @Component({
@@ -29,11 +29,13 @@ export class ListRoomsComponent implements OnInit, OnDestroy {
 
     onDeleteClick(roomName: string): void {
 
-        if(this.confirmation.openConfirmationDialog('Czy chcesz usunąć ' + roomName + ' ?' ))
-        {
-            this.deleteRoom(roomName);
-            this.fetchRooms();
-        }
+        this.confirmation.openConfirmationDialog('Czy chcesz usunąć ' + roomName + ' ?').pipe(
+            take(1),
+            filter((res) => res !== 'false')
+        ).subscribe(() => {
+                this.deleteRoom(roomName);
+                this.fetchRooms();
+        })
 
     }
 
