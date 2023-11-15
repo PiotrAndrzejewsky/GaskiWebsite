@@ -4,6 +4,6 @@
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-    <button (click)="onNoClick()" class="btn-primary btn">Anuluj</button>
+    <button [mat-dialog-close]="'false'" class="btn-primary btn">Anuluj</button>
     <button (click)="onAccept()" class="btn">Potwierdź</button>
 </mat-dialog-actions>

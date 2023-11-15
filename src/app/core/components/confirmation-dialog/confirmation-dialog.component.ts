@@ -9,9 +9,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 export class ConfirmationDialogComponent {
     constructor(public dialogRef: MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: string) {}
 
-    onNoClick() {
-        this.dialogRef.close('false');
-    }
+
     onAccept() {
         this.dialogRef.close('true');
     }

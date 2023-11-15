@@ -24,19 +24,10 @@ export class ListFacilitesDialogComponent implements OnInit, OnDestroy{
          this.fetchFacilities();
     }
 
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
 
     onDeleteClick(facilityTitle: string): void {
-        // if (this.confirmation.openConfirmationDialog('Czy chcesz usunąć ' + facilityTitle + ' ?')) {
-        //     this.deleteFacility(facilityTitle);
-        //     this.fetchFacilities();
-        // }
 
-        // dobra jak res jest false no return else
         this.confirmation.openConfirmationDialog('Czy chcesz usunąć ' + + facilityTitle + ' ?').pipe(
-            take(1),
             filter((res) => res !== 'false')
         ).subscribe(() => {
             this.deleteFacility(facilityTitle);

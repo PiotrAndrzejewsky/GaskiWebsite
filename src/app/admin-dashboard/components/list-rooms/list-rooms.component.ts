@@ -23,15 +23,11 @@ export class ListRoomsComponent implements OnInit, OnDestroy {
         this.fetchRooms();
     }
 
-    onNoClick(): void {
-        this.dialogRef.close();
-    }
 
     onDeleteClick(roomName: string): void {
 
         this.confirmation.openConfirmationDialog('Czy chcesz usunąć ' + roomName + ' ?').pipe(
-            take(1),
-            filter((res) => res !== 'false')
+            filter((res) => res !== 'false'  )
         ).subscribe(() => {
                 this.deleteRoom(roomName);
                 this.fetchRooms();
