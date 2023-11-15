@@ -1,15 +1,28 @@
-<p class="text-center w-50 mx-auto">
-    Dziękujemy za zarezerowowanie noclegu!<br>
-Tak szybko jak będzie to możliwe skontaktujemy sie z Tobą.<br>
-    Na podanego e-maila wysłaliśmy potwierdzenie rezerwacji. <br>
-    Pamiętaj ze rezerwacja staje się dopiero ważna po wpłaceniu zaliczki wysokości 100zł na nasze konto bankowe.
-</p>
+<div class="container mt-5 main-content d-flex flex-column justify-content-center ">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <p class="text-center h3 mb-4">Dziękujemy za zarezerwowanie noclegu!</p>
+            <p class="text-center">Tak szybko, jak będzie to możliwe, skontaktujemy się z Tobą.</p>
+            <p class="text-center">Na podany e-mail wysłaliśmy potwierdzenie rezerwacji.</p>
+            <p class="text-center">
+                Pamiętaj, że rezerwacja staje się dopiero ważna po wpłaceniu zaliczki w wysokości 100 zł na nasze konto bankowe.
+            </p>
+        </div>
+    </div>
 
-<p  class="text-center"> dzień przyjazdu: {{reservation?.days?.firstDay | date: 'dd-MM-YYYY'}}</p>
-<p  class="text-center"> dzień odjazdu: {{reservation?.days?.lastDay | date: 'dd-MM-YYYY'}}</p>
+<div class="text-center">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="98" height="98" fill="#28a745">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+    </svg>
+</div>
 
-<p class="text-center">łączna kwota do zapłaty: {{overalCost}}</p>
-
-<p class="text-center">kwota zaliczki: 100zł</p>
-
-
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <p class="text-center h5">Dzień przyjazdu: {{ reservation?.days?.firstDay | date: 'dd-MM-YYYY' }}</p>
+            <p class="text-center h5">Dzień odjazdu: {{ reservation?.days?.lastDay | date: 'dd-MM-YYYY' }}</p>
+            <p class="text-center h4 mt-4">Łączna kwota do zapłaty: {{ overalCost }}</p>
+            <p class="text-center h5">Kwota zaliczki: 100 zł</p>
+        </div>
+    </div>
+</div>
