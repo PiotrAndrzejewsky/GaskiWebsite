@@ -1,21 +1,26 @@
-<div class="modal-header">
-    <h2 class="modal-title">Room List</h2>
-    <button type="button" class="close" aria-label="Close" mat-dialog-close>
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<div class="modal-body">
-    <div class="card-columns">
-        <div *ngFor="let room of data; let i = index" class="card">
-            <img [src]="room.imageLink[0]" alt="Room Image" class="card-img-top">
+
+    <h1 mat-dialog-title class="text-center">Lista pokoji</h1>
+
+<div class="container">
+    <div class="row justify-content-evenly">
+        <div *ngFor="let room of rooms; let i = index" class="card col-4">
+            <img [ngSrc]="room.imageLink[0]" width="120" height="80" alt="Zdjęcie pokoju" class="card-img-top">
             <div class="card-body">
-                <h5 class="card-title">{{ room.title }}</h5>
-                <p class="card-text">{{ room.shortDescription }}</p>
+                <h5 class="card-title text-center">{{ room.title }}</h5>
+                <div class="card-text smaller-text">
+                    <p><span class="fw-bold">krótki opis:</span> {{ room.shortDescription }}</p>
+                    <p><span class="fw-bold">długi opis:</span> {{room.longDescription}}</p>
+                    <p><span class="fw-bold">cena bazowa za dobę:</span> {{room.basePricePerNight}}</p>
+                    <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
+                    <p><span class="fw-bold">maksymalna ilość osób:</span> {{room.maximumNumberOfPeopleAllowed}}</p>
+                    <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
+                    <p><span class="fw-bold">koszt sprzątania:</span> 100</p>
+                </div>
                 <button type="button" class="btn btn-danger" (click)="onDeleteClick(i)">Delete</button>
             </div>
         </div>
     </div>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" mat-dialog-close>Close</button>
+    <button type="button" class="btn btn-primary" mat-dialog-close>Zamknij</button>
 </div>
