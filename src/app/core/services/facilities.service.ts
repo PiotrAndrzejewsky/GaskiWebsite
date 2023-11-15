@@ -55,4 +55,8 @@ export class FacilitiesService {
      // push facilite to server
      return of('true');
     }
+
+    deleteFacilite(name: string) {
+      return of('true');
+    }
 }

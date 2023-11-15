@@ -41,6 +41,7 @@ import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-di
 import { AddFacilitieDialogComponent } from './admin-dashboard/components/add-facilitie-dialog/add-facilitie-dialog.component';
 import { ListRoomsComponent } from './admin-dashboard/components/list-rooms/list-rooms.component';
 import { ConfirmationDialogComponent } from './core/components/confirmation-dialog/confirmation-dialog.component';
+import { ListFacilitesDialogComponent } from './admin-dashboard/components/list-facilites-dialog/list-facilites-dialog.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { ConfirmationDialogComponent } from './core/components/confirmation-dial
       AddRoomDialogComponent,
       AddFacilitieDialogComponent,
       ListRoomsComponent,
-      ConfirmationDialogComponent
+      ConfirmationDialogComponent,
+      ListFacilitesDialogComponent
   ],
     imports: [
         BrowserModule,

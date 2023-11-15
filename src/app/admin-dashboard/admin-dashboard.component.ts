@@ -8,6 +8,7 @@ import {AddRoomDialogComponent} from "./components/add-room-dialog/add-room-dial
 import {AddFacilitieDialogComponent} from "./components/add-facilitie-dialog/add-facilitie-dialog.component";
 import {FacilitiesService} from "../core/services/facilities.service";
 import {ListRoomsComponent} from "./components/list-rooms/list-rooms.component";
+import {ListFacilitesDialogComponent} from "./components/list-facilites-dialog/list-facilites-dialog.component";
 
 @Component({
     selector: 'app-admin-dashboard',
@@ -85,10 +86,16 @@ export class AdminDashboardComponent implements OnDestroy {
 
     }
 
+    openListFacilitiesDialog() {
+        const dialogRef = this.dialog.open(ListFacilitesDialogComponent);
+
+    }
 
     ngOnDestroy() {
         this.$unSubscribe.next();
         this.$unSubscribe.unsubscribe();
     }
+
+
 
 }
