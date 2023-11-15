@@ -19,7 +19,9 @@ export class AdminLoginComponent implements OnDestroy {
     constructor(private loginService: AdminLoginService, private router: Router,  private fb: FormBuilder) {
     }
 
-    login(password: string) {
+    login() {
+        const password = this.loginForm.get('password')?.value;
+
         this.loginService.login(password).pipe(
             takeUntil(this.unSubscribe$),
 

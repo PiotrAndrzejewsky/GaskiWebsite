@@ -13,7 +13,8 @@ export class AdminLoginService {
     login(password: string) {
         if(password === 'cdv')
             return of('true');
-        return throwError(() => {Error('bad password')});
+        else
+            return throwError(() => {Error('bad password')});
     }
 
     setAuthToken(token: string) {
