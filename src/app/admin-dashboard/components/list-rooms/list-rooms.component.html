@@ -1,26 +1,28 @@
+<h1 class="text-center" mat-dialog-title>Lista pokoji</h1>
 
-    <h1 mat-dialog-title class="text-center">Lista pokoji</h1>
-
-<div class="container">
-    <div class="row justify-content-evenly">
-        <div *ngFor="let room of rooms; let i = index" class="card col-4">
-            <img [ngSrc]="room.imageLink[0]" width="120" height="80" alt="Zdjęcie pokoju" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title text-center">{{ room.title }}</h5>
-                <div class="card-text smaller-text">
-                    <p><span class="fw-bold">krótki opis:</span> {{ room.shortDescription }}</p>
-                    <p><span class="fw-bold">długi opis:</span> {{room.longDescription}}</p>
-                    <p><span class="fw-bold">cena bazowa za dobę:</span> {{room.basePricePerNight}}</p>
-                    <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
-                    <p><span class="fw-bold">maksymalna ilość osób:</span> {{room.maximumNumberOfPeopleAllowed}}</p>
-                    <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
-                    <p><span class="fw-bold">koszt sprzątania:</span> 100</p>
+<mat-dialog-content>
+    <div class="container">
+        <div class="row justify-content-evenly">
+            <div *ngFor="let room of rooms; let i = index" class="card col-12 col-lg-6 col-xl-4">
+                <img [ngSrc]="room.imageLink[0]" alt="Zdjęcie pokoju" class="card-img-top" height="80" width="120">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{ room.title }}</h5>
+                    <div class="card-text smaller-text">
+                        <p><span class="fw-bold">krótki opis:</span> {{room.shortDescription }}</p>
+                        <p><span class="fw-bold">długi opis:</span> {{room.longDescription}}</p>
+                        <p><span class="fw-bold">cena bazowa za dobę:</span> {{room.basePricePerNight}}</p>
+                        <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
+                        <p><span class="fw-bold">maksymalna ilość osób:</span> {{room.maximumNumberOfPeopleAllowed}}</p>
+                        <p><span class="fw-bold">cena za osobę:</span> {{room.pricePerPerson}}</p>
+                        <p><span class="fw-bold">koszt sprzątania:</span> 100</p>
+                    </div>
+                    <button (click)="onDeleteClick(i)" class="btn btn-danger" type="button">Delete</button>
                 </div>
-                <button type="button" class="btn btn-danger" (click)="onDeleteClick(i)">Delete</button>
             </div>
         </div>
     </div>
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-primary" mat-dialog-close>Zamknij</button>
-</div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button class="btn btn-primary" mat-dialog-close type="button">Zamknij</button>
+</mat-dialog-actions>
