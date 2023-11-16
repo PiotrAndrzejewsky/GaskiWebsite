@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Add Reservation</h2>
+<h2 mat-dialog-title class="text-center">Dodaj rezerwacje</h2>
 <mat-dialog-content>
     <form [formGroup]="reservationForm" class="m-5 " >
 
@@ -48,7 +48,7 @@
     </form>
 </mat-dialog-content>
 
-<mat-dialog-actions align="center">
-    <button mat-dialog-close (click)="cancel()">Cancel</button>
-    <button mat-button color="primary" (click)="submitForm()">Save</button>
+<mat-dialog-actions align="center" class="mb-4">
+    <button class="btn " (click)="cancel()">Anuluj</button>
+    <button class="btn btn-primary" (click)="submitForm()" [disabled]="reservationForm.invalid">Dodaj</button>
 </mat-dialog-actions>
