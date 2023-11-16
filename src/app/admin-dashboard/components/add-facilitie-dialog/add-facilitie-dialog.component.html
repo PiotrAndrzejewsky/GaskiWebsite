@@ -1,37 +1,38 @@
-<h1 class="text-center" mat-dialog-title >Dodaj nowe udogodnienie</h1>
+<h1 class="text-center" mat-dialog-title>Dodaj nowe udogodnienie</h1>
+
 <mat-dialog-content>
 
-        <form [formGroup]="facilityForm">
-            <div class="form-group">
-                <label for="title">Nazwa</label>
-                <input type="text" class="form-control" id="title" formControlName="title">
-                <div *ngIf="facilityForm.get('title')?.hasError('required')">
-                    <small class="text-danger">Nazwa jest wymagana</small>
-                </div>
-            </div>
+    <form [formGroup]="facilityForm" class="d-flex flex-column">
 
-            <div class="form-group">
-                <label for="description">Opis</label>
-                <textarea class="form-control" id="description" formControlName="description"></textarea>
-                <div *ngIf="facilityForm.get('description')?.hasError('required')">
-                    <small class="text-danger">Opis jest wymagany</small>
-                </div>
-            </div>
+        <mat-form-field class="form-group">
+            <mat-label>Nazwa udogodnienia</mat-label>
+            <input matInput placeholder="Nazwa" formControlName="title">
+            <mat-error *ngIf="facilityForm.get('title')?.hasError('required')">
+                Nazwa jest wymagana
+            </mat-error>
+        </mat-form-field>
 
-            <div class="form-group">
-                <label for="images">Zdjęcie</label>
-                <input type="file" class="form-control" id="images" formControlName="src">
-                <small class="form-text text-muted">Zdjęcie powinno być w formacie 1:1</small>
-                <div *ngIf="facilityForm.get('src')?.hasError('required')">
-                    <small class="text-danger">zdjęcie jest wymagane</small>
-                </div>
-            </div>
-        </form>
+        <mat-form-field class="form-group">
+            <mat-label>Opis udogodnienia</mat-label>
+            <textarea matInput placeholder="Opis" formControlName="description"></textarea>
+            <mat-error *ngIf="facilityForm.get('description')?.hasError('required')">
+                Opis jest wymagany
+            </mat-error>
+        </mat-form-field>
+
+        <div class="form-group">
+            <label for="images">Zdjęcie</label>
+            <input type="file" class="form-control" id="images" formControlName="src">
+            <small class="form-text text-muted">Zdjęcie powinno być w formacie 1:1</small>
+            <mat-error *ngIf="facilityForm.get('src')?.hasError('required') && facilityForm.get('src')?.dirty">zdjęcie jest wymagane</mat-error>
+        </div>
+
+    </form>
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-        <button type="button" mat-dialog-close class="btn btn-secondary" (click)="onCancel()">Anuluj</button>
-        <button type="button" class="btn btn-primary" (click)="onSave()" [disabled]="facilityForm.invalid">Dodaj</button>
+    <button mat-button mat-dialog-close (click)="onCancel()">Anuluj</button>
+    <button mat-raised-button color="primary" (click)="onSave()" [disabled]="facilityForm.invalid"><span style="color: white">Dodaj</span></button>
 </mat-dialog-actions>
 

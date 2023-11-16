@@ -40,6 +40,11 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { AddRoomDialogComponent } from './admin-dashboard/components/add-room-dialog/add-room-dialog.component';
 import { AddFacilitieDialogComponent } from './admin-dashboard/components/add-facilitie-dialog/add-facilitie-dialog.component';
 import { ListRoomsComponent } from './admin-dashboard/components/list-rooms/list-rooms.component';
+import { ConfirmationDialogComponent } from './core/components/confirmation-dialog/confirmation-dialog.component';
+import { ListFacilitesDialogComponent } from './admin-dashboard/components/list-facilites-dialog/list-facilites-dialog.component';
+import {MatFileUploadModule} from "angular-material-fileupload";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -71,7 +76,9 @@ import { ListRoomsComponent } from './admin-dashboard/components/list-rooms/list
       AddReservationDialogComponent,
       AddRoomDialogComponent,
       AddFacilitieDialogComponent,
-      ListRoomsComponent
+      ListRoomsComponent,
+      ConfirmationDialogComponent,
+      ListFacilitesDialogComponent
   ],
     imports: [
         BrowserModule,
@@ -85,7 +92,9 @@ import { ListRoomsComponent } from './admin-dashboard/components/list-rooms/list
         MatInputModule,
         ReactiveFormsModule,
         FormsModule,
-        MatDialogModule
+        MatDialogModule,
+        MatCheckboxModule,
+        MatSelectModule,
 
     ],
     providers: [{provide: LOCALE_ID, useValue: "pl"}, CookieService],

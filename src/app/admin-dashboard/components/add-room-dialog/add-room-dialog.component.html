@@ -1,56 +1,67 @@
 <h1 mat-dialog-title class="text-center my-4">Dodaj nowy pokój</h1>
 
 <mat-dialog-content>
-    <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
-        <div class="mb-3 form-group">
-            <label for="title" class="form-label">Nazwa pokoju</label>
-            <input type="text" class="form-control" id="title" formControlName="title" required>
-            <small id="titleHint" class="form-text text-muted">Na przykład "Pokój słoneczny".</small>
-        </div>
+    <form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="d-flex flex-column">
 
-        <div class="mb-3 form-group">
-            <label for="shortDescription" class="form-label">Krótki opis</label>
-            <textarea class="form-control" id="shortDescription" formControlName="shortDescription" rows="3" required></textarea>
-        </div>
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Nazwa pokoju</mat-label>
+            <input matInput type="text" id="title" formControlName="title" required placeholder="nazwa pokoju">
+            <mat-hint>Na przykład "Pokój słoneczny".</mat-hint>
+            <mat-error  *ngIf="roomForm.get('title')?.hasError('required')">To pole jest wymagane</mat-error>
+        </mat-form-field>
 
-        <div class="mb-3 form-group">
-            <label for="longDescription" class="form-label">Długi opis</label>
-            <textarea class="form-control" id="longDescription" formControlName="longDescription" rows="5" required></textarea>
-        </div>
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Krótki opis</mat-label>
+            <textarea matInput id="shortDescription" formControlName="shortDescription" rows="3" required placeholder="krótki opis"></textarea>
+            <mat-error  *ngIf="roomForm.get('title')?.hasError('required')">To pole jest wymagane</mat-error>
 
-        <div class="mb-3 form-group">
-            <label for="maximumNumberOfPeopleAllowed" class="form-label">Maksymalna liczba osób</label>
-            <input type="number" class="form-control" id="maximumNumberOfPeopleAllowed" formControlName="maximumNumberOfPeopleAllowed" required>
-        </div>
+        </mat-form-field>
 
-        <div class="mb-3 form-group">
-            <label for="basePricePerNight" class="form-label">Cena bazowa za dobę</label>
-            <input type="number" class="form-control" id="basePricePerNight" formControlName="basePricePerNight" required>
-        </div>
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Długi opis</mat-label>
+            <textarea matInput id="longDescription" formControlName="longDescription" rows="5" required placeholder="długi opis"></textarea>
+            <mat-error  *ngIf="roomForm.get('title')?.hasError('required')">To pole jest wymagane</mat-error>
 
-        <div class="mb-3 form-group">
-            <label for="pricePerPerson" class="form-label">Cena za osobę</label>
-            <input type="number" class="form-control" id="pricePerPerson" formControlName="pricePerPerson" required>
-        </div>
+        </mat-form-field>
 
-        <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="isPlaceReservable" formControlName="isPlaceReservable">
-            <label class="form-check-label" for="isPlaceReservable">Możliwość rezerwacji</label>
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Maksymalna liczba osób</mat-label>
+            <input matInput type="number" id="maximumNumberOfPeopleAllowed" formControlName="maximumNumberOfPeopleAllowed" required placeholder="maksymalna ilość osób">
+            <mat-error  *ngIf="roomForm.get('maximumNumberOfPeopleAllowed')?.hasError('required')">To pole jest wymagane</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Cena bazowa za dobę</mat-label>
+            <input matInput type="number" id="basePricePerNight" formControlName="basePricePerNight" required placeholder="cena bazowa">
+            <mat-error  *ngIf="roomForm.get('basePricePerNight')?.hasError('required')">To pole jest wymagane</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="mb-3 form-group">
+            <mat-label>Cena za osobę</mat-label>
+            <input matInput type="number" id="pricePerPerson" formControlName="pricePerPerson" required placeholder="cena za osobę">
+            <mat-error  *ngIf="roomForm.get('pricePerPerson')?.hasError('required')">To pole jest wymagane</mat-error>
+
+        </mat-form-field>
+
+        <div class="mb-3 ">
+            <mat-checkbox class="" id="isPlaceReservable" formControlName="isPlaceReservable">
+                Możliwość rezerwacji
+            </mat-checkbox>
         </div>
 
         <div class="mb-3 form-group">
             <label for="imageLink" class="form-label">Zdjęcia</label>
             <input type="file" class="form-control" id="imageLink" formControlName="imageLink" required multiple>
             <small id="resolutionHint" class="form-text text-muted">Pamiętaj aby zdjęcia były w formacie 3:2</small>
+            <mat-error *ngIf="roomForm.get('imageLink')?.hasError('required') && roomForm.get('imageLink')?.dirty">zdjęcie jest wymagane</mat-error>
         </div>
-
 
     </form>
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
     <button mat-button (click)="onCancel()">Anuluj</button>
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="roomForm.invalid">Dodaj</button>
+    <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" [disabled]="roomForm.invalid">Dodaj</button>
 </mat-dialog-actions>
-
-

@@ -10,8 +10,11 @@ export class AdminLoginService {
     constructor(private cookies: CookieService) {
     }
 
-    login(password: string, respone: boolean) {
-        return of('token123');
+    login(password: string) {
+        if(password === 'cdv')
+            return of('true');
+        else
+            return throwError(() => {Error('bad password')});
     }
 
     setAuthToken(token: string) {

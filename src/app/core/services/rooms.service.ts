@@ -62,4 +62,8 @@ export class RoomsService {
     addNewRoom(room : any) {
         return of('true');
     }
+
+    deleteRoom(roomName: string) {
+        return of('true');
+    }
 }

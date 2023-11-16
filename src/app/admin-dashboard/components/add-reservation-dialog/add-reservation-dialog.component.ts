@@ -53,6 +53,7 @@ export class AddReservationDialogComponent {
 
     patchFormRoomCosts(room: string) {
         this.reservationForm.patchValue({serviceCost: 200, perDayCost: JSON.parse(room).basePricePerNight});
+        console.log('patchvaluie');
 
     }
 
