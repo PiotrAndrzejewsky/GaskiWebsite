@@ -45,7 +45,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Imie</mat-label>
                         <input formControlName="fullName"  type="text" matInput placeholder="Wpisz swoje imie i nazwisko">
-                        <mat-error *ngIf="contactForm.get('firstName')?.invalid">To pole nie może być puste</mat-error>
+                        <mat-error *ngIf="contactForm.get('fullName')?.hasError('required')">To pole nie może być puste</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Telefon</mat-label>
@@ -62,7 +62,7 @@
                         <mat-error *ngIf="contactForm.get('email')?.hasError('email')">Podaj prawidłowy e-mail</mat-error>
                         <mat-error *ngIf="contactForm.get('email')?.hasError('required')">To pole nie może być puste</mat-error>
                     </mat-form-field>
-                    <button  mat-raised-button color="accent" type="submit" class="my-3">Potwierdź rezerwacje</button>
+                    <button  mat-raised-button color="accent" type="submit" class="my-3 "><span style="color: white;">Potwierdź rezerwacje</span></button>
                 </form>
             </div>
         </div>
