@@ -5,6 +5,7 @@
     <form [formGroup]="facilityForm" class="d-flex flex-column">
 
         <mat-form-field class="form-group">
+            <mat-label>Nazwa udogodnienia</mat-label>
             <input matInput placeholder="Nazwa" formControlName="title">
             <mat-error *ngIf="facilityForm.get('title')?.hasError('required')">
                 Nazwa jest wymagana
@@ -12,26 +13,26 @@
         </mat-form-field>
 
         <mat-form-field class="form-group">
+            <mat-label>Opis udogodnienia</mat-label>
             <textarea matInput placeholder="Opis" formControlName="description"></textarea>
             <mat-error *ngIf="facilityForm.get('description')?.hasError('required')">
                 Opis jest wymagany
             </mat-error>
         </mat-form-field>
 
-        <mat-form-field class="form-group">
-            <input  matInput placeholder="Zdjęcie" formControlName="src">
-            <mat-error *ngIf="facilityForm.get('src')?.hasError('required') && facilityForm.get('src')?.touched">
-                Zdjęcie jest wymagane
-            </mat-error>
-            <mat-hint>Zdjęcie powinno być w formacie 1:1</mat-hint>
-        </mat-form-field>
+        <div class="form-group">
+            <label for="images">Zdjęcie</label>
+            <input type="file" class="form-control" id="images" formControlName="src">
+            <small class="form-text text-muted">Zdjęcie powinno być w formacie 1:1</small>
+            <mat-error *ngIf="facilityForm.get('src')?.hasError('required') && facilityForm.get('src')?.dirty">zdjęcie jest wymagane</mat-error>
+        </div>
 
     </form>
 
 </mat-dialog-content>
 
 <mat-dialog-actions align="center">
-    <button mat-button mat-dialog-close color="" (click)="onCancel()">Anuluj</button>
-    <button mat-button color="primary" (click)="onSave()" [disabled]="facilityForm.invalid">Dodaj</button>
+    <button mat-button mat-dialog-close (click)="onCancel()">Anuluj</button>
+    <button mat-raised-button color="primary" (click)="onSave()" [disabled]="facilityForm.invalid"><span style="color: white">Dodaj</span></button>
 </mat-dialog-actions>
 

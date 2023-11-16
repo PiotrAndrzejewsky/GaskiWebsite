@@ -15,7 +15,7 @@
         <div class="form-group my-3">
             <label for="roomName">Nazwa pokoju</label>
             <select formControlName="roomName" id=roomName class="form-select" (change)="patchFormRoomCosts(reservationForm.get('roomName')?.value)">
-                    <option *ngFor="let room of data" value="{{room | json }}" >{{room.title}}</option>
+                <option *ngFor="let room of data" value="{{room | json }}" >{{room.title}}</option>
             </select>
         </div>
 
@@ -52,3 +52,67 @@
     <button class="btn " (click)="cancel()">Anuluj</button>
     <button class="btn btn-primary" (click)="submitForm()" [disabled]="reservationForm.invalid">Dodaj</button>
 </mat-dialog-actions>
+
+
+
+
+
+
+
+<!--<h2 mat-dialog-title class="text-center">Dodaj rezerwacje</h2>-->
+
+<!--<mat-dialog-content>-->
+<!--    <form [formGroup]="reservationForm" class="m-5">-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Pierwszy dzień</mat-label>-->
+<!--            <input matInput formControlName="firstDay" id="startDate" type="date">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Ostatni dzień</mat-label>-->
+<!--            <input matInput formControlName="lastDay" id="endDate" type="date">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3" >-->
+<!--            <mat-label>Nazwa pokoju</mat-label>-->
+<!--            <mat-select formControlName="roomName" id="roomName" class="form-select" (change)="patchFormRoomCosts(reservationForm.get('roomName')?.value)">-->
+<!--                <mat-option *ngFor="let room of data" [value]="room">-->
+<!--                    {{ room.title }}-->
+<!--                </mat-option>-->
+<!--            </mat-select>-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Telefon</mat-label>-->
+<!--            <input matInput formControlName="telephone" id="telephone" type="tel">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Imię i nazwisko</mat-label>-->
+<!--            <input matInput formControlName="fullName" id="fullName" type="text">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>E-mail</mat-label>-->
+<!--            <input matInput formControlName="email" id="email" type="email">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Koszt na dzień</mat-label>-->
+<!--            <input matInput formControlName="perDayCost" id="perDayCost" type="number">-->
+<!--        </mat-form-field>-->
+
+<!--        <mat-form-field appearance="fill" class="form-group my-3">-->
+<!--            <mat-label>Koszt sprzątania</mat-label>-->
+<!--            <input matInput formControlName="serviceCost" id="serviceCost" type="number">-->
+<!--        </mat-form-field>-->
+
+<!--    </form>-->
+<!--</mat-dialog-content>-->
+
+<!--<mat-dialog-actions align="center" class="mb-4">-->
+<!--    <button mat-button (click)="cancel()">Anuluj</button>-->
+<!--    <button mat-raised-button color="primary" (click)="submitForm()" [disabled]="reservationForm.invalid">Dodaj</button>-->
+<!--</mat-dialog-actions>-->
+
