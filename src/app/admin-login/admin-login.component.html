@@ -1,5 +1,5 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
+<div class="container mt-5 wrapper  ">
+    <div class="row justify-content-center py-5 my-5">
         <div class="col-md-6">
             <div class="card ">
                 <div class="card-header text-center">Admin Login</div>
@@ -7,12 +7,12 @@
                     <form (ngSubmit)="login()" [formGroup]="loginForm">
                         <div class="form-group">
                             <mat-form-field appearance="outline" class="w-100 mb-2">
-                                <mat-label>Password</mat-label>
+                                <mat-label>Hasło</mat-label>
                                 <input matInput type="password" placeholder="Wpisz hasło" formControlName="password" />
                                 <mat-error *ngIf="loginForm.get('password')?.hasError('incorrectPassword')">Nieprawidłowe hasło!</mat-error>
                             </mat-form-field>
                         </div>
-                        <button mat-raised-button color="primary" class="w-100" type="submit" style="color: white !important;">Login</button>
+                        <button mat-raised-button color="primary" class="w-100" type="submit" ><span style="color: white !important;">Zaloguj</span></button>
                     </form>
                 </div>
             </div>
