@@ -1,0 +1,28 @@
+$primary-color: #fbd5fb; // Gray
+$secondary-color: #202223; // Lighter gray
+$text-color: #343a40; // Dark gray
+$background-color: #bcd7f2; // Light background gray
+$border-color: $background-color; // Border gray
+
+
+$section-background-color: #f8f9fa; // Light gray
+$section-text-color: #343a40; // Dark gray
+
+section {
+    background-color: $background-color;
+    color: $text-color;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.section-separator {
+    height: 2px;
+    background-color: $section-text-color;
+    width: 40%;
+    margin: 20px auto;
+    border-radius: 50px; // Rounded edges
+}
