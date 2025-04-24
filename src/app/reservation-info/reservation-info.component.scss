@@ -1,6 +1,8 @@
-section{
-    margin-bottom: 10%;
+section {
+    margin-bottom: 0 !important; // Remove all margins
+    padding-bottom: 0 !important; // Ensure no extra space at the bottom
 }
+
 p {
     width: 40%;
 }

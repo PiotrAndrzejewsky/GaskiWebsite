@@ -113,4 +113,15 @@ mat-icon {
     position: relative;
 }
 
+section {
+    background-color: $section-background-color;
+    color: $section-text-color;
+    transform: none;
+    box-shadow: none;
+    transition: none;
 
+    &:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}

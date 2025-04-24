@@ -26,6 +26,21 @@ export class NavbarComponent {
         });}, 0)
     }
 
+    scrollDown() {
+        const banner = document.querySelector('app-banner');
+        const nextSection = document.querySelector('app-rooms');
+
+        if (banner && nextSection) {
+            const bannerHeight = banner.getBoundingClientRect().height;
+            const offset = window.scrollY + bannerHeight;
+
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth',
+            });
+        }
+    }
+
     jumpToElement(elementName: string) {
 
         this.router.navigate(['']).then(() => {

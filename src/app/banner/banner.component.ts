@@ -7,6 +7,17 @@ import { Component } from '@angular/core';
 })
 export class BannerComponent {
     scrollDown() {
-          document.querySelector('app-welcome-text')?.scrollIntoView({behavior: 'smooth' });
+        const banner = document.querySelector('app-banner');
+        const nextSection = document.querySelector('app-rooms');
+
+        if (banner && nextSection) {
+            const bannerHeight = banner.getBoundingClientRect().height;
+            const offset = window.scrollY + bannerHeight;
+
+            window.scrollTo({
+                top: offset,
+                behavior: 'smooth',
+            });
+        }
     }
 }

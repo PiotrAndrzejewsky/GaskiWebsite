@@ -19,22 +19,13 @@
     </ng-container>
 </article>
 
-<h4 class="text-center mt-5 pt-5">Cennik:</h4>
-
-<app-prices [priceForService]="100" [pricePerDay]="roomDetails?.basePricePerNight"></app-prices>
-
 <h3 class="text-center py-3 mt-5">Jak rezerwować ?</h3>
 
 <p class="info mx-auto w-50 text-center pt-2 mb-5 pb-5">Przy pomocy interaktywnego kalendarza możesz w łatwy sposób
-    sprawdzić dostępne terminy, oraz zarezerwować nocleg.<br>
-    Zaznacz odpowiednie dni, a następnie kliknij przycisk "rezerwuj".<br>
-    Zostaniesz poproszony o podanie swoich danych kontaktowych.
-    Jeśli zatwierdzisz formularz, twoja rezerwacja będzie dla nas widoczna. <br>
-    Tak szybko jak będzie to możliwie skontaktujemy się z Tobą.<br>
-    Rezerwacja staje się ważna dopiero po wpłaceniu zaliczki
-    wysokości 100zł na nasze konto bankowe.
+    Aby sprawdzić dostępne terminy lub zarezewować nocleg przez internet przejdź na stronę pokoju i skorzystaj z kalendarza.
+    Nocleg możesz zarezerowac również kontaktując się z nami telefonicznie pod numerem 781-032-228.
 </p>
-
+<!-- 
 <app-calendar (selected)="selectedDays = $event"></app-calendar>
 
 <button (click)="goToSummary()" class="mx-auto d-block reservationButton mt-5 mb-2" color="warn" mat-raised-button>Zarezerwuj</button>
@@ -42,5 +33,5 @@
     <mat-error class="text-center" *ngIf="errors.minimumError">Musisz zaznaczyć conajmniej 1 dzień!<br></mat-error>
     <mat-error class="text-center" *ngIf="errors.maximumError">Możesz zarezerwować do 15dni!<br>Aby zarezerwować dłuższy pobyt skontaktuj się z nami!<br></mat-error>
     <mat-error class="text-center" *ngIf="errors.connectionError">Twoja rezerwacja nie może być przerywana!<br></mat-error>
-</div>
+</div> -->
 

@@ -1,6 +1,6 @@
- <h2 class="text-center my-5 py-xxl-5">Co ciekawego u nas ?</h2>
-
     <section class="d-none d-md-block my-5 py-5">
+        <h1 class="text-center mb-4">Co ciekawego u nas?</h1>
+
         <div class="d-flex justify-content-center ">
             <ng-container *ngFor="let facilitie of facilities">
                 <app-facility-description
@@ -12,14 +12,20 @@
 
             <app-big-image class="" (changeSelectedEvent)="setSelected($event)" [facilities]="facilities" [selected]="selected"></app-big-image>
         </div>
+
+        <section class="d-md-none d-flex flex-column g-0 justify-content-center">
+            <app-facility-descripton-mobile *ngFor="let facilitie of facilities"
+                                            [@appearFromBottom]="visibilityHolder[facilitie.title]?.isVisible"
+                                            [link]="facilitie.src"
+                                            [title]="facilitie.title"
+                                            [description]="facilitie.description"
+                                            id="{{facilitie.title}}">
+            </app-facility-descripton-mobile>
+        </section>
+
+
+        <br>
     </section>
 
-    <section class="d-md-none d-flex flex-column g-0 justify-content-center">
-        <app-facility-descripton-mobile *ngFor="let facilitie of facilities"
-                                        [@appearFromBottom]="visibilityHolder[facilitie.title]?.isVisible"
-                                        [link]="facilitie.src"
-                                        [title]="facilitie.title"
-                                        [description]="facilitie.description"
-                                        id="{{facilitie.title}}">
-        </app-facility-descripton-mobile>
-    </section>
+
+

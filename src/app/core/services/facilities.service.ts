@@ -1,62 +1,61 @@
 import { Injectable } from '@angular/core';
-import {delay, map, of} from "rxjs";
-import {Facilitie} from "../models/facilitie.model";
+import { delay, map, of } from "rxjs";
+import { Facilitie } from "../models/facilitie.model";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class FacilitiesService {
 
-  constructor() { }
+    constructor() { }
 
     getFacilities() {
         let array: Facilitie[] = [
             {
                 title: 'Plaża',
                 src: 'assets/images/atrakcje/plaża.jpg',
-                description: 'Plaża w Gąskach to najelpsza plaża pod słońcem, mamy niedzeje że przypadnie Państwu do gustu'
+                description: 'Plaża w Gąskach to jedna z najpiękniejszych plaż na polskim wybrzeżu. Szeroki pas piasku i czysta woda zapewniają wspaniałe warunki do wypoczynku.'
             },
             {
-                title: 'Latarnia',
+                title: 'Latarnia morska',
                 src: 'assets/images/atrakcje/latarnia.jpg',
-                description: "Latarnia w gąskach to jedna z najwyższych latarni nad brzegiem morza. Zapraszamy do wejścią na samą górę! Wejście bezpłatne!"
+                description: "Latarnia morska w Gąskach to jedna z największych atrakcji w regionie! Zapraszamy do wejścia na szczyt i podziwiania zapierających dech w piersiach widoków."
             },
             {
-                title: 'Ognisko',
+                title: 'Miejsce na ognisko',
                 src: 'assets/images/atrakcje/ognisko.jpg',
-                description: 'Możliwość rozpalenia ogniska na działce. Pomożemy w organizacji!'
+                description: 'Na terenie posesji znajduje się specjalnie przygotowane miejsce na ognisko. Zapewniamy pomoc w organizacji wieczornego grillowania.'
             },
             {
-                title: 'Plac zabaw dla dzieci',
+                title: 'Plac zabaw',
                 src: 'assets/images/atrakcje/plac-zabaw.jpg',
-                description: 'Posiadamy mały plac zabaw dla najmłodszych ze zjeżdżalnią i piaskownicą! Idealne dla dzieci. '
+                description: 'Dla naszych najmłodszych gości przygotowaliśmy bezpieczny plac zabaw wyposażony w zjeżdżalnię, huśtawki i piaskownicę.'
             },
             {
                 title: 'Taras',
                 src: 'assets/images/atrakcje/taras.jpg',
-                description: 'Osłonięty taras to idealne miejsce na wieczorny odpoczynek i integracje!'
+                description: 'Przestronny, osłonięty taras to idealne miejsce na poranną kawę, wieczorny relaks lub spotkania towarzyskie przy grillu.'
             },
             {
                 title: 'Jacuzzi',
                 src: 'assets/images/atrakcje/jacuzzi.jpg',
-                description: 'Dla naszych gości mamy przygotowane jacuzzi! Zapraszamy do korzystania!'
+                description: 'Dla Państwa komfortu udostępniamy nowoczesne jacuzzi - doskonałe miejsce do relaksu po całodniowych atrakcjach.'
             },
             {
-                title: 'Deptak',
+                title: 'Nadmorski deptak',
                 src: 'assets/images/atrakcje/gofry.jpg',
-                description: 'Miejscowość Gąski słynie ze swojego deptaka. Znajdują się tutaj sklepy z pamiątkami, restauracje, lodziarnie.'
+                description: 'Urokliwy deptak w Gąskach oferuje liczne atrakcje - klimatyczne restauracje, lodziarnie, sklepy z pamiątkami i stragany z lokalnymi przysmakami.'
             },
-
         ];
         return of(array).pipe()
     }
 
-    addNewFacilitie(facilite: Facilitie){
-     // push facilite to server
-     return of('true');
+    addNewFacilitie(facilite: Facilitie) {
+        // push facilite to server
+        return of('true');
     }
 
     deleteFacilite(name: string) {
-      return of('true');
+        return of('true');
     }
 }

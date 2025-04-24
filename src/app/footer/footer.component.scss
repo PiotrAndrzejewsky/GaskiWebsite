@@ -1,11 +1,22 @@
 @import '../../assets/variables.scss';
 
-section {
-    background-color: $primary-color;
-    margin: 0;
-}
 article {
     text-align: center;
 }
 
+
+section {
+    background-color: $primary-color;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: $section-text-color;
+    transform: none;
+    box-shadow: none;
+    transition: none;
+
+    &:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
 
