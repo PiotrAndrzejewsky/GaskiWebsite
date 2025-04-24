@@ -109,3 +109,7 @@ ng serve
  
  Note that the application will not work properly without running GaskiWebsiteBackend.
 
+ to deploy to github pages
+ ng build --configuration production --base-href https://PiotrAndrzejewsky.github.io/GaskiWebsite/
+ npx angular-cli-ghpages --dir=dist/GaskiWebsite
+
